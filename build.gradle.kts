@@ -35,18 +35,18 @@ val shadowDependencies = listOf(
 
     "io.github.cdimascio:dotenv-kotlin:6.4.1",
 
-//     "org.jetbrains.exposed:exposed-core:$exposedVersion",
-//     "org.jetbrains.exposed:exposed-dao:$exposedVersion",
-//     "org.jetbrains.exposed:exposed-jdbc:$exposedVersion",
-//     "org.jetbrains.exposed:exposed-java-time:$exposedVersion",
+     "org.jetbrains.exposed:exposed-core:$exposedVersion",
+     "org.jetbrains.exposed:exposed-dao:$exposedVersion",
+     "org.jetbrains.exposed:exposed-jdbc:$exposedVersion",
+     "org.jetbrains.exposed:exposed-java-time:$exposedVersion",
+     "com.mysql:mysql-connector-j:8.1.0",
+     "com.zaxxer:HikariCP:5.0.1",
 
 //    "io.ktor:ktor-client-core:$ktorVersion",
 //    "io.ktor:ktor-client-okhttp:$ktorVersion",
 //    "io.ktor:ktor-client-cio:$ktorVersion",
 //    "io.ktor:ktor-serialization-kotlinx-json:$ktorVersion",
 //    "io.ktor:ktor-client-content-negotiation:$ktorVersion",
-
-//    "com.zaxxer:HikariCP:5.0.1"
 )
 
 dependencies {

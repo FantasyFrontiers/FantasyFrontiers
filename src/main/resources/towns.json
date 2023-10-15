@@ -1,7 +1,7 @@
 [
     {
         "name": "Port Drizzle",
-        "population": 40.404,
+        "population": 40404,
         "type": "Naval",
         "coords": {
             "x": 1027,
@@ -52,8 +52,8 @@
         }
     },
     {
-        "name": "Lakevale ",
-        "population": 24.049,
+        "name": "Lakevale",
+        "population": 64049,
         "type": "Lake",
         "coords": {
             "x": 1397.77,
@@ -101,7 +101,7 @@
     },
     {
         "name": "Riverbend",
-        "population": 35.381,
+        "population": 35381,
         "type": "Naval",
         "coords": {
             "x": 1799.5,
@@ -141,7 +141,7 @@
     },
     {
         "name": "Tideharbor",
-        "population": 2.608,
+        "population": 2608,
         "type": "Naval",
         "coords": {
             "x": 826.5,
@@ -173,7 +173,7 @@
     },
     {
         "name": "Dewgrass Town",
-        "population": 4.29,
+        "population": 429,
         "type": "Hunting",
         "coords": {
             "x": 1372.79,
@@ -213,7 +213,7 @@
     },
     {
         "name": "Wharfwind",
-        "population": 9.081,
+        "population": 9081,
         "type": "Naval",
         "coords": {
             "x": 845.5,
@@ -249,7 +249,7 @@
     },
     {
         "name": "Streamstone",
-        "population": 2.028,
+        "population": 2028,
         "type": "Hunting",
         "coords": {
             "x": 1846.07,
@@ -289,7 +289,7 @@
     },
     {
         "name": "Mistmeadow",
-        "population": 2.6,
+        "population": 26,
         "type": "Hunting",
         "coords": {
             "x": 504.26,
@@ -308,7 +308,7 @@
     },
     {
         "name": "Brookfield",
-        "population": 4.117,
+        "population": 4117,
         "type": "Hunting",
         "coords": {
             "x": 1322.51,
@@ -336,7 +336,7 @@
     },
     {
         "name": "Pinegrove Hamlet",
-        "population": 0.204,
+        "population": 204,
         "type": "Hunting",
         "coords": {
             "x": 699.32,
@@ -368,7 +368,7 @@
     },
     {
         "name": "Rillrun",
-        "population": 13.161,
+        "population": 13161,
         "type": "Generic",
         "coords": {
             "x": 1556.25,
@@ -408,7 +408,7 @@
     },
     {
         "name": "Waterwillow Town",
-        "population": 3.933,
+        "population": 3933,
         "type": "Hunting",
         "coords": {
             "x": 354.67,

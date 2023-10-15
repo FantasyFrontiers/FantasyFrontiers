@@ -1,4 +1,4 @@
-package de.coasterfreak.fantasyfrontiers.data
+package de.coasterfreak.fantasyfrontiers.data.model
 
 import kotlinx.serialization.Serializable
 
@@ -7,7 +7,7 @@ data class Town(
     val name: String,
     val coords: Coords = Coords(),
     val type: String = "Generic",
-    val population: Double = 0.0,
+    val population: Long = 0,
     val features: Features = Features(),
     val connections: List<Connection> = emptyList(),
 )

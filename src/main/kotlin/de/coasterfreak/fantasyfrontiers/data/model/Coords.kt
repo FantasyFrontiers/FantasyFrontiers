@@ -1,4 +1,4 @@
-package de.coasterfreak.fantasyfrontiers.data
+package de.coasterfreak.fantasyfrontiers.data.model
 
 import kotlinx.serialization.Serializable
 
