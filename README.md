@@ -16,4 +16,10 @@
     ·
     <a href="https://devsky.one">Website</a>
   </p>
+
+<br />
+<br />
+<img src=".github/assets/map.png" alt="Map">
+<span style="background-color: #121212;padding: 8px">Map of <strong>SeaFall</strong></span>
+
 </div>
