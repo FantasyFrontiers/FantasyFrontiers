@@ -5,28 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0da52e26-868c-45ff-90f8-1eb6e9462c2b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/assets/fantasy-frontiers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/Connection.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/Coords.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/Features.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/Town.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/towns.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/dependabot.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE_OF_CONDUCT.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SECURITY.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/one/devsky/boilerplates/JDA5Boilerplate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/FantasyFrontiers.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/one/devsky/boilerplates/Start.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/Start.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/one/devsky/boilerplates/annotations/MessageCommand.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/annotations/MessageCommand.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/one/devsky/boilerplates/annotations/SlashCommand.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/annotations/SlashCommand.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/one/devsky/boilerplates/annotations/UserCommand.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/annotations/UserCommand.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/one/devsky/boilerplates/interfaces/HasOptions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/interfaces/HasOptions.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/one/devsky/boilerplates/interfaces/HasSubcommandGroups.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/interfaces/HasSubcommandGroups.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/one/devsky/boilerplates/interfaces/HasSubcommands.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/interfaces/HasSubcommands.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/one/devsky/boilerplates/listeners/ModalTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/one/devsky/boilerplates/manager/RegisterManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/manager/RegisterManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/one/devsky/boilerplates/utils/Environment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/utils/Environment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,10 +69,11 @@
   "keyToString": {
     "Gradle.Build FantasyFrontiers.executor": "Run",
     "Kotlin.StartKt (1).executor": "Run",
+    "Kotlin.StartKt.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "F:/Dokumente/Projects/Kotlin/DiscordBots/FantasyFrontiers",
@@ -145,7 +129,7 @@
       <option name="presentableId" value="Default" />
       <updated>1651564272891</updated>
       <workItem from="1697385020730" duration="1556000" />
-      <workItem from="1697387610756" duration="4088000" />
+      <workItem from="1697387610756" duration="4533000" />
     </task>
     <servers />
   </component>
