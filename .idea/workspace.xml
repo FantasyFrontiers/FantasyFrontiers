@@ -5,11 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0da52e26-868c-45ff-90f8-1eb6e9462c2b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/dependabot.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CODE_OF_CONDUCT.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SECURITY.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/FantasyFrontiers.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/FantasyFrontiers.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/Start.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/Start.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Connection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Connection.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Coords.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Coords.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Features.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Features.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Town.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Town.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/interfaces/HasOptions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/interfaces/HasOptions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/interfaces/HasSubcommandGroups.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/interfaces/HasSubcommandGroups.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/interfaces/HasSubcommands.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/interfaces/HasSubcommands.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/manager/RegisterManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/manager/RegisterManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/utils/DatabaseConnection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/utils/DatabaseConnection.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/utils/DatabaseMigrator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/utils/DatabaseMigrator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/utils/Environment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/utils/Environment.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,11 +45,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin File" />
         <option value="Kotlin Annotation" />
-        <option value="Kotlin Class" />
         <option value="package-info" />
         <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
+        <option value="Kotlin File" />
         <option value="Kotlin Object" />
       </list>
     </option>
@@ -68,12 +77,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build FantasyFrontiers.executor": "Run",
+    "Kotlin.Migrate DB.executor": "Run",
     "Kotlin.StartKt (1).executor": "Run",
     "Kotlin.StartKt.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feature/3-initial-data-loading",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "F:/Dokumente/Projects/Kotlin/DiscordBots/FantasyFrontiers",
@@ -93,11 +103,23 @@
       <recent name="F:\Dokumente\Projects\Kotlin\DiscordBots\JDA5BoilerplateKotlin" />
       <recent name="F:\Dokumente\Projects\Kotlin\DiscordBots\JDA5BoilerplateKotlin\src\main\kotlin\one\devsky\boilerplates\annotations" />
     </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="de.coasterfreak.fantasyfrontiers.data.model" />
+    </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="one.devsky.boilerplates.interfaces" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Kotlin.StartKt">
+    <configuration name="Migrate DB" type="JetRunConfigurationType">
+      <option name="MAIN_CLASS_NAME" value="de.coasterfreak.fantasyfrontiers.StartKt" />
+      <module name="FantasyFrontiers.main" />
+      <option name="PROGRAM_PARAMETERS" value="migrate" />
+      <shortenClasspath name="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StartKt" type="JetRunConfigurationType" temporary="true">
       <option name="MAIN_CLASS_NAME" value="de.coasterfreak.fantasyfrontiers.StartKt" />
       <module name="FantasyFrontiers.main" />
@@ -106,6 +128,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Kotlin.Migrate DB" />
+      <item itemvalue="Kotlin.StartKt" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Kotlin.StartKt" />
@@ -129,7 +155,7 @@
       <option name="presentableId" value="Default" />
       <updated>1651564272891</updated>
       <workItem from="1697385020730" duration="1556000" />
-      <workItem from="1697387610756" duration="4533000" />
+      <workItem from="1697387610756" duration="7988000" />
     </task>
     <servers />
   </component>

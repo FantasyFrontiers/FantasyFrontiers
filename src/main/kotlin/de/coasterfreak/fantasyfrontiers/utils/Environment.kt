@@ -2,6 +2,9 @@ package de.coasterfreak.fantasyfrontiers.utils
 
 import io.github.cdimascio.dotenv.dotenv
 
+/**
+ * The Environment class provides utility methods to retrieve environment variables.
+ */
 object Environment {
 
     private val env = System.getenv()
