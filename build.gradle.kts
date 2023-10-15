@@ -27,6 +27,9 @@ val shadowDependencies = listOf(
     "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5",
     "com.google.code.gson:gson:2.10.1",
 
+    // Kotlin Serialization
+    "org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0",
+
     "com.github.TheFruxz:Ascend:2023.3",
     "com.github.TheFruxz:Stacked:2023.3",
 

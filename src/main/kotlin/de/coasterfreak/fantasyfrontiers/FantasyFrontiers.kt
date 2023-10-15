@@ -1,16 +1,16 @@
-package one.devsky.boilerplates
+package de.coasterfreak.fantasyfrontiers
 
 import dev.fruxz.ascend.extension.logging.getItsLogger
 import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.JDABuilder
-import one.devsky.boilerplates.manager.RegisterManager.registerAll
-import one.devsky.boilerplates.manager.RegisterManager.registerCommands
-import one.devsky.boilerplates.utils.Environment
+import de.coasterfreak.fantasyfrontiers.manager.RegisterManager.registerAll
+import de.coasterfreak.fantasyfrontiers.manager.RegisterManager.registerCommands
+import de.coasterfreak.fantasyfrontiers.utils.Environment
 
-class JDA5Boilerplate {
+class FantasyFrontiers {
 
     companion object {
-        lateinit var instance: JDA5Boilerplate
+        lateinit var instance: FantasyFrontiers
     }
 
     private val jda: JDA

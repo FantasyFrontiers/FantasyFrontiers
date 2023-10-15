@@ -1,4 +1,4 @@
-package one.devsky.boilerplates.utils
+package de.coasterfreak.fantasyfrontiers.utils
 
 import io.github.cdimascio.dotenv.dotenv
 

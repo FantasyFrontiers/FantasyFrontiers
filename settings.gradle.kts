@@ -1,3 +1,3 @@
 
-rootProject.name = "JDA5BoilerplateKotlin"
+rootProject.name = "FantasyFrontiers"
 

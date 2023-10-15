@@ -1,0 +1,433 @@
+[
+    {
+        "name": "Port Drizzle",
+        "population": 40.404,
+        "type": "Naval",
+        "coords": {
+            "x": 1027,
+            "y": 395.5
+        },
+        "connections": [
+            {
+                "name": "Dewgrass Town",
+                "distance": 760
+            },
+            {
+                "name": "Riverbend",
+                "distance": 3757
+            },
+            {
+                "name": "Streamstone",
+                "distance": 3597
+            },
+            {
+                "name": "Rillrun",
+                "distance": 3700
+            },
+            {
+                "name": "Lakevale",
+                "distance": 5000
+            },
+            {
+                "name": "Wharfwind",
+                "distance": 1284
+            },
+            {
+                "name": "MistMeadow",
+                "distance": 2520
+            },
+            {
+                "name": "Pinegrove Hamlet",
+                "distance": 2300
+            }
+        ],
+        "features": {
+            "capital": false,
+            "port": true,
+            "citadel": true,
+            "plaza": true,
+            "walls": true,
+            "shanty": true,
+            "temple": true
+        }
+    },
+    {
+        "name": "Lakevale ",
+        "population": 24.049,
+        "type": "Lake",
+        "coords": {
+            "x": 1397.77,
+            "y": 897.97
+        },
+        "connections": [
+            {
+                "name": "Brookfield",
+                "distance": 950
+            },
+            {
+                "name": "Tideharbor",
+                "distance": 2074
+            },
+            {
+                "name": "Rillrun",
+                "distance": 567
+            },
+            {
+                "name": "StreamStone",
+                "distance": 2000
+            },
+            {
+                "name": "Riverbend",
+                "distance": 3683
+            },
+            {
+                "name": "Dewgrass Town",
+                "distance": 4245
+            },
+            {
+                "name": "Port Drizzle",
+                "distance": 5000
+            }
+        ],
+        "features": {
+            "capital": true,
+            "port": false,
+            "citadel": true,
+            "plaza": true,
+            "walls": true,
+            "shanty": true,
+            "temple": true
+        }
+    },
+    {
+        "name": "Riverbend",
+        "population": 35.381,
+        "type": "Naval",
+        "coords": {
+            "x": 1799.5,
+            "y": 488
+        },
+        "connections": [
+            {
+                "name": "Streamstone",
+                "distance": 1683
+            },
+            {
+                "name": "Rillrun",
+                "distance": 2383
+            },
+            {
+                "name": "Lakevale",
+                "distance": 3683
+            },
+            {
+                "name": "Dewgrass Town",
+                "distance": 2000
+            },
+            {
+                "name": "Port Drizzle",
+                "distance": 3757
+            }
+        ],
+        "features": {
+            "capital": false,
+            "port": false,
+            "citadel": true,
+            "plaza": true,
+            "walls": true,
+            "shanty": true,
+            "temple": true
+        }
+    },
+    {
+        "name": "Tideharbor",
+        "population": 2.608,
+        "type": "Naval",
+        "coords": {
+            "x": 826.5,
+            "y": 850
+        },
+        "connections": [
+            {
+                "name": "Lakevale",
+                "distance": 2074
+            },
+            {
+                "name": "Brookfield",
+                "distance": 2800
+            },
+            {
+                "name": "Waterwillow Town",
+                "distance": 2083
+            }
+        ],
+        "features": {
+            "capital": false,
+            "port": true,
+            "citadel": false,
+            "plaza": false,
+            "walls": false,
+            "shanty": false,
+            "temple": false
+        }
+    },
+    {
+        "name": "Dewgrass Town",
+        "population": 4.29,
+        "type": "Hunting",
+        "coords": {
+            "x": 1372.79,
+            "y": 480.68
+        },
+        "connections": [
+            {
+                "name": "Riverbend",
+                "distance": 2000
+            },
+            {
+                "name": "Streamstone",
+                "distance": 3245
+            },
+            {
+                "name": "Rillrun",
+                "distance": 2945
+            },
+            {
+                "name": "Lakevale",
+                "distance": 4245
+            },
+            {
+                "name": "Port Drizzle",
+                "distance": 760
+            }
+        ],
+        "features": {
+            "capital": false,
+            "port": false,
+            "citadel": false,
+            "plaza": false,
+            "walls": false,
+            "shanty": false,
+            "temple": false
+        }
+    },
+    {
+        "name": "Wharfwind",
+        "population": 9.081,
+        "type": "Naval",
+        "coords": {
+            "x": 845.5,
+            "y": 124
+        },
+        "connections": [
+            {
+                "name": "Port Drizzle",
+                "distance": 1284
+            },
+            {
+                "name": "MistMeadow",
+                "distance": 2134
+            },
+            {
+                "name": "Pinegrove Hamlet",
+                "distance": 1914
+            },
+            {
+                "name": "Tideharbor",
+                "distance": 7000
+            }
+        ],
+        "features": {
+            "capital": false,
+            "port": true,
+            "citadel": true,
+            "plaza": false,
+            "walls": true,
+            "shanty": false,
+            "temple": false
+        }
+    },
+    {
+        "name": "Streamstone",
+        "population": 2.028,
+        "type": "Hunting",
+        "coords": {
+            "x": 1846.07,
+            "y": 876.47
+        },
+        "connections": [
+            {
+                "name": "Rillrun",
+                "distance": 1700
+            },
+            {
+                "name": "Lakevale",
+                "distance": 2000
+            },
+            {
+                "name": "Riverbend",
+                "distance": 1683
+            },
+            {
+                "name": "Dewgrass Town",
+                "distance": 3245
+            },
+            {
+                "name": "Port Drizzle",
+                "distance": 3597
+            }
+        ],
+        "features": {
+            "capital": false,
+            "port": false,
+            "citadel": false,
+            "plaza": false,
+            "walls": false,
+            "shanty": false,
+            "temple": false
+        }
+    },
+    {
+        "name": "Mistmeadow",
+        "population": 2.6,
+        "type": "Hunting",
+        "coords": {
+            "x": 504.26,
+            "y": 522.74
+        },
+        "connections": [],
+        "features": {
+            "capital": false,
+            "port": false,
+            "citadel": false,
+            "plaza": false,
+            "walls": false,
+            "shanty": false,
+            "temple": false
+        }
+    },
+    {
+        "name": "Brookfield",
+        "population": 4.117,
+        "type": "Hunting",
+        "coords": {
+            "x": 1322.51,
+            "y": 1142.44
+        },
+        "connections": [
+            {
+                "name": "Lakevale",
+                "distance": 950
+            },
+            {
+                "name": "Tideharbor",
+                "distance": 2800
+            }
+        ],
+        "features": {
+            "capital": false,
+            "port": false,
+            "citadel": true,
+            "plaza": false,
+            "walls": false,
+            "shanty": false,
+            "temple": false
+        }
+    },
+    {
+        "name": "Pinegrove Hamlet",
+        "population": 0.204,
+        "type": "Hunting",
+        "coords": {
+            "x": 699.32,
+            "y": 423.24
+        },
+        "connections": [
+            {
+                "name": "MistMeadow",
+                "distance": 820
+            },
+            {
+                "name": "Wharfwind",
+                "distance": 1914
+            },
+            {
+                "name": "Port Drizzle",
+                "distance": 2300
+            }
+        ],
+        "features": {
+            "capital": false,
+            "port": false,
+            "citadel": false,
+            "plaza": false,
+            "walls": false,
+            "shanty": false,
+            "temple": false
+        }
+    },
+    {
+        "name": "Rillrun",
+        "population": 13.161,
+        "type": "Generic",
+        "coords": {
+            "x": 1556.25,
+            "y": 967.64
+        },
+        "connections": [
+            {
+                "name": "Lakevale",
+                "distance": 567
+            },
+            {
+                "name": "StreamStone",
+                "distance": 1700
+            },
+            {
+                "name": "Riverbend",
+                "distance": 2383
+            },
+            {
+                "name": "Dewgrass Town",
+                "distance": 2945
+            },
+            {
+                "name": "Port Drizzle",
+                "distance": 3700
+            }
+        ],
+        "features": {
+            "capital": false,
+            "port": false,
+            "citadel": true,
+            "plaza": true,
+            "walls": false,
+            "shanty": false,
+            "temple": false
+        }
+    },
+    {
+        "name": "Waterwillow Town",
+        "population": 3.933,
+        "type": "Hunting",
+        "coords": {
+            "x": 354.67,
+            "y": 1059.32
+        },
+        "connections": [
+            {
+                "name": "Tideharbor",
+                "distance": 2083
+            }
+        ],
+        "features": {
+            "capital": false,
+            "port": false,
+            "citadel": false,
+            "plaza": false,
+            "walls": false,
+            "shanty": false,
+            "temple": false
+        }
+    }
+]

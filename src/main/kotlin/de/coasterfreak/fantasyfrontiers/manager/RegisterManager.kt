@@ -1,4 +1,4 @@
-package one.devsky.boilerplates.manager
+package de.coasterfreak.fantasyfrontiers.manager
 
 import dev.fruxz.ascend.extension.logging.getItsLogger
 import net.dv8tion.jda.api.JDA
@@ -6,13 +6,13 @@ import net.dv8tion.jda.api.JDABuilder
 import net.dv8tion.jda.api.hooks.EventListener
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 import net.dv8tion.jda.api.interactions.commands.build.Commands
-import one.devsky.boilerplates.annotations.MessageCommand
-import one.devsky.boilerplates.annotations.SlashCommand
-import one.devsky.boilerplates.annotations.UserCommand
-import one.devsky.boilerplates.interfaces.HasOptions
-import one.devsky.boilerplates.interfaces.HasSubcommandGroups
-import one.devsky.boilerplates.interfaces.HasSubcommands
-import one.devsky.boilerplates.utils.Environment
+import de.coasterfreak.fantasyfrontiers.annotations.MessageCommand
+import de.coasterfreak.fantasyfrontiers.annotations.SlashCommand
+import de.coasterfreak.fantasyfrontiers.annotations.UserCommand
+import de.coasterfreak.fantasyfrontiers.interfaces.HasOptions
+import de.coasterfreak.fantasyfrontiers.interfaces.HasSubcommandGroups
+import de.coasterfreak.fantasyfrontiers.interfaces.HasSubcommands
+import de.coasterfreak.fantasyfrontiers.utils.Environment
 import org.reflections8.Reflections
 import kotlin.time.measureTime
 
@@ -21,7 +21,7 @@ object RegisterManager {
     private var loadedClasses = mapOf<String, Any>()
 
     fun JDABuilder.registerAll() : JDABuilder {
-        val reflections = Reflections("one.devsky.boilerplates")
+        val reflections = Reflections("de.coasterfreak.fantasyfrontiers")
 
         // Registering both ListenerAdapters and EventListeners
         val listenerTime = measureTime {
@@ -43,8 +43,7 @@ object RegisterManager {
     }
 
     fun JDA.registerCommands(): JDA {
-        val reflections = Reflections("one.devsky.boilerplates")
-        val guildIds = Environment.getEnv("GUILD_IDS")?.split(",")?.toTypedArray() ?: arrayOf()
+        val reflections = Reflections("de.coasterfreak.fantasyfrontiers")
 
         // Registering commands
         val commandsTime = measureTime {
@@ -75,17 +74,9 @@ object RegisterManager {
                     data.addSubcommands(command.getSubCommands())
                 }
 
-                if(annotation.globalCommand) {
-                    upsertCommand(data).queue()
-                    getItsLogger().info("Registered global command: ${annotation.name}")
-                } else {
-                    for (guildID in annotation.guilds) {
-                        getGuildById(guildID)?.let { guild ->
-                            guild.upsertCommand(data).queue()
-                            getItsLogger().info("Registered command: ${annotation.name} in guild: ${guild.name}")
-                        }
-                    }
-                }
+
+                upsertCommand(data).queue()
+                getItsLogger().info("Registered global command: ${annotation.name}")
             }
 
             // UserCommands
@@ -102,17 +93,9 @@ object RegisterManager {
                     getItsLogger().info("Registered user command class: ${command.javaClass.simpleName}")
                 }
 
-                if(annotation.globalCommand) {
-                    upsertCommand(data).queue()
-                    getItsLogger().info("Registered global user command: ${annotation.name}")
-                } else {
-                    for (guildID in (guildIds + annotation.guilds).distinct().filterNot { it.isEmpty() }) {
-                        getGuildById(guildID)?.let { guild ->
-                            guild.upsertCommand(data).queue()
-                            getItsLogger().info("Registered user command: ${annotation.name} in guild: ${guild.name}")
-                        }
-                    }
-                }
+
+                upsertCommand(data).queue()
+                getItsLogger().info("Registered global user command: ${annotation.name}")
             }
 
 
@@ -130,17 +113,9 @@ object RegisterManager {
                     getItsLogger().info("Registered message command class: ${command.javaClass.simpleName}")
                 }
 
-                if(annotation.globalCommand) {
-                    upsertCommand(data).queue()
-                    getItsLogger().info("Registered global message command: ${annotation.name}")
-                } else {
-                    for (guildID in (guildIds + annotation.guilds).distinct().filterNot { it.isEmpty() }) {
-                        getGuildById(guildID)?.let { guild ->
-                            guild.upsertCommand(data).queue()
-                            getItsLogger().info("Registered message command: ${annotation.name} in guild: ${guild.name}")
-                        }
-                    }
-                }
+
+                upsertCommand(data).queue()
+                getItsLogger().info("Registered global message command: ${annotation.name}")
             }
         }
         getItsLogger().info("Registered commands in $commandsTime")
