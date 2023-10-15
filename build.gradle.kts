@@ -24,7 +24,7 @@ val shadowDependencies = listOf(
 
     "net.oneandone.reflections8:reflections8:0.11.7",
     "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3",
-    "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5",
+    "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.6",
     "com.google.code.gson:gson:2.10.1",
 
     // Kotlin Serialization
