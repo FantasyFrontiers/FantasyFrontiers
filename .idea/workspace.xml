@@ -5,22 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0da52e26-868c-45ff-90f8-1eb6e9462c2b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/cache/TownCache.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/db/ConnectionsTable.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/db/TownTable.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/utils/DatabaseConnection.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/utils/DatabaseMigrator.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/bug_report.md" beforeDir="false" afterPath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/bug_report.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/feature_request.md" beforeDir="false" afterPath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/feature_request.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/FantasyFrontiers.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/FantasyFrontiers.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/Start.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/Start.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/Connection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Connection.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/Coords.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Coords.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/Features.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Features.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/Town.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Town.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/towns.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/towns.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Connection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Connection.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Coords.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Coords.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Features.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Features.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Town.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/data/model/Town.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/interfaces/HasOptions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/interfaces/HasOptions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/interfaces/HasSubcommandGroups.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/interfaces/HasSubcommandGroups.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/interfaces/HasSubcommands.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/interfaces/HasSubcommands.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/manager/RegisterManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/manager/RegisterManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/utils/DatabaseConnection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/utils/DatabaseConnection.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/utils/DatabaseMigrator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/utils/DatabaseMigrator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/utils/Environment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/coasterfreak/fantasyfrontiers/utils/Environment.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +155,7 @@
       <option name="presentableId" value="Default" />
       <updated>1651564272891</updated>
       <workItem from="1697385020730" duration="1556000" />
-      <workItem from="1697387610756" duration="7745000" />
+      <workItem from="1697387610756" duration="7988000" />
     </task>
     <servers />
   </component>

@@ -10,15 +10,32 @@ import dev.fruxz.ascend.extension.logging.getItsLogger
 import kotlin.io.path.readText
 import kotlin.time.measureTime
 
+/**
+ * The DatabaseMigrator class is responsible for migrating town data and connections to the database.
+ *
+ * @property townFile The file containing town data in JSON format.
+ * @property gson The Gson instance used for deserializing JSON data.
+ */
 class DatabaseMigrator {
 
+    /**
+     * Represents the file containing town data in JSON format.
+     *
+     * @property townFile The file object representing the town data file.
+     */
     private val townFile = getResourceOrNull("towns.json")
+    /**
+     * The Gson instance used for JSON serialization and deserialization.
+     */
     private val gson = Gson()
 
     init {
         preMigrate()
     }
 
+    /**
+     * Performs pre-migration operations before migrating town data and connections to the database.
+     */
     private fun preMigrate() {
         if (townFile == null) {
             println("towns.json not found!")
@@ -28,6 +45,9 @@ class DatabaseMigrator {
         DatabaseConnection.connect()
     }
 
+    /**
+     * Migrates town data and connections to the database.
+     */
     fun migrate() {
         val towns = gson.fromJson(townFile!!.readText(), Array<Town>::class.java)
 
@@ -56,6 +76,10 @@ class DatabaseMigrator {
         postMigrate()
     }
 
+    /**
+     * Performs post-migration tasks after migrating town data and connections to the database.
+     * This method disconnects from the database by closing the connection.
+     */
     private fun postMigrate() {
         DatabaseConnection.disconnect()
     }
