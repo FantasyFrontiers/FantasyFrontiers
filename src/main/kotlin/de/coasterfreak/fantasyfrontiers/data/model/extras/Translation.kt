@@ -14,4 +14,10 @@ data class Translation(
     val languageCode: String = "en-US",
     val messageKey: String,
     val message: String,
-)
+) {
+
+    override fun toString(): String {
+        return message
+    }
+
+}

@@ -32,7 +32,7 @@ data class Skill(
     /**
      * The key used to retrieve the name for a skill.
      */
-    val nameKey = "skill.$name"
+    private val nameKey = "skill.$name"
     /**
      * The key used to retrieve the description for a skill.
      *
@@ -51,7 +51,7 @@ data class Skill(
      * For example, if the `name` property of the skill is "programming", the description key would be "skill.programming.description".
      * The localization library would then retrieve the description for the "programming" skill in the appropriate language.
      */
-    val descriptionKey = "skill.$name.description"
+    private val descriptionKey = "skill.$name.description"
 
     /**
      * Returns the formatted name of a skill in the specified language and level.
@@ -64,5 +64,15 @@ data class Skill(
     fun getFormattedName(languageCode: String, xp: Long): String {
         val levelString = if (maxLevel <= 1) "" else " ${experienceToLevel(xp).asRomanNumeral()}"
         return "${TranslationCache.get(languageCode, nameKey)}$levelString"
+    }
+
+    /**
+     * Retrieves the formatted description of a skill in the specified language.
+     *
+     * @param languageCode The language code of the translation as dash-combined ISO-639 (language) and ISO-3166 (country).
+     * @return The formatted description of the skill in the specified language.
+     */
+    fun getFormattedDescription(languageCode: String): String {
+        return TranslationCache.get(languageCode, descriptionKey).toString()
     }
 }
