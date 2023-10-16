@@ -1,6 +1,6 @@
 <br />
 <div align="center">
-  <a href="https://discord.gg/desky">
+  <a href="https://discord.gg/xsxJP7JuEH">
     <img src=".github/assets/fantasy-frontiers.png" alt="Logo">
   </a>
 
@@ -12,9 +12,9 @@
     <a href="https://discord.com/users/216487432667791360"><strong>Contact »</strong></a>
     <br />
     <br />
-    <a href="https://discord.gg/devsky">Main-Server</a>
+    <a href="https://discord.gg/xsxJP7JuEH">Main/Test-Server</a>
     ·
-    <a href="https://devsky.one">Website</a>
+    <a href="https://weblate.flawcra.cc/projects/fantasy-frontiers/translations">Help us translate the game!</a>
   </p>
 
 <br />
