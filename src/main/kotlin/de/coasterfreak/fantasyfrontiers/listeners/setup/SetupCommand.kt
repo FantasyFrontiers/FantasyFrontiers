@@ -86,7 +86,7 @@ class SetupCommand : ListenerAdapter(), HasSubcommands {
                 }
             ).addComponents(
                 ActionRow.of(
-                    Button.success("ff-start-journey", TranslationCache.get(languageCode, "modals.startPanel.button").toString())
+                    Button.success("ff-start-journey", TranslationCache.get(languageCode, "modals.startPanel.start-button").toString())
                         .withEmoji(Emoji.fromFormatted("🎯")),
                     Button.secondary("ff-world-statistics", TranslationCache.get(languageCode, "modals.worldStats.title").toString())
                         .withEmoji(Emoji.fromFormatted("📜"))
