@@ -16,6 +16,11 @@
   "modals.worldStats.fields.towns": "Towns",
   "modals.worldStats.fields.capital": "Capital",
 
+  "modals.charSetup.language.title": "Language selection",
+  "modals.charSetup.language.description": "Select your preferred language for the game.",
+  "modals.charSetup.language.buttons.keep": "Keep %languageName%",
+  "modals.charSetup.language.selectLanguage": "Or select your language",
+
 
   "noble.rank.knight": "Knight",
   "noble.title.knight": "Sir",
@@ -28,5 +33,8 @@
   "noble.rank.grand_duke": "Grand Duke",
   "noble.rank.archduke": "Archduke",
   "noble.rank.king": "King",
-  "noble.rank.emperor": "Emperor"
+  "noble.rank.emperor": "Emperor",
+
+  "keywords.select": "Select",
+  "keywords.choose": "Choose"
 }
