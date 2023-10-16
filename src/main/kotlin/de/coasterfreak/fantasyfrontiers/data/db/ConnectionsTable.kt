@@ -1,7 +1,8 @@
 package de.coasterfreak.fantasyfrontiers.data.db
 
-import de.coasterfreak.fantasyfrontiers.data.model.Connection
-import de.coasterfreak.fantasyfrontiers.data.model.Town
+import de.coasterfreak.fantasyfrontiers.data.model.town.Connection
+import de.coasterfreak.fantasyfrontiers.data.model.town.Town
+import org.jetbrains.exposed.sql.ReferenceOption
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.replace
 import org.jetbrains.exposed.sql.select
@@ -19,8 +20,8 @@ import org.jetbrains.exposed.sql.transactions.transaction
  */
 object ConnectionsTable : Table("connections") {
 
-    val town = varchar("town", 255).references(TownTable.name)
-    val connected_town = varchar("connected_town", 255).references(TownTable.name)
+    val town = varchar("town", 255).references(TownTable.name, onDelete = ReferenceOption.CASCADE)
+    val connected_town = varchar("connected_town", 255).references(TownTable.name, onDelete = ReferenceOption.CASCADE)
     val distance = integer("distance").default(0)
 
     override val primaryKey = PrimaryKey(town, connected_town)

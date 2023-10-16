@@ -288,14 +288,27 @@
         }
     },
     {
-        "name": "Mistmeadow",
+        "name": "MistMeadow",
         "population": 26,
         "type": "Hunting",
         "coords": {
             "x": 504.26,
             "y": 522.74
         },
-        "connections": [],
+        "connections": [
+            {
+                "name": "Wharfwind",
+                "distance": 2134
+            },
+            {
+                "name": "Pinegrove Hamlet",
+                "distance": 820
+            },
+            {
+                "name": "Port Drizzle",
+                "distance": 2520
+            }
+        ],
         "features": {
             "capital": false,
             "port": false,

@@ -1,10 +1,10 @@
 package de.coasterfreak.fantasyfrontiers.utils
 
 import com.google.gson.Gson
-import de.coasterfreak.fantasyfrontiers.data.db.getAllTowns
+import de.coasterfreak.fantasyfrontiers.data.db.extras.addTranslation
 import de.coasterfreak.fantasyfrontiers.data.db.updateConnection
 import de.coasterfreak.fantasyfrontiers.data.db.updateTown
-import de.coasterfreak.fantasyfrontiers.data.model.Town
+import de.coasterfreak.fantasyfrontiers.data.model.town.Town
 import dev.fruxz.ascend.extension.getResourceOrNull
 import dev.fruxz.ascend.extension.logging.getItsLogger
 import kotlin.io.path.readText
@@ -24,6 +24,20 @@ class DatabaseMigrator {
      * @property townFile The file object representing the town data file.
      */
     private val townFile = getResourceOrNull("towns.json")
+
+    /**
+     * Represents the file containing English translations.
+     *
+     * The `englishTranslationFile` variable is used to load the English translation file for the application.
+     * The file is expected to be in JSON format and located at the path "translations/en-US.json". If the file
+     * is not found or cannot be loaded, the variable will be null.
+     *
+     * Usage:
+     **/
+    private val englishTranslationFile = getResourceOrNull("translations/en-US.json")
+
+
+
     /**
      * The Gson instance used for JSON serialization and deserialization.
      */
@@ -42,6 +56,11 @@ class DatabaseMigrator {
             return
         }
 
+        if (englishTranslationFile == null) {
+            println("en-US.json not found!")
+            return
+        }
+
         DatabaseConnection.connect()
     }
 
@@ -49,12 +68,14 @@ class DatabaseMigrator {
      * Migrates town data and connections to the database.
      */
     fun migrate() {
+
+        // ------------ Towns ----------------
+
         val towns = gson.fromJson(townFile!!.readText(), Array<Town>::class.java)
 
         getItsLogger().info("Migrating ${towns.size} towns...")
         val townTime = measureTime {
             towns.forEach {
-                getItsLogger().info("Migrating town ${it.name}...")
                 updateTown(it)
             }
         }
@@ -62,16 +83,30 @@ class DatabaseMigrator {
 
         getItsLogger().info("Migrating connections...")
         var connections = 0
-        val connectionsTime = measureTime {
+        val connectionTime = measureTime {
             towns.forEach { town ->
                 town.connections.forEach { connection ->
                     updateConnection(town, connection)
-                    getItsLogger().info("Migrated connection ${town.name} -> ${connection.name}")
                     connections++
                 }
             }
         }
-        getItsLogger().info("Migrated $connections connections in ${connectionsTime}.")
+        getItsLogger().info("Migrated $connections connections in ${connectionTime}.")
+
+
+        // ------------ Players ----------------
+
+
+        // ------------ Translations ----------------
+
+        val englishTranslations = gson.fromJson(englishTranslationFile!!.readText(), Map::class.java)
+        getItsLogger().info("Migrating ${englishTranslations.size} English translations...")
+        val translationTime = measureTime {
+            englishTranslations.forEach { (key, value) ->
+                addTranslation("en-US", key.toString(), value.toString())
+            }
+        }
+        getItsLogger().info("Migrated ${englishTranslations.size} English translations in ${translationTime}.")
 
         postMigrate()
     }

@@ -1,7 +1,7 @@
 package de.coasterfreak.fantasyfrontiers.data.cache
 
 import de.coasterfreak.fantasyfrontiers.data.db.getAllTowns
-import de.coasterfreak.fantasyfrontiers.data.model.Town
+import de.coasterfreak.fantasyfrontiers.data.model.town.Town
 import dev.fruxz.ascend.extension.logging.getItsLogger
 import java.util.concurrent.locks.ReadWriteLock
 import java.util.concurrent.locks.ReentrantReadWriteLock
@@ -36,7 +36,7 @@ object TownCache {
      *
      * @property cache The mutable map that stores towns.
      */
-    private val cache: MutableMap<String, Town> = mutableMapOf()
+    private var cache: Map<String, Town> = emptyMap()
 
     /**
      * Loads all towns from the database and stores them in the cache.
@@ -72,10 +72,26 @@ object TownCache {
      *
      * @return The `Town` object with the specified name, or `null` if the town is not found in the cache.
      */
-    fun get(name: String): Town? {
+    fun getOrNull(name: String): Town? {
         try {
             lock.readLock().lock()
             return cache[name]
+        } finally {
+            lock.readLock().unlock()
+        }
+    }
+
+    /**
+     * Retrieves a town by its name from the cache.
+     *
+     * @param name The name of the town to retrieve.
+     * @return The town with the specified name.
+     * @throws IllegalArgumentException If a town with the specified name is not found in the cache.
+     */
+    fun get(name: String): Town {
+        try {
+            lock.readLock().lock()
+            return cache[name] ?: throw IllegalArgumentException("Town with name '$name' not found.")
         } finally {
             lock.readLock().unlock()
         }
@@ -90,7 +106,7 @@ object TownCache {
     fun put(name: String, town: Town) {
         try {
             lock.writeLock().lock()
-            cache[name] = town
+            cache = cache + (name to town)
         } finally {
             lock.writeLock().unlock()
         }
@@ -104,7 +120,7 @@ object TownCache {
     fun remove(name: String) {
         try {
             lock.writeLock().lock()
-            cache.remove(name)
+            cache = cache - name
         } finally {
             lock.writeLock().unlock()
         }
@@ -121,7 +137,7 @@ object TownCache {
     fun clear() {
         try {
             lock.writeLock().lock()
-            cache.clear()
+            cache = emptyMap()
         } finally {
             lock.writeLock().unlock()
         }
