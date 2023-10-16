@@ -1,5 +1,7 @@
 package de.coasterfreak.fantasyfrontiers.data.model.player
 
+import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
+import de.coasterfreak.fantasyfrontiers.utils.extensions.asRomanNumeral
 import kotlinx.serialization.Serializable
 import kotlin.math.min
 import kotlin.math.pow
@@ -25,14 +27,7 @@ data class Skill(
      * @param exp the experience to convert to level
      * @return the level corresponding to the given experience
      */
-    fun experienceToLevel(exp: Long) = min((sqrt(exp.toDouble() / experienceRatio) / 2).toInt(), maxLevel)
-    /**
-     * Calculates the experience required to reach the specified level.
-     *
-     * @param level The level for which to calculate the experience.
-     * @return The experience required to reach the specified level.
-     */
-    fun levelToExperience(level: Int) = (level * 2).toDouble().pow(2) * experienceRatio
+    private fun experienceToLevel(exp: Long) = min((sqrt(exp.toDouble() / experienceRatio) / 2).toInt(), maxLevel)
 
     /**
      * The key used to retrieve the name for a skill.
@@ -57,4 +52,17 @@ data class Skill(
      * The localization library would then retrieve the description for the "programming" skill in the appropriate language.
      */
     val descriptionKey = "skill.$name.description"
+
+    /**
+     * Returns the formatted name of a skill in the specified language and level.
+     *
+     * @param languageCode The language code of the translation as dash-combined ISO-639 (language) and ISO-3166 (country).
+     * @param xp The experience of the skill.
+     * @return The formatted name of the skill including the level if the maxLevel is greater than 1,
+     * or just the name if the maxLevel is 1 or less.
+     */
+    fun getFormattedName(languageCode: String, xp: Long): String {
+        val levelString = if (maxLevel <= 1) "" else " ${experienceToLevel(xp).asRomanNumeral()}"
+        return "${TranslationCache.get(languageCode, nameKey)}$levelString"
+    }
 }

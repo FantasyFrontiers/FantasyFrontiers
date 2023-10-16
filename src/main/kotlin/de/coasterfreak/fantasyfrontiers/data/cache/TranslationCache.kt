@@ -83,7 +83,7 @@ object TranslationCache {
      * @param languageCode The language code in dash-combined ISO-639 (language) and ISO-3166 (country) format.
      * @return The list of translations for the given language code, or null if no translations are available.
      */
-    fun get(languageCode: String): List<Translation>? {
+    private fun get(languageCode: String): List<Translation>? {
         try {
             lock.readLock().lock()
             return cache[languageCode]
