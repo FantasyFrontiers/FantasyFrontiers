@@ -22,5 +22,11 @@
     "noble.rank.king": "König",
     "noble.rank.emperor": "Kaiser",
     "modals.worldStats.fields.towns": "Städte",
-    "modals.worldStats.fields.capital": "Hauptstadt"
+    "modals.worldStats.fields.capital": "Hauptstadt",
+    "modals.charSetup.language.buttons.keep": "Behalte %languageName%",
+    "modals.charSetup.language.title": "Sprachauswahl",
+    "modals.charSetup.language.description": "Wähle deine bevorzugte Sprache für das Spiel.",
+    "modals.charSetup.language.selectLanguage": "Oder wähle deine Sprache",
+    "keywords.select": "Auswählen",
+    "keywords.choose": "Wählen"
 }
