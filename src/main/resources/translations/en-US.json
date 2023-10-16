@@ -1,0 +1,19 @@
+{
+  "translation.name": "English (US)",
+  "translation.description": "English (US) translation",
+  "translation.translator": "N/A",
+
+
+  "noble.rank.knight": "Knight",
+  "noble.title.knight": "Sir",
+  "noble.rank.baron": "Baron",
+  "noble.rank.count": "Count",
+  "noble.rank.margrave": "Margrave",
+  "noble.rank.landgrave": "Landgrave",
+  "noble.rank.duke": "Duke",
+  "noble.rank.elector": "Elector",
+  "noble.rank.grand_duke": "Grand Duke",
+  "noble.rank.archduke": "Archduke",
+  "noble.rank.king": "King",
+  "noble.rank.emperor": "Emperor"
+}

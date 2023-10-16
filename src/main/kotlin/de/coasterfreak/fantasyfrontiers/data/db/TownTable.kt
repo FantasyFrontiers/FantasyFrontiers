@@ -1,8 +1,8 @@
 package de.coasterfreak.fantasyfrontiers.data.db
 
-import de.coasterfreak.fantasyfrontiers.data.model.Coords
-import de.coasterfreak.fantasyfrontiers.data.model.Features
-import de.coasterfreak.fantasyfrontiers.data.model.Town
+import de.coasterfreak.fantasyfrontiers.data.model.town.Coords
+import de.coasterfreak.fantasyfrontiers.data.model.town.Features
+import de.coasterfreak.fantasyfrontiers.data.model.town.Town
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.replace
 import org.jetbrains.exposed.sql.selectAll
