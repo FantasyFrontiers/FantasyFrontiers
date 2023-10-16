@@ -7,6 +7,8 @@ import de.coasterfreak.fantasyfrontiers.data.db.updateTown
 import de.coasterfreak.fantasyfrontiers.data.model.town.Town
 import dev.fruxz.ascend.extension.getResourceOrNull
 import dev.fruxz.ascend.extension.logging.getItsLogger
+import kotlin.io.path.isDirectory
+import kotlin.io.path.listDirectoryEntries
 import kotlin.io.path.readText
 import kotlin.time.measureTime
 
@@ -25,16 +27,8 @@ class DatabaseMigrator {
      */
     private val townFile = getResourceOrNull("towns.json")
 
-    /**
-     * Represents the file containing English translations.
-     *
-     * The `englishTranslationFile` variable is used to load the English translation file for the application.
-     * The file is expected to be in JSON format and located at the path "translations/en-US.json". If the file
-     * is not found or cannot be loaded, the variable will be null.
-     *
-     * Usage:
-     **/
-    private val englishTranslationFile = getResourceOrNull("translations/en-US.json")
+
+    private val translationFolder = getResourceOrNull("translations")
 
 
 
@@ -56,8 +50,13 @@ class DatabaseMigrator {
             return
         }
 
-        if (englishTranslationFile == null) {
-            println("en-US.json not found!")
+        if (translationFolder == null || !translationFolder.isDirectory()) {
+            println("translations folder not found!")
+            return
+        }
+
+        if (translationFolder.listDirectoryEntries().isEmpty()) {
+            println("translations folder is empty!")
             return
         }
 
@@ -99,14 +98,23 @@ class DatabaseMigrator {
 
         // ------------ Translations ----------------
 
-        val englishTranslations = gson.fromJson(englishTranslationFile!!.readText(), Map::class.java)
-        getItsLogger().info("Migrating ${englishTranslations.size} English translations...")
-        val translationTime = measureTime {
-            englishTranslations.forEach { (key, value) ->
-                addTranslation("en-US", key.toString(), value.toString())
+        val translationFiles = translationFolder?.listDirectoryEntries()?.filter { it.fileName.toString().endsWith(".json") } ?: emptyList()
+        var totalTranslations = 0
+        val allTranslationTime = measureTime {
+            for (translationFile in translationFiles) {
+                val languageCode = translationFile.fileName.toString().removeSuffix(".json")
+                val englishTranslations = gson.fromJson(translationFile.readText(), Map::class.java)
+                getItsLogger().info("Migrating ${englishTranslations.size} $languageCode translations...")
+                val translationTime = measureTime {
+                    englishTranslations.forEach { (key, value) ->
+                        addTranslation(languageCode, key.toString(), value.toString())
+                        totalTranslations++
+                    }
+                }
+                getItsLogger().info("Migrated ${englishTranslations.size} $languageCode translations in ${translationTime}.")
             }
         }
-        getItsLogger().info("Migrated ${englishTranslations.size} English translations in ${translationTime}.")
+        getItsLogger().info("Migrated $totalTranslations translations in ${allTranslationTime}.")
 
         postMigrate()
     }
