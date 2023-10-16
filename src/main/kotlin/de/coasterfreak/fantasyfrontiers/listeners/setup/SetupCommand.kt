@@ -34,10 +34,11 @@ class SetupCommand : ListenerAdapter(), HasSubcommands {
                     EmbedBuilder()
                     .setTitle("Welcome to Fantasy Frontiers!")
                     .setDescription("Please select your language below to start the setup process. \n\n" +
-                        "If you want to change your language later, you can do so by using the `/setup panels` command again." +
+                        "If you want to change your language later,\n" +
+                            "you can do so by using the `/setup panels` command again." +
                             "\n\n\n\n**Want to help translate the bot?**\n" +
-                            "You can help translate the bot by looking at our [Weblate](https://weblate.flawcra.cc/projects/fantasy-frontiers/)")
-                    .setColor(0x00AA00)
+                            "You can help translate the bot by looking at our [Weblate](https://weblate.flawcra.cc/projects/fantasy-frontiers/translations/)")
+                    .setColor(0x57F287)
                     .build()
                 ).addComponents(
                     ActionRow.of(
