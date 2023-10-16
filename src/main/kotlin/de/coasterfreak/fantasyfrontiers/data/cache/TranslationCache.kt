@@ -158,12 +158,24 @@ object TranslationCache {
      *
      * @param languageCode The language code of the translation as dash-combined ISO-639 (language) and ISO-3166 (country).
      * @param messageKey The key identifying the message.
+     * @param placeholders The placeholders to be replaced in the message.
      * @return The translation matching the language code and message key, or null if not found.
      */
-    fun get(languageCode: String, messageKey: String): Translation? {
+    fun get(languageCode: String, messageKey: String, placeholders: Map<String, Any?> = emptyMap()): Translation? {
         try {
             lock.readLock().lock()
-            return cache[languageCode]?.find { it.messageKey == messageKey } ?: cache[FALLBACK_LANGUAGE]?.find { it.messageKey == messageKey }
+            var message = cache[languageCode]?.find { it.messageKey == messageKey } ?: cache[FALLBACK_LANGUAGE]?.find { it.messageKey == messageKey }
+
+            if (message == null) {
+                getItsLogger().info("No translation found for $languageCode:$messageKey")
+                return null
+            }
+
+            for ((key, value) in placeholders) {
+                message = message?.copy(message = message.message.replace("%$key%", value.toString()))
+            }
+
+            return message
         } finally {
             lock.readLock().unlock()
         }
