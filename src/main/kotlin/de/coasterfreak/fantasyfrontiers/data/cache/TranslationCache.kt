@@ -14,6 +14,13 @@ import kotlin.time.measureTime
 object TranslationCache {
 
     /**
+     * The fallback language to be used when a translation is not found for a given language code.
+     * The fallback language is represented by a dash-combined ISO-639 (language) and ISO-3166 (country) code.
+     * If no translation is found for the specified language code, the system will attempt to find the translation in the fallback language.
+     */
+    private const val FALLBACK_LANGUAGE = "en-US"
+
+    /**
      * This variable represents a ReadWriteLock object named 'lock'. It is used for managing concurrent access to shared resources.
      * The ReadWriteLock allows multiple threads to read the resource concurrently, but only one thread can write to the resource at a time.
      */
@@ -45,6 +52,14 @@ object TranslationCache {
         }
         getItsLogger().info("Loaded ${cache.size} languages with a total of ${getTotalTranslations()} translations in $loadTimer.")
     }
+
+    /**
+     * Returns the list of available languages.
+     *
+     * @return The list of languages.
+     */
+    val languages: List<String>
+        get() = cache.keys.toList()
 
     /**
      * Returns the total number of translations in the cache.
@@ -102,7 +117,7 @@ object TranslationCache {
     fun get(languageCode: String, messageKey: String): Translation? {
         try {
             lock.readLock().lock()
-            return cache[languageCode]?.find { it.messageKey == messageKey }
+            return cache[languageCode]?.find { it.messageKey == messageKey } ?: cache[FALLBACK_LANGUAGE]?.find { it.messageKey == messageKey }
         } finally {
             lock.readLock().unlock()
         }

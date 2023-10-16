@@ -3,6 +3,13 @@
   "translation.description": "English (US) translation",
   "translation.translator": "N/A",
 
+  "modals.startPanel.title": "Welcome to Fantasy Frontiers!",
+  "modals.startPanel.description": "Embark on an extraordinary journey in a mystical land filled with endless opportunities and adventures! In Fantasy Frontiers, you'll find yourself in a vibrant world where every choice shapes your destiny.\n\nAs a newcomer to the kingdom of Seafall, you’ll start by creating a unique character to explore this enchanting world. Your character can join various guilds, undertake challenging quests, forge alliances, and gradually earn a noble title with land possessions from the kingdom. Engage in conversations, build your skills, and navigate through formal and friendly contexts as you interact with a diverse range of NPCs.\n\nYour adventure begins here! Ready to unveil the mysteries and make a name for yourself in the realm of Fantasy Frontiers? Click \"Start your fantasy journey!\" to begin your quest!",
+  "modals.startPanel.start-button": "Start your fantasy journey!",
+
+
+  "modals.worldStats.title": "World statistics",
+
 
   "noble.rank.knight": "Knight",
   "noble.title.knight": "Sir",
