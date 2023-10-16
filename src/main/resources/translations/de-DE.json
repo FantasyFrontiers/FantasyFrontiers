@@ -26,7 +26,7 @@
     "modals.charSetup.language.buttons.keep": "Behalte %languageName%",
     "modals.charSetup.language.title": "Sprachauswahl",
     "modals.charSetup.language.description": "Wähle deine bevorzugte Sprache für das Spiel.",
-    "modals.charSetup.language.selectLanguage": "Oder wähle deine Sprache",
+    "modals.charSetup.language.selectLanguage": "Oder wähle eine andere Sprache",
     "keywords.select": "Auswählen",
     "keywords.choose": "Wählen"
 }
