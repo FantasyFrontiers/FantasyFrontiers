@@ -1,30 +1,26 @@
 {
-  "translation.name": "Deutsch",
-  "translation.description": "Deutsche Übersetzung",
-  "translation.translator": "N/A",
-
-  "modals.errors.permissionCheck.title": "Berechtigungsüberprüfung fehlgeschlagen",
-  "modals.errors.permissionCheck.description": "Fehlende Berechtigungen:",
-
-  "modals.startPanel.title": "Willkommen zu Fantasy Frontiers!",
-  "modals.startPanel.description": "Begib dich auf eine außergewöhnliche Reise in ein mystisches Land voller endloser Möglichkeiten und Abenteuer! In Fantasy Frontiers findest du dich in einer lebendigen Welt wieder, in der jede Entscheidung dein Schicksal prägt.\n\nAls Neuankömmling im Königreich Seafall beginnst du damit, einen einzigartigen Charakter zu erstellen, um diese bezaubernde Welt zu erkunden. Dein Charakter kann verschiedenen Gilden beitreten, herausfordernde Quests annehmen, Allianzen schmieden und nach und nach einen Adelstitel mit Landbesitz vom Königreich erhalten. Engagiere dich in Gesprächen, baue deine Fähigkeiten aus und navigiere durch formelle und freundliche Kontexte, während du mit einer vielfältigen Palette von NPCs interagierst.\n\nDein Abenteuer beginnt hier! Bist du bereit, die Geheimnisse zu lüften und dir in der Welt von Fantasy Frontiers einen Namen zu machen? Klicke auf \"Starte deine Fantasy Reise!\", um deine Quest zu beginnen!",
-  "modals.startPanel.start-button": "Starte deine Fantasy Reise!",
-
-
-  "modals.worldStats.title": "Weltstatistiken",
-  "modals.worldStats.fields.guilds": "Server",
-
-
-  "noble.rank.knight": "Ritter",
-  "noble.title.knight": "Ritter",
-  "noble.rank.baron": "Baron",
-  "noble.rank.count": "Graf",
-  "noble.rank.margrave": "Markgraf",
-  "noble.rank.landgrave": "Landgraf",
-  "noble.rank.duke": "Herzog",
-  "noble.rank.elector": "Kurfürst",
-  "noble.rank.grand_duke": "Großherzog",
-  "noble.rank.archduke": "Erzherzog",
-  "noble.rank.king": "König",
-  "noble.rank.emperor": "Kaiser"
+    "translation.name": "Deutsch",
+    "translation.description": "Deutsche Übersetzung",
+    "translation.translator": "N/A",
+    "modals.errors.permissionCheck.title": "Berechtigungsüberprüfung fehlgeschlagen",
+    "modals.errors.permissionCheck.description": "Fehlende Berechtigungen:",
+    "modals.startPanel.title": "Willkommen zu Fantasy Frontiers!",
+    "modals.startPanel.description": "Begib dich auf eine außergewöhnliche Reise in ein mystisches Land voller endloser Möglichkeiten und Abenteuer! In Fantasy Frontiers findest du dich in einer lebendigen Welt wieder, in der jede Entscheidung dein Schicksal prägt.\n\nAls Neuankömmling im Königreich Seafall beginnst du damit, einen einzigartigen Charakter zu erstellen, um diese bezaubernde Welt zu erkunden. Dein Charakter kann verschiedenen Gilden beitreten, herausfordernde Quests annehmen, Allianzen schmieden und nach und nach einen Adelstitel mit Landbesitz vom Königreich erhalten. Engagiere dich in Gesprächen, baue deine Fähigkeiten aus und navigiere durch formelle und freundliche Kontexte, während du mit einer vielfältigen Palette von NPCs interagierst.\n\nDein Abenteuer beginnt hier! Bist du bereit, die Geheimnisse zu lüften und dir in der Welt von Fantasy Frontiers einen Namen zu machen? Klicke auf \"Starte deine Fantasy Reise!\", um deine Quest zu beginnen!",
+    "modals.startPanel.start-button": "Starte deine Fantasy Reise!",
+    "modals.worldStats.title": "Weltstatistiken",
+    "modals.worldStats.fields.guilds": "Server",
+    "noble.rank.knight": "Ritter",
+    "noble.title.knight": "Ritter",
+    "noble.rank.baron": "Baron",
+    "noble.rank.count": "Graf",
+    "noble.rank.margrave": "Markgraf",
+    "noble.rank.landgrave": "Landgraf",
+    "noble.rank.duke": "Herzog",
+    "noble.rank.elector": "Kurfürst",
+    "noble.rank.grand_duke": "Großherzog",
+    "noble.rank.archduke": "Erzherzog",
+    "noble.rank.king": "König",
+    "noble.rank.emperor": "Kaiser",
+    "modals.worldStats.fields.towns": "Städte",
+    "modals.worldStats.fields.capital": "Hauptstadt"
 }
