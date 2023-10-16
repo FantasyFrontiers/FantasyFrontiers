@@ -14,7 +14,7 @@
     "modals.charSetup.language.title": "Language selection",
     "modals.charSetup.language.description": "Select your preferred language for the game.",
     "modals.charSetup.language.buttons.keep": "Keep %languageName%",
-    "modals.charSetup.language.selectLanguage": "Or select your language",
+    "modals.charSetup.language.selectLanguage": "Or select another language",
     "noble.rank.knight": "Knight",
     "noble.title.knight": "Sir",
     "noble.rank.baron": "Baron",
