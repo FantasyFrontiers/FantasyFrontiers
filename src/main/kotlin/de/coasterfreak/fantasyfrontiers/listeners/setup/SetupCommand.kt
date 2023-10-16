@@ -67,8 +67,9 @@ class SetupCommand : ListenerAdapter(), HasSubcommands {
         if (!isFromGuild) return@with
         val languageCode = values.first()
 
-        val serverSettings = ServerSettingsCache.get(guild!!.id)
-        updateServerSettings(serverSettings.copy(language = languageCode))
+        val serverSettings = ServerSettingsCache.get(guild!!.id).copy(language = languageCode)
+        updateServerSettings(serverSettings)
+        ServerSettingsCache.put(guild!!.id, serverSettings)
 
         editMessage("Setting up language...").setEmbeds().queue()
         withTestPermission {
