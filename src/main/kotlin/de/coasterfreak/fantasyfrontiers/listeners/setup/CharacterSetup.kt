@@ -105,7 +105,7 @@ class CharacterSetup : ListenerAdapter() {
     override fun onModalInteraction(event: ModalInteractionEvent) = with(event) {
         if (!isFromGuild) return@with
         if (!modalId.startsWith("ff-character-creator-")) return@with
-        val languageCode = id.substringAfter("ff-character-creator-")
+        val languageCode = modalId.substringAfter("ff-character-creator-")
 
         val firstName = values.firstOrNull { it.id == "firstname" }?.asString
         val lastName = values.firstOrNull { it.id == "lastname" }?.asString
