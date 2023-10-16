@@ -13,6 +13,8 @@
 
   "modals.worldStats.title": "World statistics",
   "modals.worldStats.fields.guilds": "Guilds",
+  "modals.worldStats.fields.towns": "Towns",
+  "modals.worldStats.fields.capital": "Capital",
 
 
   "noble.rank.knight": "Knight",

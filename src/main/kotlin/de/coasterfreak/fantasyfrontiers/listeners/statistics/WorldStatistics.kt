@@ -1,6 +1,7 @@
 package de.coasterfreak.fantasyfrontiers.listeners.statistics
 
 import de.coasterfreak.fantasyfrontiers.data.cache.ServerSettingsCache
+import de.coasterfreak.fantasyfrontiers.data.cache.TownCache
 import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent
@@ -19,6 +20,16 @@ class WorldStatistics : ListenerAdapter() {
                 .addField(
                     TranslationCache.get(languageCode, "modals.worldStats.fields.guilds").toString(),
                     "```${guild!!.jda.guildCache.size()}```",
+                    true
+                )
+                .addField(
+                    TranslationCache.get(languageCode, "modals.worldStats.fields.towns").toString(),
+                    "```${TownCache.getAll().size}```",
+                    true
+                )
+                .addField(
+                    TranslationCache.get(languageCode, "modals.worldStats.fields.capital").toString(),
+                    "```Lakevale```",
                     true
                 )
                 .build()
