@@ -28,5 +28,12 @@
     "modals.charSetup.language.description": "Wähle deine bevorzugte Sprache für das Spiel.",
     "modals.charSetup.language.selectLanguage": "Oder wähle eine andere Sprache",
     "keywords.select": "Auswählen",
-    "keywords.choose": "Wählen"
+    "keywords.choose": "Wählen",
+    "modals.charSetup.character.error.noFirstOrLastName": "Bitte gib einen Vor- und Nachnamen ein.",
+    "modals.charSetup.character.firstName.placeholder": "Gib deinem Charakter einen Vornamen",
+    "modals.charSetup.character.welcome": "Willkommen bei Fantasy Frontiers, %firstName% %lastName%!",
+    "modals.charSetup.character.lastName.placeholder": "Gib deinem Charakter einen Nachnamen",
+    "modals.charSetup.character.title": "Charakter-Erstellung",
+    "modals.charSetup.character.firstName": "Vorname",
+    "modals.charSetup.character.lastName": "Nachnamen"
 }
