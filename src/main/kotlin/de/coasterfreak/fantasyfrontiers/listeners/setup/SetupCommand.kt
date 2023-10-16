@@ -1,6 +1,7 @@
 package de.coasterfreak.fantasyfrontiers.listeners.setup
 
 import de.coasterfreak.fantasyfrontiers.annotations.SlashCommand
+import de.coasterfreak.fantasyfrontiers.data.cache.ServerSettingsCache
 import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
 import de.coasterfreak.fantasyfrontiers.data.db.discord.loadServerSettings
 import de.coasterfreak.fantasyfrontiers.data.db.discord.updateServerSettings
@@ -32,7 +33,10 @@ class SetupCommand : ListenerAdapter(), HasSubcommands {
                 replyEmbeds(
                     EmbedBuilder()
                     .setTitle("Welcome to Fantasy Frontiers!")
-                    .setDescription("Please select your language below")
+                    .setDescription("Please select your language below to start the setup process. \n\n" +
+                        "If you want to change your language later, you can do so by using the `/setup panels` command again." +
+                            "\n\n\n\n**Want to help translate the bot?**\n" +
+                            "You can help translate the bot by looking at our [Weblate](https://weblate.flawcra.cc/projects/fantasy-frontiers/)")
                     .setColor(0x00AA00)
                     .build()
                 ).addComponents(
@@ -62,7 +66,7 @@ class SetupCommand : ListenerAdapter(), HasSubcommands {
         if (!isFromGuild) return@with
         val languageCode = values.first()
 
-        val serverSettings = loadServerSettings(guild!!.id)
+        val serverSettings = ServerSettingsCache.get(guild!!.id)
         updateServerSettings(serverSettings.copy(language = languageCode))
 
         editMessage("Setting up language...").setEmbeds().queue()
