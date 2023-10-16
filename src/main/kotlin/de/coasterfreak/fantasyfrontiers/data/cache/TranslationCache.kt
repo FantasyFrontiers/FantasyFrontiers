@@ -1,10 +1,14 @@
 package de.coasterfreak.fantasyfrontiers.data.cache
 
-import de.coasterfreak.fantasyfrontiers.data.db.extras.loadAllTranslations
+import com.google.gson.Gson
 import de.coasterfreak.fantasyfrontiers.data.model.extras.Translation
+import dev.fruxz.ascend.extension.getResourceOrNull
 import dev.fruxz.ascend.extension.logging.getItsLogger
 import java.util.concurrent.locks.ReadWriteLock
 import java.util.concurrent.locks.ReentrantReadWriteLock
+import kotlin.io.path.isDirectory
+import kotlin.io.path.listDirectoryEntries
+import kotlin.io.path.readText
 import kotlin.time.measureTime
 
 /**
@@ -12,6 +16,11 @@ import kotlin.time.measureTime
  * cached translations in a thread-safe manner.
  */
 object TranslationCache {
+
+    /**
+     * The Gson instance used for JSON serialization and deserialization.
+     */
+    private val gson = Gson()
 
     /**
      * The fallback language to be used when a translation is not found for a given language code.
@@ -36,6 +45,9 @@ object TranslationCache {
     private var cache: Map<String, List<Translation>> = emptyMap()
 
 
+    private val translationFolder = getResourceOrNull("translations")
+
+
     /**
      * Loads all translations from the database and updates the cache.
      * This method acquires a write lock to ensure thread safety when updating the cache.
@@ -51,6 +63,40 @@ object TranslationCache {
             }
         }
         getItsLogger().info("Loaded ${cache.size} languages with a total of ${getTotalTranslations()} translations in $loadTimer.")
+    }
+
+    private fun loadAllTranslations(): Map<String, List<Translation>> {
+        if (translationFolder == null || !translationFolder.isDirectory()) {
+            println("translations folder not found!")
+            return emptyMap()
+        }
+
+        if (translationFolder.listDirectoryEntries().isEmpty()) {
+            println("translations folder is empty!")
+            return emptyMap()
+        }
+
+        val translations = mutableMapOf<String, List<Translation>>()
+        val translationFiles = translationFolder.listDirectoryEntries().filter { it.fileName.toString().endsWith(".json") }
+        var totalTranslations = 0
+        val allTranslationTime = measureTime {
+            for (translationFile in translationFiles) {
+                val langTranslations = mutableListOf<Translation>()
+                val languageCode = translationFile.fileName.toString().removeSuffix(".json")
+                val englishTranslations = gson.fromJson(translationFile.readText(), Map::class.java)
+                getItsLogger().info("Migrating ${englishTranslations.size} $languageCode translations...")
+                val translationTime = measureTime {
+                    englishTranslations.forEach { (key, value) ->
+                        langTranslations.add(Translation(messageKey = key.toString(), message = value.toString()))
+                        totalTranslations++
+                    }
+                }
+                translations[languageCode] = langTranslations
+                getItsLogger().info("Loaded ${englishTranslations.size} $languageCode translations in ${translationTime}.")
+            }
+        }
+        getItsLogger().info("Loaded ${translations.size} languages with a total of $totalTranslations translations in $allTranslationTime.")
+        return translations
     }
 
     /**
