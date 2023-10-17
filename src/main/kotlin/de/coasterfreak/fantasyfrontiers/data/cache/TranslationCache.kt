@@ -154,6 +154,20 @@ object TranslationCache {
     }
 
     /**
+     * Retrieves translations for a given message key.
+     *
+     * @param messageKey The key identifying the message for which translations are requested.
+     * @return A map containing translations for each language code.
+     */
+    fun getTranslationsFor(messageKey: String): Map<String, Translation?> {
+        val translations = mutableMapOf<String, Translation?>()
+        for (languageCode in languages) {
+            translations[languageCode] = get(languageCode, messageKey)
+        }
+        return translations
+    }
+
+    /**
      * Retrieves the translation for the given language code and message key.
      *
      * @param languageCode The language code of the translation as dash-combined ISO-639 (language) and ISO-3166 (country).

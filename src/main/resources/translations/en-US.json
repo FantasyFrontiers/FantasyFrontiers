@@ -38,5 +38,9 @@
     "keywords.select": "Select",
     "keywords.choose": "Choose",
     "skill.MEGALUCK": "Megaluck",
-    "skill.MEGALUCK.description": "Rare skill that increases your luck by +10"
+    "skill.MEGALUCK.description": "Rare skill that increases your luck by +10",
+    "command.setup.name": "setup",
+    "command.setup.description": "Setup commands for the game.",
+    "command.setup.subcommands.panels.name": "panels",
+    "command.setup.subcommands.panels.description": "Setup the panels for the game."
 }
