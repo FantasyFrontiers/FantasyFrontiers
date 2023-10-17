@@ -4,6 +4,7 @@ import de.coasterfreak.fantasyfrontiers.data.cache.ServerSettingsCache
 import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.exceptions.PermissionException
+import net.dv8tion.jda.api.interactions.DiscordLocale
 import net.dv8tion.jda.api.interactions.InteractionHook
 import net.dv8tion.jda.api.interactions.components.ComponentInteraction
 
@@ -41,4 +42,10 @@ fun <T> InteractionHook.withTestPermission(dsl: InteractionHook.() -> T) {
  */
 fun <T> ComponentInteraction.withTestPermission(dsl: InteractionHook.() -> T) {
     hook.withTestPermission(dsl)
+}
+
+
+fun getDiscordLocale(languageCode: String): DiscordLocale {
+    val discordLocales = DiscordLocale.entries.find { languageCode.lowercase().contains(it.locale.lowercase()) }
+    return discordLocales ?: DiscordLocale.ENGLISH_US
 }

@@ -3,9 +3,11 @@ package de.coasterfreak.fantasyfrontiers.manager
 import de.coasterfreak.fantasyfrontiers.annotations.MessageCommand
 import de.coasterfreak.fantasyfrontiers.annotations.SlashCommand
 import de.coasterfreak.fantasyfrontiers.annotations.UserCommand
+import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
 import de.coasterfreak.fantasyfrontiers.interfaces.HasOptions
 import de.coasterfreak.fantasyfrontiers.interfaces.HasSubcommandGroups
 import de.coasterfreak.fantasyfrontiers.interfaces.HasSubcommands
+import de.coasterfreak.fantasyfrontiers.utils.functions.getDiscordLocale
 import dev.fruxz.ascend.extension.logging.getItsLogger
 import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.JDABuilder
@@ -13,6 +15,7 @@ import net.dv8tion.jda.api.hooks.EventListener
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 import net.dv8tion.jda.api.interactions.commands.build.Commands
 import org.reflections8.Reflections
+import java.util.*
 import kotlin.time.measureTime
 
 /**
@@ -82,7 +85,19 @@ object RegisterManager {
         val commandsTime = measureTime {
             for (clazz in reflections.getTypesAnnotatedWith(SlashCommand::class.java)) {
                 val annotation = clazz.getAnnotation(SlashCommand::class.java)
+
+                val translationsName = TranslationCache.getTranslationsFor("command.${annotation.name}.name").map {
+                    getDiscordLocale(it.key) to (it.value?.message ?: annotation.name)
+                }.toMap()
+                val translationsDescription = TranslationCache.getTranslationsFor("command.${annotation.name}.description").map {
+                    getDiscordLocale(it.key) to (it.value?.message ?: annotation.description)
+                }.toMap()
+
                 val data = Commands.slash(annotation.name, annotation.description)
+                    .apply {
+                        setNameLocalizations(translationsName)
+                        setDescriptionLocalizations(translationsDescription)
+                    }
 
                 if (clazz.simpleName !in loadedClasses) {
                     val constructor = clazz.getDeclaredConstructor()
@@ -96,15 +111,59 @@ object RegisterManager {
                 val command = loadedClasses[clazz.simpleName]
 
                 if (command is HasOptions) {
-                    data.addOptions(command.getOptions())
+                    val options = command.getOptions().map {
+                        val optionTranslationsName = TranslationCache.getTranslationsFor("command.${annotation.name}.options.${it.name}.name").map { entry ->
+                            getDiscordLocale(entry.key) to (entry.value?.message ?: it.name)
+                        }.toMap()
+                        val optionTranslationsDescription = TranslationCache.getTranslationsFor("command.${annotation.name}.options.${it.name}.description").map { entry ->
+                            getDiscordLocale(entry.key) to (entry.value?.message ?: it.description)
+                        }.toMap()
+
+                        it.apply {
+                            setNameLocalizations(optionTranslationsName)
+                            setDescriptionLocalizations(optionTranslationsDescription)
+                        }
+                    }
+
+                    data.addOptions(options)
                 }
 
                 if (command is HasSubcommandGroups) {
-                    data.addSubcommandGroups(command.getChoices())
+                    val subcommandGroups = command.getChoices().map { choiceData ->
+                        val choiceTranslationName = TranslationCache.getTranslationsFor("command.${annotation.name}.choices.${choiceData.name}.name").map { entry ->
+                            getDiscordLocale(entry.key) to (entry.value?.message ?: choiceData.name)
+                        }.toMap()
+
+                        val choiseTranslationDescription = TranslationCache.getTranslationsFor("command.${annotation.name}.choices.${choiceData.name}.description").map { entry ->
+                            getDiscordLocale(entry.key) to (entry.value?.message ?: choiceData.description)
+                        }.toMap()
+
+                        choiceData.apply {
+                            setNameLocalizations(choiceTranslationName)
+                            setDescriptionLocalizations(choiseTranslationDescription)
+                        }
+                    }
+
+                    data.addSubcommandGroups(subcommandGroups)
                 }
 
                 if (command is HasSubcommands) {
-                    data.addSubcommands(command.getSubCommands())
+                    val subcommands = command.getSubCommands().map { subcommandData ->
+                        val subcommandTranslationName = TranslationCache.getTranslationsFor("command.${annotation.name}.subcommands.${subcommandData.name}.name").map { entry ->
+                            getDiscordLocale(entry.key) to (entry.value?.message ?: subcommandData.name)
+                        }.toMap()
+
+                        val subcommandTranslationDescription = TranslationCache.getTranslationsFor("command.${annotation.name}.subcommands.${subcommandData.name}.description").map { entry ->
+                            getDiscordLocale(entry.key) to (entry.value?.message ?: subcommandData.description)
+                        }.toMap()
+
+                        subcommandData.apply {
+                            setNameLocalizations(subcommandTranslationName)
+                            setDescriptionLocalizations(subcommandTranslationDescription)
+                        }
+                    }
+
+                    data.addSubcommands(subcommands)
                 }
 
 

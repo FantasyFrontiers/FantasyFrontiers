@@ -38,5 +38,9 @@
     "modals.charSetup.character.lastName": "Nachnamen",
     "modals.worldStats.fields.characters.created": "Erstellte Charaktere",
     "skill.MEGALUCK.description": "Seltene Fähigkeit, die dein Glück um +10 erhöht",
-    "skill.MEGALUCK": "Riesenglück"
+    "skill.MEGALUCK": "Riesenglück",
+    "command.setup.name": "setup",
+    "command.setup.description": "Erstellungs- und Setup-Befehl",
+    "command.setup.subcommands.panels.name": "panels",
+    "command.setup.subcommands.panels.description": "Erzeugt ein Panel zum starten des Spiels"
 }
