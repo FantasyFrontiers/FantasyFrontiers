@@ -25,7 +25,7 @@ fun createNewCharacter(
     val newCharacter = Character(discordClientID, languageCode, firstName, lastName, skills = skillSet.associateWith { 0 })
 
     saveCharacter(newCharacter)
-    CharacterCache.put(newCharacter)
+    CharacterCache.put(newCharacter, true)
 
     return newCharacter
 }

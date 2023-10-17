@@ -11,6 +11,7 @@
     "modals.worldStats.fields.guilds": "Guilds",
     "modals.worldStats.fields.towns": "Towns",
     "modals.worldStats.fields.capital": "Capital",
+    "modals.worldStats.fields.characters.created": "Characters created",
     "modals.charSetup.character.title": "Character creation",
     "modals.charSetup.character.firstName": "First name",
     "modals.charSetup.character.firstName.placeholder": "Enter your character's first name",

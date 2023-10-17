@@ -1,7 +1,11 @@
 package de.coasterfreak.fantasyfrontiers.data.cache
 
+import de.coasterfreak.fantasyfrontiers.data.db.player.CharacterTable
 import de.coasterfreak.fantasyfrontiers.data.db.player.loadCharacter
 import de.coasterfreak.fantasyfrontiers.data.model.player.Character
+import dev.fruxz.ascend.extension.logging.getItsLogger
+import org.jetbrains.exposed.sql.selectAll
+import org.jetbrains.exposed.sql.transactions.transaction
 import java.util.concurrent.locks.ReadWriteLock
 import java.util.concurrent.locks.ReentrantReadWriteLock
 
@@ -31,6 +35,18 @@ object CharacterCache {
      * @property cache The map representing the cache, with the Discord client ID as the key and the character object as the value.
      */
     private var cache: Map<String, Character> = emptyMap()
+
+    /**
+     * Represents the total number of characters created.
+     */
+    var totalCharacters = 0L
+        private set
+
+    fun loadStatistics() = transaction {
+        totalCharacters = CharacterTable.selectAll().count()
+        getItsLogger().info("$totalCharacters characters in database.")
+        return@transaction
+    }
 
 
     /**
@@ -65,10 +81,13 @@ object CharacterCache {
      * @param character The character to be added or updated in the cache. The character must have a valid Discord client ID.
      * @return The added or updated character.
      */
-    fun put(character: Character): Character {
+    fun put(character: Character, created: Boolean = false): Character {
         try {
             lock.writeLock().lock()
             cache = cache + (character.discordClientID to character)
+            if (created) {
+                totalCharacters++
+            }
             return character
         } finally {
             lock.writeLock().unlock()
