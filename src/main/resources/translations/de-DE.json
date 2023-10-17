@@ -35,5 +35,8 @@
     "modals.charSetup.character.lastName.placeholder": "Gib deinem Charakter einen Nachnamen",
     "modals.charSetup.character.title": "Charakter-Erstellung",
     "modals.charSetup.character.firstName": "Vorname",
-    "modals.charSetup.character.lastName": "Nachnamen"
+    "modals.charSetup.character.lastName": "Nachnamen",
+    "modals.worldStats.fields.characters.created": "Erstellte Charaktere",
+    "skill.MEGALUCK.description": "Seltene Fähigkeit, die dein Glück um +10 erhöht",
+    "skill.MEGALUCK": "Riesenglück"
 }
