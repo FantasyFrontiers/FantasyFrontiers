@@ -14,7 +14,10 @@
     <br />
     <a href="https://discord.gg/xsxJP7JuEH">Main/Test-Server</a>
     ·
-    <a href="https://weblate.flawcra.cc/projects/fantasy-frontiers/translations">Help us translate the game!</a>
+    <a href="https://weblate.flawcra.cc/engage/fantasy-frontiers/">
+      Help us translate the game!
+      <img src="https://weblate.flawcra.cc/widget/fantasy-frontiers/translations/svg-badge.svg" alt="Translation status" />
+    </a>
   </p>
 
 <br />
