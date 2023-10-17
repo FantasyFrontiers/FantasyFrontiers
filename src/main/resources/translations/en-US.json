@@ -11,6 +11,7 @@
     "modals.worldStats.fields.guilds": "Guilds",
     "modals.worldStats.fields.towns": "Towns",
     "modals.worldStats.fields.capital": "Capital",
+    "modals.worldStats.fields.characters.created": "Characters created",
     "modals.charSetup.character.title": "Character creation",
     "modals.charSetup.character.firstName": "First name",
     "modals.charSetup.character.firstName.placeholder": "Enter your character's first name",
@@ -35,5 +36,7 @@
     "noble.rank.king": "King",
     "noble.rank.emperor": "Emperor",
     "keywords.select": "Select",
-    "keywords.choose": "Choose"
+    "keywords.choose": "Choose",
+    "skill.MEGALUCK": "Megaluck",
+    "skill.MEGALUCK.description": "Rare skill that increases your luck by +10"
 }

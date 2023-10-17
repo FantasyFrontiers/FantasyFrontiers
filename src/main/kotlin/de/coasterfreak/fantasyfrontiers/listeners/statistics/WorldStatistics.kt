@@ -1,5 +1,6 @@
 package de.coasterfreak.fantasyfrontiers.listeners.statistics
 
+import de.coasterfreak.fantasyfrontiers.data.cache.CharacterCache
 import de.coasterfreak.fantasyfrontiers.data.cache.ServerSettingsCache
 import de.coasterfreak.fantasyfrontiers.data.cache.TownCache
 import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
@@ -30,6 +31,11 @@ class WorldStatistics : ListenerAdapter() {
                 .addField(
                     TranslationCache.get(languageCode, "modals.worldStats.fields.capital").toString(),
                     "```Lakevale```",
+                    true
+                )
+                .addField(
+                    TranslationCache.get(languageCode, "modals.worldStats.fields.characters.created").toString(),
+                    "```${CharacterCache.totalCharacters}```",
                     true
                 )
                 .build()

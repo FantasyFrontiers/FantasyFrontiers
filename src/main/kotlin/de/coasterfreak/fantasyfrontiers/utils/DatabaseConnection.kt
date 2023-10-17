@@ -5,6 +5,9 @@ import com.zaxxer.hikari.HikariDataSource
 import de.coasterfreak.fantasyfrontiers.data.db.ConnectionsTable
 import de.coasterfreak.fantasyfrontiers.data.db.TownTable
 import de.coasterfreak.fantasyfrontiers.data.db.discord.ServerSettingsTable
+import de.coasterfreak.fantasyfrontiers.data.db.player.CharacterGuildsTable
+import de.coasterfreak.fantasyfrontiers.data.db.player.CharacterSkillTable
+import de.coasterfreak.fantasyfrontiers.data.db.player.CharacterTable
 import dev.fruxz.ascend.extension.logging.getItsLogger
 import dev.fruxz.ascend.tool.time.calendar.Calendar
 import org.jetbrains.exposed.sql.Database
@@ -52,7 +55,10 @@ internal object DatabaseConnection {
             SchemaUtils.createMissingTablesAndColumns(
                 TownTable,
                 ConnectionsTable,
-                ServerSettingsTable
+                ServerSettingsTable,
+                CharacterTable,
+                CharacterSkillTable,
+                CharacterGuildsTable
             )
         }
 

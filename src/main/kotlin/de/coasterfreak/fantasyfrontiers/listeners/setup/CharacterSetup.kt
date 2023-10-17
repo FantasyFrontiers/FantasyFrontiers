@@ -1,7 +1,9 @@
 package de.coasterfreak.fantasyfrontiers.listeners.setup
 
+import de.coasterfreak.fantasyfrontiers.data.cache.CharacterCache
 import de.coasterfreak.fantasyfrontiers.data.cache.ServerSettingsCache
 import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
+import de.coasterfreak.fantasyfrontiers.utils.functions.createNewCharacter
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.emoji.Emoji
 import net.dv8tion.jda.api.events.interaction.ModalInteractionEvent
@@ -35,6 +37,13 @@ class CharacterSetup : ListenerAdapter() {
 
     private fun onStartJourneyButton(event: ButtonInteractionEvent, languageCode: String) = with(event) {
         val languageName = TranslationCache.get(languageCode, "translation.name").toString()
+
+        val character = CharacterCache.get(user.id)
+        if (character != null) {
+            reply("The journey is yet to begin, ${character.firstName} ${character.lastName}!").setEphemeral(true).queue()
+            return@with
+        }
+
         replyEmbeds(
             EmbedBuilder()
                 .setTitle("📜 ${TranslationCache.get(languageCode, "modals.charSetup.language.title")}")
@@ -116,6 +125,7 @@ class CharacterSetup : ListenerAdapter() {
         }
 
         // Todo: Create character
+        createNewCharacter(user.id, languageCode, firstName, lastName)
 
         reply(TranslationCache.get(languageCode, "modals.charSetup.character.welcome", mapOf(
             "firstName" to firstName,
