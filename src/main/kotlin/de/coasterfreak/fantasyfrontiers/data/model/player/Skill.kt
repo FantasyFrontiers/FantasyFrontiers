@@ -4,7 +4,6 @@ import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
 import de.coasterfreak.fantasyfrontiers.utils.extensions.asRomanNumeral
 import kotlinx.serialization.Serializable
 import kotlin.math.min
-import kotlin.math.pow
 import kotlin.math.sqrt
 
 /**
@@ -19,6 +18,7 @@ data class Skill(
     val name: String,
     val maxLevel: Int,
     val experienceRatio: Double = 1.0,
+    val modifyStats: (Stats, Long) -> Stats,
 ) {
 
     /**

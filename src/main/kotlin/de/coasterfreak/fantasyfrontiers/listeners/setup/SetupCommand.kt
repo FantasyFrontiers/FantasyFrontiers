@@ -69,7 +69,7 @@ class SetupCommand : ListenerAdapter(), HasSubcommands {
 
         val serverSettings = ServerSettingsCache.get(guild!!.id).copy(language = languageCode)
         updateServerSettings(serverSettings)
-        ServerSettingsCache.put(guild!!.id, serverSettings)
+        ServerSettingsCache.put(serverSettings)
 
         editMessage("Setting up language...").setEmbeds().queue()
         withTestPermission {

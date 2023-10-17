@@ -35,5 +35,7 @@
     "noble.rank.king": "King",
     "noble.rank.emperor": "Emperor",
     "keywords.select": "Select",
-    "keywords.choose": "Choose"
+    "keywords.choose": "Choose",
+    "skill.MEGALUCK": "Megaluck",
+    "skill.MEGALUCK.description": "Rare skill that increases your luck by +10"
 }

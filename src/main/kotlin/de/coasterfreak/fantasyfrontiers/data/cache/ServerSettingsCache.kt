@@ -49,10 +49,10 @@ object ServerSettingsCache {
      * @param serverSettings The settings to be updated.
      * @return The updated server settings.
      */
-    fun put(guildId: String, serverSettings: ServerSettings): ServerSettings {
+    fun put(serverSettings: ServerSettings): ServerSettings {
         try {
             lock.writeLock().lock()
-            cache = cache + (guildId to serverSettings)
+            cache = cache + (serverSettings.guildID to serverSettings)
             return serverSettings
         } finally {
             lock.writeLock().unlock()
