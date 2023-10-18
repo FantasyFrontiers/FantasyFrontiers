@@ -31,6 +31,7 @@ fun loadAllServerSettings(): List<ServerSettings> = transaction {
         ServerSettings(
             guildID = row[ServerSettingsTable.guildID],
             language = row[ServerSettingsTable.language],
+            discordChatRooms = getChatRooms(row[ServerSettingsTable.guildID])
         )
     }
 }
@@ -47,16 +48,22 @@ fun loadServerSettings(guildID: String): ServerSettings = transaction {
         ServerSettings(
             guildID = row[ServerSettingsTable.guildID],
             language = row[ServerSettingsTable.language],
+            discordChatRooms = getChatRooms(guildID),
+            guildRoles = getGuildRoles(guildID)
         )
     }.firstOrNull() ?: ServerSettings(guildID = guildID)
 }
 
 /**
+ * Updates the server settings with the provided values.
  *
+ * @param settings The ServerSettings object containing the updated settings.
  */
 fun updateServerSettings(settings: ServerSettings) = transaction {
     ServerSettingsTable.replace {
         it[guildID] = settings.guildID
         it[language] = settings.language
     }
+    updateChatRooms(settings.guildID, settings.discordChatRooms)
+    updateGuildRoles(settings.guildID, settings.guildRoles)
 }

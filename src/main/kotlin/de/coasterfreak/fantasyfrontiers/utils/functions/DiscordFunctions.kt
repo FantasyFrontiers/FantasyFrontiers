@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.exceptions.PermissionException
 import net.dv8tion.jda.api.interactions.DiscordLocale
 import net.dv8tion.jda.api.interactions.InteractionHook
+import net.dv8tion.jda.api.interactions.callbacks.IReplyCallback
 import net.dv8tion.jda.api.interactions.components.ComponentInteraction
 
 /**
@@ -41,6 +42,16 @@ fun <T> InteractionHook.withTestPermission(dsl: InteractionHook.() -> T) {
  * @param T The type of the return value of the DSL.
  */
 fun <T> ComponentInteraction.withTestPermission(dsl: InteractionHook.() -> T) {
+    hook.withTestPermission(dsl)
+}
+
+/**
+ * Executes the given DSL within a test permission context, catching any PermissionExceptions that occur and displaying an error message with the corresponding permission.
+ *
+ * @param dsl The DSL to be executed within the test permission context.
+ * @param T The type of the return value of the DSL.
+ */
+fun <T> IReplyCallback.withTestPermission(dsl: InteractionHook.() -> T) {
     hook.withTestPermission(dsl)
 }
 

@@ -13,6 +13,7 @@ import net.dv8tion.jda.api.entities.emoji.Emoji
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.events.interaction.component.StringSelectInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
+import net.dv8tion.jda.api.interactions.callbacks.IReplyCallback
 import net.dv8tion.jda.api.interactions.commands.build.SubcommandData
 import net.dv8tion.jda.api.interactions.components.ActionRow
 import net.dv8tion.jda.api.interactions.components.buttons.Button
@@ -20,14 +21,19 @@ import net.dv8tion.jda.api.interactions.components.selections.SelectOption
 import net.dv8tion.jda.api.interactions.components.selections.StringSelectMenu
 import net.dv8tion.jda.api.utils.FileUpload
 
-@SlashCommand("setup", "Setup commands for the game.")
+@SlashCommand("setup", "Setup commands for the game.", true)
 class SetupCommand : ListenerAdapter(), HasSubcommands {
     override fun getSubCommands(): List<SubcommandData> = listOf(
-        SubcommandData("panels", "Setup the panels for the game.")
+        SubcommandData("panels", "Setup the panels for the game."),
+        SubcommandData("advanced", "Setup the advanced settings for the game.")
     )
 
     override fun onSlashCommandInteraction(event: SlashCommandInteractionEvent) = with(event) {
         if(name != "setup") return@with
+        if (!isFromGuild) {
+            reply("This command can only be used in a server.").queue()
+            return@with
+        }
         when(subcommandName) {
             "panels" -> {
                 replyEmbeds(
@@ -55,6 +61,7 @@ class SetupCommand : ListenerAdapter(), HasSubcommands {
                     )
                 ).setEphemeral(true).queue()
             }
+            "advanced" -> advancedSetup()
             else -> {
                 reply("Unknown subcommand.").queue()
             }
@@ -94,7 +101,25 @@ class SetupCommand : ListenerAdapter(), HasSubcommands {
                 )
             ).queue()
 
-            deleteOriginal().queue()
+            advancedSetup()
         }
+    }
+
+    private fun IReplyCallback.advancedSetup() {
+        val serverSettings = ServerSettingsCache.get(guild!!.id)
+        replyEmbeds(
+            EmbedBuilder()
+                .setTitle(TranslationCache.get(serverSettings.language, "modals.advancedSetup.title").toString())
+                .setDescription(TranslationCache.get(serverSettings.language, "modals.advancedSetup.description").toString())
+                .setColor(0x57F287)
+                .build()
+        ).addComponents(
+            ActionRow.of(
+                Button.secondary("ff-setup-advanced-chatrooms", TranslationCache.get(serverSettings.language, "modals.advancedSetup.buttons.chatRooms").toString())
+                    .withEmoji(Emoji.fromFormatted("📑")),
+                Button.secondary("ff-setup-advanced-roles", TranslationCache.get(serverSettings.language, "modals.advancedSetup.roles.title").toString())
+                    .withEmoji(Emoji.fromFormatted("🫅🏽")),
+            )
+        ).setEphemeral(true).queue()
     }
 }

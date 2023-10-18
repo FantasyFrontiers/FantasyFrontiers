@@ -11,8 +11,10 @@ import de.coasterfreak.fantasyfrontiers.utils.functions.getDiscordLocale
 import dev.fruxz.ascend.extension.logging.getItsLogger
 import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.JDABuilder
+import net.dv8tion.jda.api.Permission
 import net.dv8tion.jda.api.hooks.EventListener
 import net.dv8tion.jda.api.hooks.ListenerAdapter
+import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions
 import net.dv8tion.jda.api.interactions.commands.build.Commands
 import org.reflections8.Reflections
 import java.util.*
@@ -97,6 +99,9 @@ object RegisterManager {
                     .apply {
                         setNameLocalizations(translationsName)
                         setDescriptionLocalizations(translationsDescription)
+                        if(annotation.adminOnly) {
+                            defaultPermissions = DefaultMemberPermissions.enabledFor(Permission.ADMINISTRATOR)
+                        }
                     }
 
                 if (clazz.simpleName !in loadedClasses) {
