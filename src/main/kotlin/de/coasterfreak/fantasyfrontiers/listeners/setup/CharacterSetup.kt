@@ -114,26 +114,26 @@ class CharacterSetup : ListenerAdapter() {
                 .setColor(0x57F287)
                 .build()
         )
-            .addComponents(
-                ActionRow.of(
-                    Button.secondary("ff-char-lang-setup-keep", TranslationCache.get(languageCode, "modals.charSetup.language.buttons.keep", mapOf("languageName" to languageName)).toString())
-                        .withEmoji(Emoji.fromFormatted("👌🏽")),
-                ),
-                ActionRow.of(
-                    StringSelectMenu.create("ff-char-lang-setup-language")
-                        .setPlaceholder(TranslationCache.get(languageCode, "modals.charSetup.language.selectLanguage").toString())
-                        .addOptions(
-                            TranslationCache.languages.filter { it != languageCode }.map { langCode ->
-                                SelectOption.of(
-                                    TranslationCache.get(langCode, "translation.name").toString(),
-                                    langCode
-                                )
-                            }
-                        )
-                        .build()
-                )
+        .addComponents(
+            ActionRow.of(
+                Button.secondary("ff-char-lang-setup-keep", TranslationCache.get(languageCode, "modals.charSetup.language.buttons.keep", mapOf("languageName" to languageName)).toString())
+                    .withEmoji(Emoji.fromFormatted("👌🏽")),
+            ),
+            ActionRow.of(
+                StringSelectMenu.create("ff-char-lang-setup-language")
+                    .setPlaceholder(TranslationCache.get(languageCode, "modals.charSetup.language.selectLanguage").toString())
+                    .addOptions(
+                        TranslationCache.languages.filter { it != languageCode }.map { langCode ->
+                            SelectOption.of(
+                                TranslationCache.get(langCode, "translation.name").toString(),
+                                langCode
+                            )
+                        }
+                    )
+                    .build()
             )
-            .setEphemeral(true).queue()
+        )
+        .setEphemeral(true).queue()
     }
 
     /**
