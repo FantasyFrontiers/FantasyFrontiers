@@ -51,5 +51,7 @@
     "skill.MANA_CONTROL": "Manakontrolle",
     "skill.MANA_CONTROL.description": "Fertigkeit, die deine Muskelkraft um +5, deine Intelligenz um +3 und deine Magie um +1 erhöht",
     "skill.ANCIENT_FIGHTING_SKILLS": "Antike Kampffähigkeiten",
-    "skill.ANCIENT_FIGHTING_SKILLS.description": "Antike Fertigkeit, die deine Stärke um +8, deine Vitalität um +5, deine Geschicklichkeit um +3 und deine Beweglichkeit um +4 erhöht"
+    "skill.ANCIENT_FIGHTING_SKILLS.description": "Antike Fertigkeit, die deine Stärke um +8, deine Vitalität um +5, deine Geschicklichkeit um +3 und deine Beweglichkeit um +4 erhöht",
+    "modals.advancedSetup.description": "Wir haben viele extra Features, wenn du deine Erfahrung verbessern möchtest. Du kannst sie hier Aktivieren oder Deaktivieren.",
+    "modals.errors.advancedSetup.roles.selected.create.title": "Rollenerstellung fehlgeschlagen"
 }
