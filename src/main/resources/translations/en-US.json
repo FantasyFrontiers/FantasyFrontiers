@@ -26,7 +26,7 @@
     "modals.charSetup.language.buttons.keep": "Keep %languageName%",
     "modals.charSetup.language.selectLanguage": "Or select another language",
     "modals.charSetup.starterSkill.title": "Choose your first skill",
-    "modals.charSetup.starterSkill.description": "Choose your first skill. Some of them are unique and cannot be learned afterwards. You can choose between the following skills:",
+    "modals.charSetup.starterSkill.description": "Choose your first skill. Some of them are unique and cannot be learned afterward. You can choose between the following skills:",
     "modals.charSetup.starterSkill.selectSkill": "Select a skill",
     "noble.rank.knight": "Knight",
     "noble.title.knight": "Sir",

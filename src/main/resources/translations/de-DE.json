@@ -37,10 +37,19 @@
     "modals.charSetup.character.firstName": "Vorname",
     "modals.charSetup.character.lastName": "Nachnamen",
     "modals.worldStats.fields.characters.created": "Erstellte Charaktere",
-    "skill.MEGALUCK.description": "Seltene Fähigkeit, die dein Glück um +10 erhöht",
+    "skill.MEGALUCK.description": "Seltene Fähigkeit, die dein Glück um +20 erhöht",
     "skill.MEGALUCK": "Riesenglück",
     "command.setup.name": "setup",
-    "command.setup.description": "Erstellungs- und Setup-Befehl",
+    "command.setup.description": "Erstellungs- und Setup-Befehl.",
     "command.setup.subcommands.panels.name": "panels",
-    "command.setup.subcommands.panels.description": "Erzeugt ein Panel zum starten des Spiels"
+    "command.setup.subcommands.panels.description": "Erzeugt ein Panel zum starten des Spiels.",
+    "modals.errors.charSetup.alreadyChoseSkill": "Du hast bereits eine Fähigkeit gewählt.",
+    "modals.errors.charSetup.noCharacter": "Es ist ein Fehler beim Laden deines Charakters aufgetreten. Bitte versuche es später noch einmal.",
+    "modals.charSetup.starterSkill.title": "Wähle deine erste Fähigkeit",
+    "modals.charSetup.starterSkill.description": "Wähle deine erste Fähigkeit. Einige von ihnen sind einzigartig und können nicht nachträglich erlernt werden. Du kannst zwischen den folgenden Fertigkeiten wählen:",
+    "modals.charSetup.starterSkill.selectSkill": "Wähle deine erste Fähigkeit",
+    "skill.MANA_CONTROL": "Manakontrolle",
+    "skill.MANA_CONTROL.description": "Fertigkeit, die deine Muskelkraft um +5, deine Intelligenz um +3 und deine Magie um +1 erhöht",
+    "skill.ANCIENT_FIGHTING_SKILLS": "Antike Kampffähigkeiten",
+    "skill.ANCIENT_FIGHTING_SKILLS.description": "Antike Fertigkeit, die deine Stärke um +8, deine Vitalität um +5, deine Geschicklichkeit um +3 und deine Beweglichkeit um +4 erhöht"
 }
