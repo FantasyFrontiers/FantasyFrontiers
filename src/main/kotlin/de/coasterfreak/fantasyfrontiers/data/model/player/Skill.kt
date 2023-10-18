@@ -3,8 +3,7 @@ package de.coasterfreak.fantasyfrontiers.data.model.player
 import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
 import de.coasterfreak.fantasyfrontiers.utils.extensions.asRomanNumeral
 import kotlinx.serialization.Serializable
-import kotlin.math.min
-import kotlin.math.sqrt
+import kotlin.math.*
 
 /**
  * A class representing a skill.
@@ -18,7 +17,7 @@ data class Skill(
     val name: String,
     val maxLevel: Int,
     val experienceRatio: Double = 1.0,
-    val modifyStats: (Stats, Long) -> Stats,
+    val modifyStats: Skill.(Stats, Long) -> Stats,
 ) {
 
     /**
@@ -27,7 +26,15 @@ data class Skill(
      * @param exp the experience to convert to level
      * @return the level corresponding to the given experience
      */
-    private fun experienceToLevel(exp: Long) = min((sqrt(exp.toDouble() / experienceRatio) / 2).toInt(), maxLevel)
+    fun experienceToLevel(exp: Long) = max(1, min((sqrt(exp.toDouble() / experienceRatio) / 2.0).roundToInt(), maxLevel))
+
+    /**
+     * Converts the given level to experience based on the experience ratio.
+     *
+     * @param level The level to convert to experience.
+     * @return The experience corresponding to the given level.
+     */
+    fun levelToExperience(level: Int) = if (level == 1) 0 else (level * level * 4 * experienceRatio).roundToLong()
 
     /**
      * The key used to retrieve the name for a skill.
@@ -63,6 +70,18 @@ data class Skill(
      */
     fun getFormattedName(languageCode: String, xp: Long): String {
         val levelString = if (maxLevel <= 1) "" else " ${experienceToLevel(xp).asRomanNumeral()}"
+        return "${TranslationCache.get(languageCode, nameKey)}$levelString"
+    }
+
+    /**
+     * Returns the formatted name of a skill in the specified language and level.
+     *
+     * @param languageCode The language code of the translation as dash-combined ISO-639 (language) and ISO-3166 (country).
+     * @param level The level of the skill.
+     * @return The formatted name of the skill including the level if the maxLevel is greater than 1, or just the name if the maxLevel is 1 or less.
+     */
+    fun getFormattedName(languageCode: String, level: Int): String {
+        val levelString = if (maxLevel <= 1) "" else " ${level.asRomanNumeral()}"
         return "${TranslationCache.get(languageCode, nameKey)}$levelString"
     }
 

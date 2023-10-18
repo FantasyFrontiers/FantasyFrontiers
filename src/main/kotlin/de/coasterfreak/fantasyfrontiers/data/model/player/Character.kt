@@ -61,7 +61,7 @@ data class Character(
         get() {
             var modifiedStats = stats
             skills.forEach { (skill, experience) ->
-                modifiedStats = skill.modifyStats(modifiedStats, experience)
+                modifiedStats = skill.modifyStats.invoke(skill, modifiedStats, experience)
             }
             return modifiedStats
         }
