@@ -7,11 +7,13 @@ import de.coasterfreak.fantasyfrontiers.data.model.discord.GuildRole
 import de.coasterfreak.fantasyfrontiers.data.model.discord.ServerSettings
 import de.coasterfreak.fantasyfrontiers.data.model.guild.Guilds
 import de.coasterfreak.fantasyfrontiers.utils.functions.withTestPermission
+import de.coasterfreak.fantasyfrontiers.utils.functions.formatNullableMentionCheck
 import dev.fruxz.ascend.extension.container.lastOrNull
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.emoji.Emoji
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent
 import net.dv8tion.jda.api.events.interaction.component.EntitySelectInteractionEvent
+import net.dv8tion.jda.api.events.interaction.component.GenericComponentInteractionCreateEvent
 import net.dv8tion.jda.api.events.interaction.component.StringSelectInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 import net.dv8tion.jda.api.interactions.callbacks.IReplyCallback
@@ -67,9 +69,13 @@ class RoleManagementSetup : ListenerAdapter() {
      * @param event The button interaction event.
      */
     override fun onButtonInteraction(event: ButtonInteractionEvent) = with (event) {
+        handleComponentInteraction(event)
+    }
+
+    private fun <T: GenericComponentInteractionCreateEvent> T.handleComponentInteraction(event: T) {
         val btnHandler = buttonHandlers.lastOrNull { componentId.startsWith(it.key) }
-        if(btnHandler == null) return@with
-        if (!isFromGuild) return@with
+        if (btnHandler == null) return
+        if (!isFromGuild) return
         val serverSettings = ServerSettingsCache.get(guild!!.id)
 
         val args = componentId.replace(btnHandler.key, "").split("-").toTypedArray()
@@ -127,15 +133,7 @@ class RoleManagementSetup : ListenerAdapter() {
             hook.editOriginalEmbeds(
                 createRoleEmbed(languageCode, guildMap)
             ).setComponents(
-                ActionRow.of(
-                    StringSelectMenu.create("ff-setup-advanced-roles-select")
-                        .apply {
-                            guildMap.forEach { (plainName, guildName, _) ->
-                                addOption(guildName, plainName.lowercase())
-                            }
-                        }
-                        .build()
-                )
+                createAdvancedRolesSelectMenu(guildMap)
             ).queue()
             return@with
         }
@@ -143,17 +141,20 @@ class RoleManagementSetup : ListenerAdapter() {
         replyEmbeds(
             createRoleEmbed(languageCode, guildMap)
         ).addComponents(
-            ActionRow.of(
-                StringSelectMenu.create("ff-setup-advanced-roles-select")
-                    .apply {
-                        guildMap.forEach { (plainName, guildName, _) ->
-                            addOption(guildName, plainName.lowercase())
-                        }
-                    }
-                    .build()
-            )
+            createAdvancedRolesSelectMenu(guildMap)
         ).setEphemeral(true).queue()
     }
+
+    private fun createAdvancedRolesSelectMenu(guildMap: List<Triple<String, String, String?>>) =
+        ActionRow.of(
+            StringSelectMenu.create("ff-setup-advanced-roles-select")
+                .apply {
+                    guildMap.forEach { (plainName, guildName, _) ->
+                        addOption(guildName, plainName.lowercase())
+                    }
+                }
+                .build()
+        )
 
     /**
      * Creates an EmbedBuilder instance for displaying role information.
@@ -172,10 +173,11 @@ class RoleManagementSetup : ListenerAdapter() {
             "*" + TranslationCache.get(languageCode, "modals.advancedSetup.roles.description.before")
                 .toString() + "*\n\n" +
                     guildMap.joinToString("\n") { (_, guildName, guildRole) ->
-                        "**$guildName**: ${guildRoleToStringEmoji(guildRole)}"
+                        "**$guildName**: ${formatNullableMentionCheck(guildRole)}"
                     }
-                    + "\n\n" + TranslationCache.get(languageCode, "modals.advancedSetup.roles.description.after")
-                .toString()
+                    + "\n\n" +
+                    "*" + TranslationCache.get(languageCode, "modals.advancedSetup.roles.description.after")
+                .toString() + "*"
         )
         .build()
 
@@ -201,7 +203,7 @@ class RoleManagementSetup : ListenerAdapter() {
                 .setDescription(
                     TranslationCache.get(languageCode, "modals.advancedSetup.roles.selected.description", mapOf(
                         "guild" to TranslationCache.get(languageCode, "guilds.${guildName.lowercase()}").toString(),
-                        "role" to guildRoleToStringEmoji(guildRole?.let { guild?.getRoleById(it.roleId)?.asMention })
+                        "role" to formatNullableMentionCheck(guildRole?.let { guild?.getRoleById(it.roleId)?.asMention })
                     )).toString()
                 )
                 .build()
@@ -301,15 +303,5 @@ class RoleManagementSetup : ListenerAdapter() {
         updateServerSettings(newServerSettings)
 
         roleMenu(ctx, newServerSettings)
-    }
-
-    /**
-     * Converts a guild role mention to a string with an emoji.
-     *
-     * @param guildRoleMention The mention of the guild role.
-     * @return The string representation of the guild role with an emoji.
-     */
-    private fun guildRoleToStringEmoji(guildRoleMention: String?): String {
-        return if (guildRoleMention != null) "✅ ($guildRoleMention)" else "❌"
     }
 }

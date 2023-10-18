@@ -55,8 +55,23 @@ fun <T> IReplyCallback.withTestPermission(dsl: InteractionHook.() -> T) {
     hook.withTestPermission(dsl)
 }
 
-
+/**
+ * Returns the DiscordLocale enum value based on the provided language code.
+ *
+ * @param languageCode The language code to determine the Discord locale.
+ * @return The DiscordLocale enum value corresponding to the language code.
+ */
 fun getDiscordLocale(languageCode: String): DiscordLocale {
     val discordLocales = DiscordLocale.entries.find { languageCode.lowercase().contains(it.locale.lowercase()) }
     return discordLocales ?: DiscordLocale.ENGLISH_US
+}
+
+/**
+ * Formats a nullable mention check.
+ *
+ * @param mention The mention string to be checked.
+ * @return The formatted string indicating whether the mention is present or not.
+ */
+fun formatNullableMentionCheck(mention: String?): String {
+    return if (mention != null) "✅ [ $mention ]" else "❌"
 }
