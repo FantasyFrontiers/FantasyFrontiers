@@ -1,6 +1,7 @@
 package de.coasterfreak.fantasyfrontiers
 
 import de.coasterfreak.fantasyfrontiers.utils.DatabaseMigrator
+import de.coasterfreak.fantasyfrontiers.utils.TownImageGenerator
 
 /**
  * The main entry point of the application.
@@ -9,12 +10,9 @@ import de.coasterfreak.fantasyfrontiers.utils.DatabaseMigrator
  */
 fun main(args: Array<String>) {
 
-    if (args.isNotEmpty()) {
-        if (args[0] == "migrate") {
-            DatabaseMigrator().migrate()
-            return
-        }
+    when (args.getOrNull(0)) {
+        "migrate" -> DatabaseMigrator().migrate()
+        "images" -> TownImageGenerator().generate()
+        else -> FantasyFrontiers()
     }
-
-    FantasyFrontiers()
 }

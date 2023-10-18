@@ -41,7 +41,7 @@ object TownCache {
     /**
      * Loads all towns from the database and stores them in the cache.
      */
-    fun loadAll() {
+    fun loadAll(): List<Town> {
         val loadTimer = measureTime {
             val towns = getAllTowns()
             towns.forEach {
@@ -49,6 +49,7 @@ object TownCache {
             }
         }
         getItsLogger().info("Loaded ${cache.size} towns in $loadTimer.")
+        return getAll()
     }
 
     /**
