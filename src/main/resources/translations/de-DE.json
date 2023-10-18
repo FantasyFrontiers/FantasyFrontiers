@@ -47,7 +47,7 @@
     "modals.errors.charSetup.noCharacter": "Es ist ein Fehler beim Laden deines Charakters aufgetreten. Bitte versuche es später noch einmal.",
     "modals.charSetup.starterSkill.title": "Wähle deine erste Fähigkeit",
     "modals.charSetup.starterSkill.description": "Wähle deine erste Fähigkeit. Einige von ihnen sind einzigartig und können nicht nachträglich erlernt werden. Du kannst zwischen den folgenden Fertigkeiten wählen:",
-    "modals.charSetup.starterSkill.selectSkill": "Wähle deine erste Fähigkeit",
+    "modals.charSetup.starterSkill.selectSkill": "Wähle eine Fähigkeit",
     "skill.MANA_CONTROL": "Manakontrolle",
     "skill.MANA_CONTROL.description": "Fertigkeit, die deine Muskelkraft um +5, deine Intelligenz um +3 und deine Magie um +1 erhöht",
     "skill.ANCIENT_FIGHTING_SKILLS": "Antike Kampffähigkeiten",
@@ -69,5 +69,15 @@
     "guilds.adventurers_guild": "Abenteurergilde",
     "guilds.blacksmiths_guild": "Schmiedegilde",
     "guilds.herbologies_guild": "Kräuterkundengilde",
-    "command.setup.subcommands.advanced.name": "erweitert"
+    "command.setup.subcommands.advanced.name": "erweitert",
+    "modals.advancedSetup.chatrooms.description.after": "Wähle einen Chatraumtypen, um einen Chatraum zu ändern/einzustellen.",
+    "chatroom.system": "System",
+    "chatroom.global": "Global",
+    "chatroom.merchants_guild": "Kaufleute",
+    "chatroom.adventurers_guild": "Abenteurer",
+    "chatroom.blacksmiths_guild": "Schmiede",
+    "chatroom.herbologies_guild": "Kräuterkunde",
+    "modals.advancedSetup.chatrooms.title": "Chatraum Verwaltung",
+    "modals.advancedSetup.chatrooms.description.before": "Hier kannst du den aktuellen Status deiner verbundenen Chaträume sehen.\nChaträume sind spezielle Kanäle für bestimmte Themen, die mit dem Spiel automatisiert/integriert werden können.",
+    "chatroom.town": "Stadt"
 }
