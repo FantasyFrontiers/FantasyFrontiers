@@ -55,5 +55,19 @@
     "modals.advancedSetup.description": "Wir haben viele extra Features, wenn du deine Erfahrung verbessern möchtest. Du kannst sie hier Aktivieren oder Deaktivieren.",
     "modals.errors.advancedSetup.roles.selected.create.title": "Rollenerstellung fehlgeschlagen",
     "modals.advancedSetup.title": "Erweiterte Einstellungen",
-    "modals.errors.advancedSetup.roles.selected.create.description": "Es ist ein Fehler bei dem Erstellen deiner Rollen aufgetreten. Bitte versuche es später noch einmal."
+    "modals.errors.advancedSetup.roles.selected.create.description": "Es ist ein Fehler bei dem Erstellen deiner Rollen aufgetreten. Bitte versuche es später noch einmal.",
+    "modals.advancedSetup.buttons.chatRooms": "Verbesserte Chaträume",
+    "modals.advancedSetup.roles.title": "Rollenverwaltung",
+    "modals.advancedSetup.roles.description.before": "Hier kannst du den aktuellen Status deiner verbundenen Rollen sehen.",
+    "modals.advancedSetup.roles.description.after": "Wähle deine Gilde, um eine Serverrolle zu ändern/einzustellen.",
+    "modals.advancedSetup.roles.selected.title": "Verwalte %guild%",
+    "modals.advancedSetup.roles.selected.description": "**%guild%**: %role%",
+    "guilds.merchants_guild": "Handelsgilde",
+    "command.setup.subcommands.advanced.description": "Richte die erweiterten Einstellungen für das Spiel ein.",
+    "modals.advancedSetup.roles.selected.create": "Erstell mir eine",
+    "modals.advancedSetup.roles.selected.role.placeholder": "Wähle eine Rolle",
+    "guilds.adventurers_guild": "Abenteurergilde",
+    "guilds.blacksmiths_guild": "Schmiedegilde",
+    "guilds.herbologies_guild": "Kräuterkundengilde",
+    "command.setup.subcommands.advanced.name": "erweitert"
 }
