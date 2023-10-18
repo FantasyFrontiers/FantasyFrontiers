@@ -63,3 +63,5 @@ fun Long.asRomanNumeral(): String {
 }
 
 fun Int.asRomanNumeral(): String = this.toLong().asRomanNumeral()
+
+fun Double.round(decimals: Int = 2): Double = "%.${decimals}f".format(this).toDouble()
