@@ -6,11 +6,9 @@ import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
 import de.coasterfreak.fantasyfrontiers.data.model.town.Travel
 import de.coasterfreak.fantasyfrontiers.manager.TravelManager
 import de.coasterfreak.fantasyfrontiers.utils.functions.withTestPermission
-import dev.fruxz.ascend.extension.time.millisecond
 import dev.fruxz.ascend.tool.time.calendar.Calendar
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel
-import net.dv8tion.jda.api.entities.channel.middleman.GuildMessageChannel
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent
 import net.dv8tion.jda.api.events.interaction.component.StringSelectInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
