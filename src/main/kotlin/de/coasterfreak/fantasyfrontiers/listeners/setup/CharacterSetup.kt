@@ -5,6 +5,7 @@ import de.coasterfreak.fantasyfrontiers.data.cache.ServerSettingsCache
 import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
 import de.coasterfreak.fantasyfrontiers.data.db.player.saveCharacter
 import de.coasterfreak.fantasyfrontiers.data.model.player.Skills
+import de.coasterfreak.fantasyfrontiers.listeners.game.town.showTownMenu
 import de.coasterfreak.fantasyfrontiers.utils.functions.createNewCharacter
 import de.coasterfreak.fantasyfrontiers.utils.functions.sendTranslatedSystemMessage
 import net.dv8tion.jda.api.EmbedBuilder
@@ -329,22 +330,13 @@ class CharacterSetup : ListenerAdapter() {
             return
         }
 
-        val languageCode = character.language
-
         // Test for Skills
         if (character.skills.isEmpty()) {
             chooseStarterSkill()
             return
         }
 
-        reply(
-            "${TranslationCache.get(languageCode, "modals.charSetup.character.welcome", mapOf(
-                "firstName" to character.firstName,
-                "lastName" to character.lastName
-            )).toString()}\n" +
-                    "You choose your first skill to be `${character.skills.keys.first().getFormattedName(languageCode, character.skills.values.first())}`.\n" +
-                    "Wise choice!"
-        ).setEphemeral(true).queue()
+        showTownMenu(character)
     }
 
     /**

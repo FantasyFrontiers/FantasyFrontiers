@@ -5,6 +5,7 @@ import de.coasterfreak.fantasyfrontiers.data.cache.TownCache
 import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
 import de.coasterfreak.fantasyfrontiers.manager.RegisterManager.registerAll
 import de.coasterfreak.fantasyfrontiers.manager.RegisterManager.registerCommands
+import de.coasterfreak.fantasyfrontiers.manager.TravelManager
 import de.coasterfreak.fantasyfrontiers.utils.DatabaseConnection
 import de.coasterfreak.fantasyfrontiers.utils.Environment
 import dev.fruxz.ascend.extension.logging.getItsLogger
@@ -39,10 +40,14 @@ class FantasyFrontiers {
             .awaitReady()
             .registerCommands()
 
+        TravelManager.startThread()
+
         Runtime.getRuntime().addShutdownHook(Thread {
+            getItsLogger().info("Shutting down...")
+            TravelManager.stopThread()
             jda.shutdown()
             DatabaseConnection.disconnect()
-        })
+        }.apply { isDaemon = true })
 
         getItsLogger().info("Bot is ready! ${jda.selfUser.name} - ${jda.selfUser.id} on ${jda.guilds.size} guilds")
     }

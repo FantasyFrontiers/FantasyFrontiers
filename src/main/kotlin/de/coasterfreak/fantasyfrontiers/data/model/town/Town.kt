@@ -1,5 +1,6 @@
 package de.coasterfreak.fantasyfrontiers.data.model.town
 
+import dev.fruxz.ascend.extension.getResourceOrNull
 import kotlinx.serialization.Serializable
 
 /**
@@ -20,4 +21,8 @@ data class Town(
     val population: Long = 0,
     val features: Features = Features(),
     val connections: List<Connection> = emptyList(),
-)
+) {
+
+    val townMapImage by lazy { getResourceOrNull("assets/towns/${name}.png") ?: throw Exception("Town map image ${name}.png not found. Have you used the `images` command yet?") }
+
+}

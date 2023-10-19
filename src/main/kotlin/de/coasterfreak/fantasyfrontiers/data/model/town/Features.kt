@@ -21,5 +21,5 @@ data class Features(
     val port: Boolean = false,
     val shanty: Boolean = false,
     val temple: Boolean = false,
-    val walls: Boolean = false
+    val walls: Boolean = false,
 )
