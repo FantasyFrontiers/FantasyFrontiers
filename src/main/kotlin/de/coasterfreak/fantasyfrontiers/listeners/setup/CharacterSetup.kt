@@ -6,6 +6,7 @@ import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
 import de.coasterfreak.fantasyfrontiers.data.db.player.saveCharacter
 import de.coasterfreak.fantasyfrontiers.data.model.player.Skills
 import de.coasterfreak.fantasyfrontiers.utils.functions.createNewCharacter
+import de.coasterfreak.fantasyfrontiers.utils.functions.sendTranslatedSystemMessage
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.emoji.Emoji
 import net.dv8tion.jda.api.events.interaction.ModalInteractionEvent
@@ -208,7 +209,14 @@ class CharacterSetup : ListenerAdapter() {
             return@with
         }
 
-        createNewCharacter(user.id, languageCode, firstName, lastName)
+        val character = createNewCharacter(user.id, languageCode, firstName, lastName)
+
+        guild?.sendTranslatedSystemMessage("system.announcement.character.created", mapOf(
+            "user" to user.asMention,
+            "firstName" to character.firstName,
+            "lastName" to character.lastName
+        ))
+
         startJourney()
     }
 

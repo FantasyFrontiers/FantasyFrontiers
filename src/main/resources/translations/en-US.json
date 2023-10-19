@@ -84,5 +84,6 @@
     "command.setup.subcommands.panels.name": "panels",
     "command.setup.subcommands.panels.description": "Setup the panels for the game.",
     "command.setup.subcommands.advanced.name": "advanced",
-    "command.setup.subcommands.advanced.description": "Setup the advanced settings for the game."
+    "command.setup.subcommands.advanced.description": "Setup the advanced settings for the game.",
+    "system.announcement.character.created": "%user% created a new character. Welcome %firstName% %lastName%, to Fantasy Frontiers!"
 }

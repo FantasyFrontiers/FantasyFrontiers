@@ -4,11 +4,11 @@ import de.coasterfreak.fantasyfrontiers.data.cache.ServerSettingsCache
 import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
 import dev.fruxz.ascend.extension.logging.getItsLogger
 import net.dv8tion.jda.api.EmbedBuilder
+import net.dv8tion.jda.api.entities.Guild
 import net.dv8tion.jda.api.exceptions.PermissionException
 import net.dv8tion.jda.api.interactions.DiscordLocale
 import net.dv8tion.jda.api.interactions.InteractionHook
 import net.dv8tion.jda.api.interactions.callbacks.IReplyCallback
-import net.dv8tion.jda.api.interactions.components.ComponentInteraction
 
 /**
  * Executes the provided DSL (Domain-Specific Language) code within the context of the current InteractionHook.
@@ -96,4 +96,30 @@ fun getDiscordLocale(languageCode: String): DiscordLocale {
  */
 fun formatNullableMentionCheck(mention: String?): String {
     return if (mention != null) "✅ [ $mention ]" else "❌"
+}
+
+
+/**
+ * Sends a system message to the guild.
+ *
+ * @param message The message to be sent.
+ */
+fun Guild.sendSystemMessage(message: String) {
+    val serverSettings = ServerSettingsCache.get(id)
+    val channel = serverSettings.systemAnnouncement.getChannelOrNull(this) ?: return
+    channel.sendMessage(message).queue()
+}
+
+
+/**
+ * Sends a translated system message to the guild.
+ *
+ * @param messageKey The key identifying the message to be sent.
+ * @param placeholder The placeholders to be replaced in the message.
+ */
+fun Guild.sendTranslatedSystemMessage(messageKey: String, placeholder: Map<String, Any?> = emptyMap()) {
+    val serverSettings = ServerSettingsCache.get(id)
+    val message = TranslationCache.get(serverSettings.language, messageKey, placeholder).toString()
+    val channel = serverSettings.systemAnnouncement.getChannelOrNull(this) ?: return
+    channel.sendMessage(message).queue()
 }
