@@ -4,7 +4,6 @@ import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import de.coasterfreak.fantasyfrontiers.data.db.ConnectionsTable
 import de.coasterfreak.fantasyfrontiers.data.db.TownTable
-import de.coasterfreak.fantasyfrontiers.data.db.discord.ChatRoomTable
 import de.coasterfreak.fantasyfrontiers.data.db.discord.GuildRolesTable
 import de.coasterfreak.fantasyfrontiers.data.db.discord.ServerSettingsTable
 import de.coasterfreak.fantasyfrontiers.data.db.player.CharacterGuildsTable
@@ -61,7 +60,6 @@ internal object DatabaseConnection {
                 CharacterTable,
                 CharacterSkillTable,
                 CharacterGuildsTable,
-                ChatRoomTable,
                 GuildRolesTable
             )
         }

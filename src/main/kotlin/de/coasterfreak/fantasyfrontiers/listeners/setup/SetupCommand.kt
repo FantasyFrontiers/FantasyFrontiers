@@ -80,7 +80,7 @@ class SetupCommand : ListenerAdapter(), HasSubcommands {
 
         editMessage("Setting up language...").setEmbeds().queue()
         withTestPermission {
-            channel.asTextChannel().sendMessageEmbeds(
+            this@with.channel.asTextChannel().sendMessageEmbeds(
                 EmbedBuilder()
                     .setTitle(TranslationCache.get(languageCode, "modals.startPanel.title").toString())
                     .setDescription(TranslationCache.get(languageCode, "modals.startPanel.description").toString())
@@ -115,7 +115,7 @@ class SetupCommand : ListenerAdapter(), HasSubcommands {
                 .build()
         ).addComponents(
             ActionRow.of(
-                Button.secondary("ff-setup-advanced-chatrooms", TranslationCache.get(serverSettings.language, "modals.advancedSetup.buttons.chatRooms").toString())
+                Button.secondary("ff-setup-advanced-system-announcement", TranslationCache.get(serverSettings.language, "modals.advancedSetup.buttons.system-announcement").toString())
                     .withEmoji(Emoji.fromFormatted("📑")),
                 Button.secondary("ff-setup-advanced-roles", TranslationCache.get(serverSettings.language, "modals.advancedSetup.roles.title").toString())
                     .withEmoji(Emoji.fromFormatted("🫅🏽")),
