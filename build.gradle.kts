@@ -42,6 +42,9 @@ val shadowDependencies = listOf(
      "com.mysql:mysql-connector-j:8.1.0",
      "com.zaxxer:HikariCP:5.0.1",
 
+    "io.sentry:sentry:6.31.0",
+    "io.sentry:sentry-kotlin-extensions:6.31.0",
+
 //    "io.ktor:ktor-client-core:$ktorVersion",
 //    "io.ktor:ktor-client-okhttp:$ktorVersion",
 //    "io.ktor:ktor-client-cio:$ktorVersion",
