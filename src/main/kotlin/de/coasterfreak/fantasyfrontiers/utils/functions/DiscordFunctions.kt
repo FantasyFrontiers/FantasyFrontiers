@@ -3,8 +3,11 @@ package de.coasterfreak.fantasyfrontiers.utils.functions
 import de.coasterfreak.fantasyfrontiers.data.cache.ServerSettingsCache
 import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
 import dev.fruxz.ascend.extension.logging.getItsLogger
+import dev.fruxz.ascend.extension.tryOrNull
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.Guild
+import net.dv8tion.jda.api.entities.channel.middleman.GuildMessageChannel
+import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel
 import net.dv8tion.jda.api.exceptions.PermissionException
 import net.dv8tion.jda.api.interactions.DiscordLocale
 import net.dv8tion.jda.api.interactions.InteractionHook
@@ -74,6 +77,28 @@ fun <T> IReplyCallback.withTestPermission(dsl: IReplyCallback.() -> T) {
         replyEmbeds(
             embed
         ).setEphemeral(true).queue()
+    }
+}
+
+fun <T> MessageChannel.withTestPermission(dsl: MessageChannel.() -> T) {
+    try {
+        dsl()
+    }
+    catch(e: PermissionException) {
+        getItsLogger().severe("PermissionException occurred during test permission execution: $e")
+        val languageCode = tryOrNull { this as? GuildMessageChannel }?.let { ServerSettingsCache.get(it.guild.id).language } ?: "en-US"
+        val embed = EmbedBuilder()
+            .setTitle("${TranslationCache.get(languageCode, "modals.errors.permissionCheck.title")} :x:")
+            .setDescription("""
+                    ${TranslationCache.get(languageCode, "modals.errors.permissionCheck.description")}
+                    ```${e.permission}```
+                """.trimIndent())
+            .setColor(0xFF3333)
+            .build()
+
+        sendMessageEmbeds(
+            embed
+        ).queue()
     }
 }
 

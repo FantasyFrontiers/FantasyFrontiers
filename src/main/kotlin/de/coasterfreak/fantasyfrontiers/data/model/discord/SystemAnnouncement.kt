@@ -16,8 +16,8 @@ data class SystemAnnouncement (
     val announcementRoomChannelId: String? = null
 ) {
 
-    fun getChannelOrNull(guild: Guild): GuildMessageChannel? {
-        return announcementRoomChannelId?.let { guild.getGuildChannelById(it) as? GuildMessageChannel }
+    fun getChannelOrNull(guild: Guild?): GuildMessageChannel? {
+        return announcementRoomChannelId?.let { guild?.getGuildChannelById(it) as? GuildMessageChannel }
     }
 
 }
