@@ -2,6 +2,7 @@ package de.coasterfreak.fantasyfrontiers.utils.functions
 
 import de.coasterfreak.fantasyfrontiers.data.cache.ServerSettingsCache
 import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
+import de.coasterfreak.fantasyfrontiers.manager.TravelManager
 import dev.fruxz.ascend.extension.logging.getItsLogger
 import dev.fruxz.ascend.extension.tryOrNull
 import net.dv8tion.jda.api.EmbedBuilder
@@ -121,6 +122,24 @@ fun getDiscordLocale(languageCode: String): DiscordLocale {
  */
 fun formatNullableMentionCheck(mention: String?): String {
     return if (mention != null) "✅ [ $mention ]" else "❌"
+}
+
+fun checkIfAlreadyTraveling(
+    replyCallback: IReplyCallback,
+    languageCode: String
+): Boolean {
+    val travel = TravelManager.get(replyCallback.user.id)
+    if (travel != null) {
+        replyCallback.reply(
+            TranslationCache.get(
+                languageCode, "town.menu.travel.already_traveling", mapOf(
+                    "destination" to travel.connection.name,
+                )
+            ).toString()
+        ).setEphemeral(true).queue()
+        return true
+    }
+    return false
 }
 
 

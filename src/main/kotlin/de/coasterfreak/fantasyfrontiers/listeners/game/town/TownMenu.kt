@@ -2,6 +2,7 @@ package de.coasterfreak.fantasyfrontiers.listeners.game.town
 
 import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
 import de.coasterfreak.fantasyfrontiers.data.model.player.Character
+import de.coasterfreak.fantasyfrontiers.utils.functions.checkIfAlreadyTraveling
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.emoji.Emoji
 import net.dv8tion.jda.api.interactions.callbacks.IReplyCallback
@@ -11,17 +12,20 @@ import net.dv8tion.jda.api.utils.FileUpload
 
 fun IReplyCallback.showTownMenu(character: Character) {
     val languageCode = character.language
+
+    if (checkIfAlreadyTraveling(this, languageCode)) return
+
     val town = character.location
     val townMapImage = town.townMapImage.toFile()
 
     val embed = EmbedBuilder()
         .setTitle(TranslationCache.get(languageCode, "town.menu.title", mapOf("town" to town.name)).toString())
         .setDescription(
-            "*" + TranslationCache.get(languageCode, "town.description.${town.name.replace(" ", "_")}").toString() + "*"
+            "*" + TranslationCache.get(languageCode, "town.description.${town.name.replace(" ", "")}").toString() + "*"
                     + "\n\n" +
             TranslationCache.get(languageCode, "town.menu.description").toString()
         )
-        .setImage("attachment://${town.name.replace(" ", "_")}.png")
+        .setImage("attachment://${town.name.replace(" ", "")}.png")
         .setColor(0x57F287)
         .build()
 

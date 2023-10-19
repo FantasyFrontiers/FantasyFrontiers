@@ -78,7 +78,6 @@ class SetupCommand : ListenerAdapter(), HasSubcommands {
         updateServerSettings(serverSettings)
         ServerSettingsCache.put(serverSettings)
 
-        editMessage("Setting up language...").setEmbeds().queue()
         withTestPermission {
             this@with.channel.asTextChannel().sendMessageEmbeds(
                 EmbedBuilder()
