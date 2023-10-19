@@ -12,6 +12,6 @@ import kotlinx.serialization.Serializable
 data class ServerSettings(
     val guildID: String,
     val language: String = "en-US",
-    val discordChatRooms: List<DiscordChatRoom> = emptyList(),
+    val systemAnnouncement: SystemAnnouncement = SystemAnnouncement(),
     val guildRoles: List<GuildRole> = emptyList()
 )
