@@ -10,7 +10,6 @@ plugins {
 group = "one.devsky.boilerplates"
 version = "1.0-SNAPSHOT"
 
-val ktorVersion: String by project
 val exposedVersion: String by project
 
 repositories {
@@ -44,12 +43,6 @@ val shadowDependencies = listOf(
 
     "io.sentry:sentry:6.31.0",
     "io.sentry:sentry-kotlin-extensions:6.31.0",
-
-//    "io.ktor:ktor-client-core:$ktorVersion",
-//    "io.ktor:ktor-client-okhttp:$ktorVersion",
-//    "io.ktor:ktor-client-cio:$ktorVersion",
-//    "io.ktor:ktor-serialization-kotlinx-json:$ktorVersion",
-//    "io.ktor:ktor-client-content-negotiation:$ktorVersion",
 )
 
 dependencies {
