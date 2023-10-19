@@ -10,7 +10,6 @@ plugins {
 group = "one.devsky.boilerplates"
 version = "1.0-SNAPSHOT"
 
-val ktorVersion: String by project
 val exposedVersion: String by project
 
 repositories {
@@ -26,30 +25,21 @@ val shadowDependencies = listOf(
     "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3",
     "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.6",
     "com.google.code.gson:gson:2.10.1",
-
     // Kotlin Serialization
     "org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0",
-
     "com.github.TheFruxz:Ascend:2023.3",
     "com.github.TheFruxz:Stacked:2023.3",
-
     "io.github.cdimascio:dotenv-kotlin:6.4.1",
-
      "org.jetbrains.exposed:exposed-core:$exposedVersion",
      "org.jetbrains.exposed:exposed-dao:$exposedVersion",
      "org.jetbrains.exposed:exposed-jdbc:$exposedVersion",
      "org.jetbrains.exposed:exposed-java-time:$exposedVersion",
      "com.mysql:mysql-connector-j:8.1.0",
      "com.zaxxer:HikariCP:5.0.1",
-
     "io.sentry:sentry:6.31.0",
     "io.sentry:sentry-kotlin-extensions:6.31.0",
 
-//    "io.ktor:ktor-client-core:$ktorVersion",
-//    "io.ktor:ktor-client-okhttp:$ktorVersion",
-//    "io.ktor:ktor-client-cio:$ktorVersion",
-//    "io.ktor:ktor-serialization-kotlinx-json:$ktorVersion",
-//    "io.ktor:ktor-client-content-negotiation:$ktorVersion",
+
 )
 
 dependencies {
