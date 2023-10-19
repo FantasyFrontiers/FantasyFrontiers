@@ -5,6 +5,7 @@ import de.coasterfreak.fantasyfrontiers.data.cache.ServerSettingsCache
 import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
 import de.coasterfreak.fantasyfrontiers.data.model.town.Travel
 import de.coasterfreak.fantasyfrontiers.manager.TravelManager
+import de.coasterfreak.fantasyfrontiers.utils.functions.checkIfAlreadyTraveling
 import de.coasterfreak.fantasyfrontiers.utils.functions.withTestPermission
 import dev.fruxz.ascend.tool.time.calendar.Calendar
 import net.dv8tion.jda.api.EmbedBuilder
@@ -12,6 +13,7 @@ import net.dv8tion.jda.api.entities.channel.concrete.TextChannel
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent
 import net.dv8tion.jda.api.events.interaction.component.StringSelectInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
+import net.dv8tion.jda.api.interactions.callbacks.IReplyCallback
 import net.dv8tion.jda.api.interactions.components.ActionRow
 import net.dv8tion.jda.api.interactions.components.selections.SelectOption
 import net.dv8tion.jda.api.interactions.components.selections.StringSelectMenu
@@ -22,6 +24,9 @@ class TravelListener : ListenerAdapter() {
         if (event.componentId != "ff-town-menu-travel") return@with
         val character = CharacterCache.get(event.user.id) ?: return@with
         val languageCode = character.language
+
+        if (checkIfAlreadyTraveling(event, languageCode)) return@with
+
         val town = character.location
 
         val embed = EmbedBuilder()
@@ -54,6 +59,9 @@ class TravelListener : ListenerAdapter() {
         if (componentId != "ff-menu-travel-select") return@with
         val character = CharacterCache.get(event.user.id) ?: return@with
         val languageCode = character.language
+
+        if (checkIfAlreadyTraveling(event, languageCode)) return@with
+
         val town = character.location
         val connection = town.connections.find { it.name.lowercase().replace(" ", "_") == selectedOptions[0].value } ?: return@with
         val serverSettings = ServerSettingsCache.get(event.guild!!.id)
