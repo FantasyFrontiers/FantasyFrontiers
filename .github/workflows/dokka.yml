@@ -1,0 +1,26 @@
+name: Dokka Documentation with Gradle
+
+on:
+  pull_request:
+    branches: [ master ]
+    paths-ignore: [ 'docs/**', 'README.md' ]
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Generate API documentation
+      run: |
+        VERSION=$(git tag --sort=committerdate | tail -1)
+        echo Generating API documentation for version $VERSION
+        ./gradlew -Pversion=$VERSION dokkaHtml
+
+    - name: Deploy API documentation to Github Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages
+        folder: build/dokka/html
+        target-folder: api
