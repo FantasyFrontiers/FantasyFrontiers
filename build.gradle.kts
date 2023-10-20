@@ -1,10 +1,13 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import java.net.URL
 
 plugins {
     kotlin("jvm") version "1.9.10"
     id("com.github.johnrengelman.shadow") version "8.1.1"
     kotlin("plugin.serialization") version "1.9.10"
+    id("org.jetbrains.dokka") version "1.9.10"
 }
 
 group = "net.fantasyfrontiers"
@@ -72,6 +75,24 @@ tasks {
         mergeServiceFiles()
         configurations = listOf(project.configurations.shadow.get())
         archiveFileName.set("${project.name}.jar")
+    }
+
+    withType<DokkaTask>().configureEach {
+        moduleName.set(project.name)
+        moduleVersion.set(project.version.toString())
+
+        dokkaSourceSets.configureEach {
+            displayName.set(name)
+            jdkVersion.set(17)
+            languageVersion.set("17")
+            apiVersion.set("17")
+
+            sourceLink {
+                localDirectory.set(projectDir.resolve("src"))
+                remoteUrl.set(URL("https://github.com/FantasyFrontiers/FantasyFrontiers/tree/main/src"))
+                remoteLineSuffix.set("#L")
+            }
+        }
     }
 
 }
