@@ -1,6 +1,6 @@
 package de.coasterfreak.fantasyfrontiers.utils
 
-import de.coasterfreak.fantasyfrontiers.data.cache.TownCache
+import de.coasterfreak.fantasyfrontiers.data.model.town.Towns
 import dev.fruxz.ascend.extension.getResourceOrNull
 import dev.fruxz.ascend.extension.logging.getItsLogger
 import java.io.File
@@ -85,7 +85,7 @@ class TownImageGenerator {
      */
     fun generate() {
         val image = ImageIO.read(fullMap!!.toFile())
-        val towns = TownCache.loadAll()
+        val towns = Towns.towns
 
         towns.forEach { town ->
             val x = (town.coords.x * SCALE_MODIFIER) - (IMAGE_WIDTH / 2)

@@ -1,7 +1,6 @@
 package de.coasterfreak.fantasyfrontiers
 
 import de.coasterfreak.fantasyfrontiers.data.cache.CharacterCache
-import de.coasterfreak.fantasyfrontiers.data.cache.TownCache
 import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
 import de.coasterfreak.fantasyfrontiers.manager.RegisterManager.registerAll
 import de.coasterfreak.fantasyfrontiers.manager.RegisterManager.registerCommands
@@ -31,7 +30,6 @@ class FantasyFrontiers {
         DatabaseConnection.connect()
 
         TranslationCache.loadAll()
-        TownCache.loadAll()
         CharacterCache.loadStatistics()
 
         jda = JDABuilder.createDefault(Environment.getEnv("BOT_TOKEN"))

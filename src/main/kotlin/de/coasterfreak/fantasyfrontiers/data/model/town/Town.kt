@@ -25,4 +25,14 @@ data class Town(
 
     val townMapImage by lazy { getResourceOrNull("assets/towns/${name}.png") ?: throw Exception("Town map image ${name}.png not found. Have you used the `images` command yet?") }
 
+    override fun toString(): String {
+        return """Town(
+    |   name = "$name",
+    |   coords = $coords,
+    |   type = "$type",
+    |   population = $population,
+    |   features = $features,
+    |   connections = listOf(${connections.joinToString(", ")})
+    |)""".trimMargin()
+    }
 }

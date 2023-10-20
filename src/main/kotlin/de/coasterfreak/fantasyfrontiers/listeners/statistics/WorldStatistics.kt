@@ -2,8 +2,8 @@ package de.coasterfreak.fantasyfrontiers.listeners.statistics
 
 import de.coasterfreak.fantasyfrontiers.data.cache.CharacterCache
 import de.coasterfreak.fantasyfrontiers.data.cache.ServerSettingsCache
-import de.coasterfreak.fantasyfrontiers.data.cache.TownCache
 import de.coasterfreak.fantasyfrontiers.data.cache.TranslationCache
+import de.coasterfreak.fantasyfrontiers.data.model.town.Towns
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
@@ -25,7 +25,7 @@ class WorldStatistics : ListenerAdapter() {
                 )
                 .addField(
                     TranslationCache.get(languageCode, "modals.worldStats.fields.towns").toString(),
-                    "```${TownCache.getAll().size}```",
+                    "```${Towns.towns.size}```",
                     true
                 )
                 .addField(

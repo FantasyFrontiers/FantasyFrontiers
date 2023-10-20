@@ -1,8 +1,8 @@
 package de.coasterfreak.fantasyfrontiers.manager
 
 import de.coasterfreak.fantasyfrontiers.data.cache.CharacterCache
-import de.coasterfreak.fantasyfrontiers.data.cache.TownCache
 import de.coasterfreak.fantasyfrontiers.data.db.player.saveCharacter
+import de.coasterfreak.fantasyfrontiers.data.model.town.Towns
 import de.coasterfreak.fantasyfrontiers.data.model.town.Travel
 import de.coasterfreak.fantasyfrontiers.utils.functions.withTestPermission
 import java.util.concurrent.locks.ReentrantReadWriteLock
@@ -66,7 +66,7 @@ object TravelManager {
                     readWriteLock.readLock().lock()
                     travelQueue.forEach { travel ->
                         if (travel.end.timeInMilliseconds <= System.currentTimeMillis()) {
-                            val updatedCharacter = travel.character.copy(location = TownCache.get(travel.connection.name))
+                            val updatedCharacter = travel.character.copy(location = Towns.getByName(travel.connection.name))
                             CharacterCache.put(updatedCharacter)
                             saveCharacter(updatedCharacter)
 
