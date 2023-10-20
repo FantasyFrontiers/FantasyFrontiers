@@ -1,6 +1,8 @@
 name: Dokka Documentation with Gradle
 
-on: pull_request
+on:
+  push:
+    branches: [ "main" ]
 
 permissions:
   contents: read
