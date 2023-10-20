@@ -1,9 +1,6 @@
 name: Dokka Documentation with Gradle
 
-on:
-  pull_request:
-    branches: [ master ]
-    paths-ignore: [ 'docs/**', 'README.md' ]
+on: pull_request
 
 permissions:
   contents: read
