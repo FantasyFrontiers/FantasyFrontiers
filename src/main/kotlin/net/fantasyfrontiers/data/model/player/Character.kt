@@ -4,6 +4,7 @@ import net.fantasyfrontiers.data.model.guild.Guilds
 import net.fantasyfrontiers.data.model.town.Town
 import net.fantasyfrontiers.data.model.town.Towns
 import kotlinx.serialization.Serializable
+import net.fantasyfrontiers.data.model.items.Inventory
 
 /**
  * Represents a character in the game.
@@ -32,6 +33,8 @@ data class Character(
     val nobleTitle: NobleTitle? = null,
     val money: Long = 0,
     // val job: Job,
+
+    val inventory: Inventory = Inventory(),
 
     /**
      * The statistics (stats) of the character.

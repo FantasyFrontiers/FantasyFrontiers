@@ -100,5 +100,11 @@
     "command.setup.subcommands.panels.description": "Setup the panels for the game.",
     "command.setup.subcommands.advanced.name": "advanced",
     "command.setup.subcommands.advanced.description": "Setup the advanced settings for the game.",
-    "system.announcement.character.created": "%user% created a new character. Welcome %firstName% %lastName%, to Fantasy Frontiers!"
+    "system.announcement.character.created": "%user% created a new character. Welcome %firstName% %lastName%, to Fantasy Frontiers!",
+    "item.PEBBLE.name": "Pebble",
+    "item.PEBBLE.description": "A small pebble. It's not very useful.",
+    "item.DEBUG_ITEM.name": "Debug Item",
+    "item.DEBUG_ITEM.description": "A debug item from the developers. How did you manage to see this?",
+    "travel.found.item": "You found **x%amount%** %item%! - *%desc%*",
+    "travel.found.not_enough_space": "You found **x%amount%** %item%, but you don't have enough space in your inventory. %dropAmount% %item%'s had to been dropped. You can sell some items at the marketplace."
 }

@@ -1,11 +1,14 @@
 package net.fantasyfrontiers.data.model.items
 
+import kotlinx.serialization.Serializable
+
 /**
  * Represents a stack of items.
  *
  * @property item The item in the stack.
  * @property amount The amount of items in the stack. Default value is 1.
  */
+@Serializable
 data class ItemStack(val item: Item, var amount: Int = 1) {
 
     init {
@@ -68,6 +71,36 @@ data class ItemStack(val item: Item, var amount: Int = 1) {
         val remainingAmount = this.amount - amount
         this.amount = if (remainingAmount < 0) 0 else remainingAmount
         return if (remainingAmount < 0) -remainingAmount else 0
+    }
+
+
+    /**
+     * Checks if this item stack is equal to another object.
+     *
+     * @param other The object to compare this item stack to.
+     * @return `true` if the item stack is equal to the other object, `false` otherwise.
+     */
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is ItemStack) return false
+
+        if (item != other.item) return false
+        if (amount != other.amount) return false
+
+        return true
+    }
+
+    /**
+     * Calculates the hash code of the `ItemStack` object.
+     *
+     * The hash code is calculated based on the `item` and `amount` fields of the `ItemStack` object.
+     *
+     * @return The hash code value calculated for the `ItemStack` object.
+     */
+    override fun hashCode(): Int {
+        var result = item.hashCode()
+        result = 31 * result + amount
+        return result
     }
 
 }
