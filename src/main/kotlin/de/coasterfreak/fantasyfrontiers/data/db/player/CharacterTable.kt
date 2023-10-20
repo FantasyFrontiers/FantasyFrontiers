@@ -1,9 +1,9 @@
 package de.coasterfreak.fantasyfrontiers.data.db.player
 
-import de.coasterfreak.fantasyfrontiers.data.cache.TownCache
 import de.coasterfreak.fantasyfrontiers.data.model.player.Character
 import de.coasterfreak.fantasyfrontiers.data.model.player.NobleTitle
 import de.coasterfreak.fantasyfrontiers.data.model.player.Stats
+import de.coasterfreak.fantasyfrontiers.data.model.town.Towns
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.replace
 import org.jetbrains.exposed.sql.select
@@ -82,7 +82,7 @@ fun loadCharacter(discordClientID: String) = transaction {
             lastName = row[CharacterTable.lastName],
             nobleTitle = row[CharacterTable.nobleTitle],
             money = row[CharacterTable.money],
-            location = TownCache.get(row[CharacterTable.location]),
+            location = Towns.getByName(row[CharacterTable.location]),
             stats = Stats(
                 healthPoints = row[CharacterTable.healthPoints],
                 manaPoints = row[CharacterTable.manaPoints],

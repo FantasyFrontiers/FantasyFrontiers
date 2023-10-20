@@ -22,4 +22,16 @@ data class Features(
     val shanty: Boolean = false,
     val temple: Boolean = false,
     val walls: Boolean = false,
-)
+) {
+    override fun toString(): String {
+        return """Features(
+    |   capital = $capital,
+    |   citadel = $citadel,
+    |   plaza = $plaza,
+    |   port = $port,
+    |   shanty = $shanty,
+    |   temple = $temple,
+    |   walls = $walls
+    |)""".trimMargin()
+    }
+}

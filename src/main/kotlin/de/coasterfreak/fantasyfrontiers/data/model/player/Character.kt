@@ -1,9 +1,8 @@
 package de.coasterfreak.fantasyfrontiers.data.model.player
 
-import de.coasterfreak.fantasyfrontiers.data.cache.TownCache
-import de.coasterfreak.fantasyfrontiers.data.model.guild.GuildRank
 import de.coasterfreak.fantasyfrontiers.data.model.guild.Guilds
 import de.coasterfreak.fantasyfrontiers.data.model.town.Town
+import de.coasterfreak.fantasyfrontiers.data.model.town.Towns
 import kotlinx.serialization.Serializable
 
 /**
@@ -42,7 +41,7 @@ data class Character(
      */
     val stats: Stats = Stats(),
     val skills: Map<Skill, Long> = emptyMap(),
-    val location: Town = TownCache.get("MistMeadow"), // The smallest town in the game
+    val location: Town = Towns.MISTMEADOW, // The smallest town in the game
     val guildRanks: Map<Guilds, Long> = emptyMap(),
 ) {
 

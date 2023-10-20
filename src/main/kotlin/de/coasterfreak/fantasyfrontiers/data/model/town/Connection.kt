@@ -43,4 +43,11 @@ data class Connection(
         val eta = Calendar.now() + getTravelDuration(character)
         return "<t:${(eta.timeInMilliseconds / 1000)}:R>"
     }
+
+    override fun toString(): String {
+        return """Connection(
+    |   name = "$name",
+    |   distance = $distance
+    |)""".trimMargin()
+    }
 }

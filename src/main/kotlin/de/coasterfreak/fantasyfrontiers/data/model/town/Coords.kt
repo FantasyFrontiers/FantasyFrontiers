@@ -12,4 +12,11 @@ import kotlinx.serialization.Serializable
 data class Coords(
     val x: Double = 0.0,
     val y: Double = 0.0
-)
+) {
+    override fun toString(): String {
+        return """Coords(
+    |   x = $x,
+    |   y = $y
+    |)""".trimMargin()
+    }
+}
