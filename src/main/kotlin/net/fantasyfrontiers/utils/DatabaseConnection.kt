@@ -9,6 +9,7 @@ import net.fantasyfrontiers.data.db.player.CharacterSkillTable
 import net.fantasyfrontiers.data.db.player.CharacterTable
 import dev.fruxz.ascend.extension.logging.getItsLogger
 import dev.fruxz.ascend.tool.time.calendar.Calendar
+import net.fantasyfrontiers.data.db.items.InventoriesTable
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -56,7 +57,8 @@ internal object DatabaseConnection {
                 CharacterTable,
                 CharacterSkillTable,
                 CharacterGuildsTable,
-                GuildRolesTable
+                GuildRolesTable,
+                InventoriesTable
             )
         }
 

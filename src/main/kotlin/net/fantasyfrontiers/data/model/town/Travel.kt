@@ -4,6 +4,10 @@ import net.fantasyfrontiers.data.model.player.Character
 import dev.fruxz.ascend.tool.time.calendar.Calendar
 import kotlinx.serialization.Serializable
 import net.dv8tion.jda.api.entities.channel.concrete.ThreadChannel
+import net.fantasyfrontiers.data.cache.CharacterCache
+import net.fantasyfrontiers.data.cache.TranslationCache
+import net.fantasyfrontiers.data.model.items.Item
+import net.fantasyfrontiers.data.model.items.ItemStack
 import kotlin.time.Duration.Companion.seconds
 
 @Serializable
@@ -24,9 +28,34 @@ data class Travel (
      */
     fun testForRandomEncounter() {
         if (lastInterruption != null && lastInterruption!! + 30.seconds > Calendar.now()) return
-        if (Math.random() < 0.1) {
+        if (Math.random() < 0.01) {
             lastInterruption = Calendar.now()
-            threadChannel.sendMessage("You have been interrupted by a random encounter!").queue()
+            val amount = (Math.random() * 10).toInt() + 1
+            val pebble = ItemStack(Item.PEBBLE, amount)
+            val translationItem = TranslationCache.get(character.language, pebble.item.getTranslatableName()).toString()
+            val translationDesc = TranslationCache.get(character.language, pebble.item.getTranslatableDescription()).toString()
+
+            val drops = character.inventory.addItem(pebble)
+
+            if (drops > 0) {
+                val translationDrops = TranslationCache.get(character.language, "travel.found.not_enough_space", mapOf(
+                    "item" to translationItem,
+                    "amount" to amount.toString(),
+                    "dropAmount" to drops.toString()
+                )).toString()
+                threadChannel.sendMessage(translationDrops).queue()
+                return
+            }
+
+
+            val foundTranslation = TranslationCache.get(character.language, "travel.found.item", mapOf(
+                "item" to translationItem,
+                "desc" to translationDesc,
+                "amount" to amount.toString()
+            )).toString()
+
+            threadChannel.sendMessage(foundTranslation).queue()
+            CharacterCache.put(character)
         }
     }
 

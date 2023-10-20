@@ -1,53 +1,28 @@
 package net.fantasyfrontiers.data.model.items
 
+import kotlinx.serialization.Serializable
+import net.fantasyfrontiers.data.model.extras.TranslatableNameDesc
+
 /**
- * Represents an item in the system.
+ * Represents an item in the inventory with its name, worth, and maximum stack size.
  *
  * @property name The name of the item.
- * @property maxItemStack The maximum number of instances of the item that can be stacked together. Default value is 99.
- * @property translationKey The translation key used for displaying the item's name. Default value is "item.$name".
+ * @property worth The worth of the item in currency.
+ * @property maxItemStack The maximum number of items that can be stacked together.
  */
-data class Item(val name: String, val maxItemStack: Int = 99, val translationKey: String = "item.$name") {
+@Serializable
+enum class Item(val worth: Long = 0, val maxItemStack: Int = 99) : TranslatableNameDesc {
 
-    /**
-     * Placeholder method for executing the use functionality of an item.
-     *
-     * This method is intended to be implemented in a subclass to define the specific behavior of the use functionality for the item.
-     *
-     * Usage:
-     * To use an item, call the `use()` method on an instance of the item. The specific behavior will be executed based on the implementation in the subclass.
-     *
-     * Example:
-     * ```kotlin
-     * val myItem = MyItem()
-     * myItem.use()
-     * ```
-     *
-     * @see Item
-     */
-    fun use() {
-        // Placeholder for the use method
+    PEBBLE,
+
+
+
+
+    DEBUG_ITEM(0, 1)
+    ;
+
+
+    override fun getTranslationKey(): String {
+        return "item.${name}"
     }
-
-    /**
-     * Displays the item information.
-     *
-     * This method is responsible for displaying the information of an item. It can be implemented in a subclass to define the specific behavior of how the item information is displayed.
-     *
-     * Usage:
-     * Call the `display()` method on an instance of the item to display its information. The specific behavior will be executed based on the implementation in the subclass.
-     *
-     * Example:
-     * ```kotlin
-     * val myItem = MyItem()
-     * myItem.display()
-     * ```
-     *
-     * @see Item
-     */
-    fun display() {
-        // Placeholder for displaying item information
-    }
-
-    // More utility methods can be added as needed
 }

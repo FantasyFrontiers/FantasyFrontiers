@@ -18,16 +18,16 @@ class ItemStackTest {
      */
     @Test
     fun create() {
-        val itemStack = ItemStack(Item("testItem"))
+        val itemStack = ItemStack(Item.PEBBLE)
         assertEquals(1, itemStack.amount)
 
-        val itemStack2 = ItemStack(Item("testItem"), 99)
+        val itemStack2 = ItemStack(Item.PEBBLE, 99)
         assertEquals(99, itemStack2.amount)
 
-        assertThrows<AssertionError> { ItemStack(Item("testItem"), 100) }
-        assertThrows<AssertionError> { ItemStack(Item("testItem"), 0) }
+        assertThrows<AssertionError> { ItemStack(Item.PEBBLE, 100) }
+        assertThrows<AssertionError> { ItemStack(Item.PEBBLE, 0) }
 
-        val itemStack3 = ItemStack(Item("testItem", 1), 1)
+        val itemStack3 = ItemStack(Item.DEBUG_ITEM, 1)
         assertEquals(1, itemStack3.amount)
     }
 
@@ -39,7 +39,7 @@ class ItemStackTest {
      */
     @Test
     fun add() {
-        val itemStack = ItemStack(Item("testItem"), 1)
+        val itemStack = ItemStack(Item.PEBBLE, 1)
 
         val result = itemStack.add(1)
         assertEquals(1, result.size)
@@ -60,7 +60,7 @@ class ItemStackTest {
      */
     @Test
     fun remove() {
-        val itemStack = ItemStack(Item("testItem"), 10)
+        val itemStack = ItemStack(Item.PEBBLE, 10)
 
         assertTrue(itemStack.remove(5))
         assertEquals(5, itemStack.amount)
@@ -82,7 +82,7 @@ class ItemStackTest {
      */
     @Test
     fun removeWithRemainingAmount() {
-        val itemStack = ItemStack(Item("testItem"), 10)
+        val itemStack = ItemStack(Item.PEBBLE, 10)
 
         assertTrue(itemStack.remove(5))
         assertEquals(5, itemStack.amount)

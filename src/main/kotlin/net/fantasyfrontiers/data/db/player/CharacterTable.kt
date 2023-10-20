@@ -1,5 +1,8 @@
 package net.fantasyfrontiers.data.db.player
 
+import net.fantasyfrontiers.data.db.items.loadInventory
+import net.fantasyfrontiers.data.db.items.saveInventory
+import net.fantasyfrontiers.data.model.items.Inventory
 import net.fantasyfrontiers.data.model.player.Character
 import net.fantasyfrontiers.data.model.player.NobleTitle
 import net.fantasyfrontiers.data.model.player.Stats
@@ -83,6 +86,7 @@ fun loadCharacter(discordClientID: String) = transaction {
             nobleTitle = row[CharacterTable.nobleTitle],
             money = row[CharacterTable.money],
             location = Towns.getByName(row[CharacterTable.location]),
+            inventory = loadInventory(discordClientID) ?: Inventory(),
             stats = Stats(
                 healthPoints = row[CharacterTable.healthPoints],
                 manaPoints = row[CharacterTable.manaPoints],
@@ -134,7 +138,7 @@ fun saveCharacter(character: Character) = transaction {
         it[reputation] = character.stats.reputation
         it[luck] = character.stats.luck
     }
-
+    saveInventory(character.discordClientID, character.inventory)
     updateAllSkills(character.discordClientID, character.skills)
     updateAllGuilds(character.discordClientID, character.guildRanks)
     return@transaction
