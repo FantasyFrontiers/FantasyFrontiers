@@ -26,3 +26,9 @@
 <span style="background-color: #121212;padding: 8px">Map of <strong>SeaFall</strong></span>
 
 </div>
+
+
+## Developer Documentation
+
+We are working on providing all the needed informations for development on our [wiki](https://wiki.fantasyfrontiers.net/developer-documentation.html).
+If you feel like there is something missing, feel free to [open a issue](https://github.com/FantasyFrontiers/FantasyFrontiersWiki/issues/new)
