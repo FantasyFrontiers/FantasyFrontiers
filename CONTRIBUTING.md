@@ -24,8 +24,8 @@ Pull requests are the best way to propose changes to the codebase (we use [Githu
 ## Any contributions you make will be under the GPL 3.0 Software License
 In short, when you submit code changes, your submissions are understood to be under the same [GPL 3.0](https://choosealicense.com/licenses/gpl-3.0/) that covers the project. Feel free to contact the maintainers if that's a concern.
 
-## Report bugs using Github's [issues](https://github.com/CoasterFreakDE/FantasyFrontiers/issues)
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/CoasterFreakDE/FantasyFrontiers/issues/new/choose); it's that easy!
+## Report bugs using Github's [issues](https://github.com/FantasyFrontiers/FantasyFrontiers/issues)
+We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/FantasyFrontiers/FantasyFrontiers/issues/new/choose); it's that easy!
 
 ## Write bug reports with detail, background, and sample code
 [This is an example](http://stackoverflow.com/q/12488905/180626) of a good bug report. Here's [another example from Craig Hockenberry](http://www.openradar.me/11905408).

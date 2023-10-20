@@ -7,7 +7,7 @@ plugins {
     kotlin("plugin.serialization") version "1.9.10"
 }
 
-group = "one.devsky.boilerplates"
+group = "net.fantasyfrontiers"
 version = "1.0-SNAPSHOT"
 
 val exposedVersion: String by project
@@ -66,12 +66,6 @@ tasks {
     withType<KotlinCompile> {
         kotlinOptions.jvmTarget = "17"
         kotlinOptions.freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
-    }
-
-    withType<ProcessResources> {
-        filesMatching("paper-plugin.yml") {
-            expand(project.properties)
-        }
     }
 
     withType<ShadowJar> {
