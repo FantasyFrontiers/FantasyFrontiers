@@ -10,22 +10,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
+
       - name: Make gradlew executable
         run: chmod +x ./gradlew
-      - name: Generate API documentation
-        run: |
-          VERSION=$(git tag --sort=committerdate | tail -1)
-          echo Generating API documentation for version $VERSION
-          ./gradlew -Pversion=$VERSION dokkaHtml
 
-      - name: Deploy API documentation to Github Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Generate API documentation
+        run: ./gradlew dokkaHtml
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          branch: gh-pages
-          folder: build/dokka/html
-          target-folder: api
+          path: build/dokka/html
