@@ -1,9 +1,8 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: "\U0001F343Feature short description"
+title: "\U0001F343 Feature short description"
 labels: enhancement,hacktoberfest
-assignees: CoasterFreakDE
 
 ---
 
