@@ -3,6 +3,7 @@ package net.fantasyfrontiers.listeners.game.anytime
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.emoji.Emoji
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
+import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent
 import net.dv8tion.jda.api.events.interaction.component.GenericComponentInteractionCreateEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 import net.dv8tion.jda.api.interactions.callbacks.IReplyCallback
@@ -84,6 +85,18 @@ class BackpackCommand : ListenerAdapter() {
         } else {
             replyEmbeds(embed).setComponents(actionRow).setEphemeral(true).queue()
         }
+    }
+
+    override fun onButtonInteraction(event: ButtonInteractionEvent) = with(event) {
+        if (!event.componentId.startsWith("ff-backpack-")) return
+
+        val character = CharacterCache.get(event.user.id) ?: return
+
+        val page = event.componentId.substringAfter("ff-backpack-").toIntOrNull() ?: return
+
+        event.deferEdit().queue()
+
+        showBackpack(character, page)
     }
 
 }
