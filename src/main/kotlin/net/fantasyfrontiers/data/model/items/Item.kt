@@ -11,14 +11,19 @@ import net.fantasyfrontiers.data.model.extras.TranslatableNameDesc
  * @property maxItemStack The maximum number of items that can be stacked together.
  */
 @Serializable
-enum class Item(val worth: Long = 0, val maxItemStack: Int = 99) : TranslatableNameDesc {
+enum class Item(val worth: Double = 0.01, val maxItemStack: Int = 99) : TranslatableNameDesc {
 
     PEBBLE,
 
 
 
+    // Money System
+    BRONZE_COIN(1.0, 99),
+    SILVER_COIN(1000.0, 999),
+    GOLD_COIN(1000000.0, 999),
+    PLATINUM_COIN(1000000000.0, Int.MAX_VALUE),
 
-    DEBUG_ITEM(0, 1)
+    DEBUG_ITEM(0.0, 1)
     ;
 
 

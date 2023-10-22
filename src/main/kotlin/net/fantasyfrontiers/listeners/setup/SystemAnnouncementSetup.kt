@@ -16,6 +16,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter
 import net.dv8tion.jda.api.interactions.components.ActionRow
 import net.dv8tion.jda.api.interactions.components.buttons.Button
 import net.dv8tion.jda.api.interactions.components.selections.EntitySelectMenu
+import net.fantasyfrontiers.utils.functions.whiteSpaceChar
 
 class SystemAnnouncementSetup : ListenerAdapter() {
 
@@ -40,7 +41,7 @@ class SystemAnnouncementSetup : ListenerAdapter() {
         val transChannel = TranslationCache.get(languageCode, "keywords.channel").toString()
 
         val transSystemChannel = TranslationCache.get(languageCode, "modals.advancedSetup.system-announcement.channel").toString()
-        val whiteSpaceChar = "\u1CBC\u1CBC"
+
 
         val embed = EmbedBuilder()
             .setTitle(TranslationCache.get(languageCode, "modals.advancedSetup.system-announcement.title").toString())
