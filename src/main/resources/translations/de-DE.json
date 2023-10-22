@@ -131,5 +131,5 @@
     "backpack.next": "Nächste Seite",
     "backpack.previous": "Vorherige Seite",
     "backpack.title": "Rucksack (%page%/%maxPage%)",
-    "command.backpack.name": "Rucksack"
+    "command.backpack.name": "rucksack"
 }
