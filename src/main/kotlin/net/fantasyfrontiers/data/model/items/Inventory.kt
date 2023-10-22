@@ -97,11 +97,7 @@ class Inventory(val capacity: Int = 36) {
      * @return `true` if the inventory has the item in sufficient quantity, `false` otherwise.
      */
     fun hasItem(item: Item, amount: Int = 1): Boolean {
-        val existingStack = itemStacks.firstOrNull { it.item == item }
-        if (existingStack != null) {
-            return existingStack.amount >= amount
-        }
-        return false
+        return getItemAmount(item) >= amount
     }
 
     /**
@@ -111,11 +107,13 @@ class Inventory(val capacity: Int = 36) {
      * @return The amount of the item in the inventory. Returns 0 if the item does not exist in the inventory.
      */
     fun getItemAmount(item: Item): Int {
-        val existingStack = itemStacks.firstOrNull { it.item == item }
-        if (existingStack != null) {
-            return existingStack.amount
+        var amount = 0
+        itemStacks.forEach {
+            if (it.item == item) {
+                amount += it.amount
+            }
         }
-        return 0
+        return amount
     }
 
     /**
@@ -126,6 +124,18 @@ class Inventory(val capacity: Int = 36) {
     fun getItems(): List<ItemStack> {
         return itemStacks.toList()
     }
+
+    /**
+     * Retrieves a list of distinct item stacks from the inventory.
+     *
+     * @return A list of distinct `ItemStack` objects. Each `ItemStack` represents a unique item in the inventory.
+     */
+    fun getDistinctItems(): List<ItemStack> {
+        return itemStacks.groupBy { it.item }.map { (item, itemStacks) ->
+            ItemStack(item, itemStacks.sumOf { it.amount }, true)
+        }.toList()
+    }
+
 
     /**
      * Clears the itemStacks list.

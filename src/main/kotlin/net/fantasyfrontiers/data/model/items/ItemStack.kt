@@ -9,10 +9,12 @@ import kotlinx.serialization.Serializable
  * @property amount The amount of items in the stack. Default value is 1.
  */
 @Serializable
-data class ItemStack(val item: Item, var amount: Int = 1) {
+data class ItemStack(val item: Item, var amount: Int = 1, val overrideAssert: Boolean = false) {
 
     init {
-        assert(amount > 0 && amount <= item.maxItemStack) { "Amount must be between 1 and ${item.maxItemStack}!" }
+        if (!overrideAssert) {
+            assert(amount > 0 && amount <= item.maxItemStack) { "Amount must be between 1 and ${item.maxItemStack}!" }
+        }
     }
 
     /**

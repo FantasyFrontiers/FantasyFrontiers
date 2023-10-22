@@ -15,6 +15,11 @@ import net.dv8tion.jda.api.interactions.InteractionHook
 import net.dv8tion.jda.api.interactions.callbacks.IReplyCallback
 
 /**
+ * The character used to represent a whitespace character.
+ */
+const val whiteSpaceChar = "\u1CBC\u1CBC"
+
+/**
  * Executes the provided DSL (Domain-Specific Language) code within the context of the current InteractionHook.
  * If a PermissionException is thrown during the execution, an error message is sent as an embed to the original message's channel.
  *
