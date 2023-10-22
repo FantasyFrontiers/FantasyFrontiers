@@ -1,5 +1,6 @@
 package net.fantasyfrontiers.utils
 
+import dev.fruxz.ascend.extension.logging.getItsLogger
 import net.dv8tion.jda.api.events.GenericEvent
 import net.dv8tion.jda.api.hooks.EventListener
 import io.sentry.Sentry
@@ -20,6 +21,7 @@ class SentryWrapperEventListener(private val originalListener: EventListener) : 
         } catch (e: Exception) {
             // Capture the exception in Sentry
             Sentry.captureException(e)
+            getItsLogger().severe("An exception occurred while handling an event: $e")
 
             // Set transaction status to ERROR
             transaction.status = SpanStatus.INTERNAL_ERROR
