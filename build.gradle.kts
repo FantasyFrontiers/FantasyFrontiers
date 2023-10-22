@@ -44,6 +44,9 @@ val shadowDependencies = listOf(
     "io.sentry:sentry:6.31.0",
     "io.sentry:sentry-kotlin-extensions:6.31.0",
 
+    // Logback
+    "ch.qos.logback:logback-classic:1.4.11"
+
 
 )
 
