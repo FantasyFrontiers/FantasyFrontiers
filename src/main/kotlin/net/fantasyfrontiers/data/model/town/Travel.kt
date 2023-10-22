@@ -31,11 +31,11 @@ data class Travel (
         if (Math.random() < 0.01) {
             lastInterruption = Calendar.now()
             val amount = (Math.random() * 10).toInt() + 1
-            val pebble = ItemStack(Item.PEBBLE, amount)
-            val translationItem = TranslationCache.get(character.language, pebble.item.getTranslatableName()).toString()
-            val translationDesc = TranslationCache.get(character.language, pebble.item.getTranslatableDescription()).toString()
+            val randomItem = if (Math.random() < 0.8) ItemStack(Item.PEBBLE, amount) else ItemStack(Item.BRONZE_COIN, amount)
+            val translationItem = TranslationCache.get(character.language, randomItem.item.getTranslatableName()).toString()
+            val translationDesc = TranslationCache.get(character.language, randomItem.item.getTranslatableDescription()).toString()
 
-            val drops = character.inventory.addItem(pebble)
+            val drops = character.inventory.addItem(randomItem)
 
             if (drops > 0) {
                 val translationDrops = TranslationCache.get(character.language, "travel.found.not_enough_space", mapOf(
