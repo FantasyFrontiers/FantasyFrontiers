@@ -16,6 +16,7 @@ import net.dv8tion.jda.api.hooks.EventListener
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions
 import net.dv8tion.jda.api.interactions.commands.build.Commands
+import net.fantasyfrontiers.utils.SentryWrapperEventListener
 import org.reflections8.Reflections
 import java.util.*
 import kotlin.time.measureTime
@@ -62,7 +63,8 @@ object RegisterManager {
 
                 val listener = constructor.newInstance()
                 loadedClasses += clazz.simpleName to listener
-                addEventListeners(listener)
+
+                addEventListeners(SentryWrapperEventListener(listener))
                 getItsLogger().info("Registered listener: ${listener.javaClass.simpleName}")
             }
         }
