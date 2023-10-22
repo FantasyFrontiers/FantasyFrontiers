@@ -8,6 +8,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     kotlin("plugin.serialization") version "1.9.10"
     id("org.jetbrains.dokka") version "1.9.10"
+    id("org.sonarqube") version "4.2.1.3168"
 }
 
 group = "net.fantasyfrontiers"
@@ -102,4 +103,11 @@ tasks {
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "FantasyFrontiers_FantasyFrontiers_AYtYojaK-OpTDOlVq1Dj")
+        property("sonar.projectName", "FantasyFrontiers")
+    }
 }
