@@ -22,6 +22,8 @@ data class Connection(
     val distance: Int = 0,
 ) {
 
+    val asLocation: Location by lazy { Location.fromString(name) }
+
     /**
      * Calculates the travel duration for a character to traverse a connection between two towns.
      * The travel duration is based on the character's walk speed and agility stat.

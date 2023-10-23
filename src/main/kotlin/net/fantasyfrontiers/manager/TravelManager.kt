@@ -2,6 +2,7 @@ package net.fantasyfrontiers.manager
 
 import net.fantasyfrontiers.data.cache.CharacterCache
 import net.fantasyfrontiers.data.db.player.saveCharacter
+import net.fantasyfrontiers.data.model.town.Location
 import net.fantasyfrontiers.data.model.town.Towns
 import net.fantasyfrontiers.data.model.town.Travel
 import net.fantasyfrontiers.utils.functions.withTestPermission
@@ -66,11 +67,12 @@ object TravelManager {
                     readWriteLock.readLock().lock()
                     travelQueue.forEach { travel ->
                         if (travel.end.timeInMilliseconds <= System.currentTimeMillis()) {
-                            val updatedCharacter = travel.character.copy(location = Towns.getByName(travel.connection.name))
+                            val location = travel.connection.asLocation
+                            val updatedCharacter = travel.character.copy(location = location)
                             CharacterCache.put(updatedCharacter)
                             saveCharacter(updatedCharacter)
 
-                            travel.threadChannel.sendMessage("You have arrived at ${travel.connection.name}!").queue {
+                            travel.threadChannel.sendMessage("You have arrived at ${location.town.name}!").queue {
                                 Thread {
                                     remove(travel)
                                     Thread.sleep(10000)

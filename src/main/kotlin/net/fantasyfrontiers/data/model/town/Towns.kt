@@ -29,11 +29,16 @@ object Towns {
         features = Features(
             capital = false,
             citadel = true,
-            plaza = true,
             port = true,
             shanty = true,
             temple = true,
-            walls = true
+            walls = true,
+            blacksmith = true,
+            herbGarden = true,
+            merchantsGuild = true,
+            adventurersGuild = true,
+            blacksmithsGuild = true,
+            herbologistsGuild = true
         ),
         connections = listOf(Connection(
             name = "Dewgrass Town",
@@ -54,6 +59,9 @@ object Towns {
             name = "Wharfwind",
             distance = 1284
         ), Connection(
+            name = "Wharfwind:PORT",
+            distance = 1438
+        ), Connection(
             name = "MistMeadow",
             distance = 2520
         ), Connection(
@@ -73,11 +81,16 @@ object Towns {
         features = Features(
             capital = true,
             citadel = true,
-            plaza = true,
             port = false,
             shanty = true,
             temple = true,
-            walls = true
+            walls = true,
+            blacksmith = true,
+            herbGarden = true,
+            merchantsGuild = true,
+            adventurersGuild = true,
+            blacksmithsGuild = true,
+            herbologistsGuild = true
         ),
         connections = listOf(Connection(
             name = "Brookfield",
@@ -114,11 +127,14 @@ object Towns {
         features = Features(
             capital = false,
             citadel = true,
-            plaza = true,
             port = false,
             shanty = true,
             temple = true,
-            walls = true
+            walls = true,
+            blacksmith = true,
+            herbGarden = true,
+            adventurersGuild = true,
+            merchantsGuild = true,
         ),
         connections = listOf(Connection(
             name = "Streamstone",
@@ -149,11 +165,13 @@ object Towns {
         features = Features(
             capital = false,
             citadel = false,
-            plaza = false,
             port = true,
             shanty = false,
             temple = false,
-            walls = false
+            walls = false,
+            blacksmith = true,
+            herbGarden = false,
+            blacksmithsGuild = true,
         ),
         connections = listOf(Connection(
             name = "Lakevale",
@@ -164,6 +182,12 @@ object Towns {
         ), Connection(
             name = "Waterwillow Town",
             distance = 2083
+        ), Connection(
+            name = "Port Drizzle:PORT",
+            distance = 8438
+        ), Connection(
+            name = "Wharfwind:PORT",
+            distance = 7000
         ))
     )
 
@@ -178,11 +202,13 @@ object Towns {
         features = Features(
             capital = false,
             citadel = false,
-            plaza = false,
             port = false,
             shanty = false,
             temple = false,
-            walls = false
+            walls = false,
+            blacksmith = false,
+            herbGarden = false,
+            adventurersGuild = true,
         ),
         connections = listOf(Connection(
             name = "Riverbend",
@@ -213,15 +239,20 @@ object Towns {
         features = Features(
             capital = false,
             citadel = true,
-            plaza = false,
             port = true,
             shanty = false,
             temple = false,
-            walls = true
+            walls = true,
+            blacksmith = false,
+            herbGarden = true,
+            herbologistsGuild = true,
         ),
         connections = listOf(Connection(
             name = "Port Drizzle",
             distance = 1284
+        ), Connection(
+            name = "Port Drizzle:PORT",
+            distance = 1438
         ), Connection(
             name = "MistMeadow",
             distance = 2134
@@ -229,7 +260,7 @@ object Towns {
             name = "Pinegrove Hamlet",
             distance = 1914
         ), Connection(
-            name = "Tideharbor",
+            name = "Tideharbor:PORT",
             distance = 7000
         ))
     )
@@ -245,11 +276,13 @@ object Towns {
         features = Features(
             capital = false,
             citadel = false,
-            plaza = false,
             port = false,
             shanty = false,
             temple = false,
-            walls = false
+            walls = false,
+            blacksmith = false,
+            herbGarden = true,
+            adventurersGuild = true,
         ),
         connections = listOf(Connection(
             name = "Rillrun",
@@ -280,11 +313,12 @@ object Towns {
         features = Features(
             capital = false,
             citadel = false,
-            plaza = false,
             port = false,
             shanty = false,
             temple = false,
-            walls = false
+            walls = false,
+            blacksmith = false,
+            herbGarden = false
         ),
         connections = listOf(Connection(
             name = "Wharfwind",
@@ -309,11 +343,13 @@ object Towns {
         features = Features(
             capital = false,
             citadel = true,
-            plaza = false,
             port = false,
             shanty = false,
             temple = false,
-            walls = false
+            walls = false,
+            blacksmith = false,
+            herbGarden = true,
+            herbologistsGuild = true,
         ),
         connections = listOf(Connection(
             name = "Lakevale",
@@ -330,16 +366,19 @@ object Towns {
             x = 699.32,
             y = 423.24
         ),
-        type = "Hunting",
+        type = "Mining",
         population = 204,
         features = Features(
             capital = false,
             citadel = false,
-            plaza = false,
             port = false,
             shanty = false,
             temple = false,
-            walls = false
+            walls = false,
+            blacksmith = true,
+            herbGarden = false,
+            blacksmithsGuild = true,
+            adventurersGuild = true
         ),
         connections = listOf(Connection(
             name = "MistMeadow",
@@ -364,11 +403,13 @@ object Towns {
         features = Features(
             capital = false,
             citadel = true,
-            plaza = true,
             port = false,
             shanty = false,
             temple = false,
-            walls = false
+            walls = false,
+            blacksmith = true,
+            herbGarden = false,
+            adventurersGuild = true,
         ),
         connections = listOf(Connection(
             name = "Lakevale",
@@ -399,11 +440,12 @@ object Towns {
         features = Features(
             capital = false,
             citadel = false,
-            plaza = false,
             port = false,
             shanty = false,
             temple = false,
-            walls = false
+            walls = false,
+            blacksmith = false,
+            herbGarden = true
         ),
         connections = listOf(Connection(
             name = "Tideharbor",

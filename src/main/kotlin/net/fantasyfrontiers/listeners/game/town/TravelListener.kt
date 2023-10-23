@@ -27,7 +27,8 @@ class TravelListener : ListenerAdapter() {
 
         if (checkIfAlreadyTraveling(event, languageCode)) return@with
 
-        val town = character.location
+        val location = character.location
+        val town = location.town
 
         val embed = EmbedBuilder()
             .setTitle(TranslationCache.get(languageCode, "town.menu.travel").toString())
@@ -62,7 +63,8 @@ class TravelListener : ListenerAdapter() {
 
         if (checkIfAlreadyTraveling(event, languageCode)) return@with
 
-        val town = character.location
+        val location = character.location
+        val town = location.town
         val connection = town.connections.find { it.name.lowercase().replace(" ", "_") == selectedOptions[0].value } ?: return@with
         val serverSettings = ServerSettingsCache.get(event.guild!!.id)
 

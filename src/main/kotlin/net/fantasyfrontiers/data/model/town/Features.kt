@@ -17,21 +17,31 @@ import kotlinx.serialization.Serializable
 data class Features(
     val capital: Boolean = false,
     val citadel: Boolean = false,
-    val plaza: Boolean = false,
     val port: Boolean = false,
     val shanty: Boolean = false,
     val temple: Boolean = false,
     val walls: Boolean = false,
+    val blacksmith: Boolean = false,
+    val herbGarden: Boolean = false,
+    val merchantsGuild: Boolean = false,
+    val adventurersGuild: Boolean = false,
+    val blacksmithsGuild: Boolean = false,
+    val herbologistsGuild: Boolean = false,
 ) {
     override fun toString(): String {
         return """Features(
     |   capital = $capital,
     |   citadel = $citadel,
-    |   plaza = $plaza,
     |   port = $port,
     |   shanty = $shanty,
     |   temple = $temple,
-    |   walls = $walls
+    |   walls = $walls,
+    |   blacksmith = $blacksmith,
+    |   herbGarden = $herbGarden,
+    |   merchantsGuild = $merchantsGuild,
+    |   adventurersGuild = $adventurersGuild,
+    |   blacksmithsGuild = $blacksmithsGuild,
+    |   herbologistsGuild = $herbologistsGuild
     |)""".trimMargin()
     }
 }

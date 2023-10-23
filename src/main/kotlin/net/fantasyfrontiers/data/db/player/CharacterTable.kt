@@ -6,6 +6,7 @@ import net.fantasyfrontiers.data.model.items.Inventory
 import net.fantasyfrontiers.data.model.player.Character
 import net.fantasyfrontiers.data.model.player.NobleTitle
 import net.fantasyfrontiers.data.model.player.Stats
+import net.fantasyfrontiers.data.model.town.Location
 import net.fantasyfrontiers.data.model.town.Towns
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.replace
@@ -45,8 +46,7 @@ object CharacterTable: Table("characters") {
     val firstName = varchar("first_name", 32)
     val lastName = varchar("last_name", 32)
     val nobleTitle = enumeration("noble_title", NobleTitle::class).nullable()
-    val money = long("money").default(0)
-    val location = varchar("location", 50).default("MistMeadow")
+    val location = varchar("location", 120).default("MistMeadow:MARKETPLACE")
 
     // Stats
     val healthPoints = integer("health_points").default(20)
@@ -84,8 +84,7 @@ fun loadCharacter(discordClientID: String) = transaction {
             firstName = row[CharacterTable.firstName],
             lastName = row[CharacterTable.lastName],
             nobleTitle = row[CharacterTable.nobleTitle],
-            money = row[CharacterTable.money],
-            location = Towns.getByName(row[CharacterTable.location]),
+            location = Location.fromString(row[CharacterTable.location]),
             inventory = loadInventory(discordClientID) ?: Inventory(),
             stats = Stats(
                 healthPoints = row[CharacterTable.healthPoints],
@@ -122,8 +121,7 @@ fun saveCharacter(character: Character) = transaction {
         it[firstName] = character.firstName
         it[lastName] = character.lastName
         it[nobleTitle] = character.nobleTitle
-        it[money] = character.money
-        it[location] = character.location.name
+        it[location] = character.location.toString()
 
         // Stats
         it[healthPoints] = character.stats.healthPoints

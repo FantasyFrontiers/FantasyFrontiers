@@ -12,7 +12,7 @@ class ConnectionTest {
         "en-US",
         "Test",
         "Test",
-        location = Town("Test1"),
+        location = Location(Town("Test1"), SpecialLocation.OUTSIDE)
     )
 
     @Test
