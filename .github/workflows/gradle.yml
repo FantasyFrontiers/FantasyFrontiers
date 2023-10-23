@@ -21,10 +21,5 @@ jobs:
         run: chmod +x ./gradlew
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v2.9.0
-        env: # Or as an environment variable
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          DATABASE_DRIVER: ${{ secrets.DATABASE_DRIVER }}
-          DATABASE_USER: ${{ secrets.DATABASE_USER }}
-          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
         with:
           arguments: build
