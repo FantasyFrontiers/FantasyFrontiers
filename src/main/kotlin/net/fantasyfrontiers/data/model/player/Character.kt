@@ -5,6 +5,8 @@ import net.fantasyfrontiers.data.model.town.Town
 import net.fantasyfrontiers.data.model.town.Towns
 import kotlinx.serialization.Serializable
 import net.fantasyfrontiers.data.model.items.Inventory
+import net.fantasyfrontiers.data.model.town.Location
+import net.fantasyfrontiers.data.model.town.SpecialLocation
 
 /**
  * Represents a character in the game.
@@ -31,7 +33,6 @@ data class Character(
     val lastName: String,
     // val skinID: String? = null,
     val nobleTitle: NobleTitle? = null,
-    val money: Long = 0,
     // val job: Job,
 
     val inventory: Inventory = Inventory(),
@@ -44,7 +45,7 @@ data class Character(
      */
     val stats: Stats = Stats(),
     val skills: Map<Skill, Long> = emptyMap(),
-    val location: Town = Towns.MISTMEADOW, // The smallest town in the game
+    val location: Location = Location(Towns.MISTMEADOW, SpecialLocation.MARKETPLACE),
     val guildRanks: Map<Guilds, Long> = emptyMap(),
 ) {
 

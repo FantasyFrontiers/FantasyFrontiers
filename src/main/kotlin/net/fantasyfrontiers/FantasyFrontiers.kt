@@ -10,6 +10,8 @@ import net.fantasyfrontiers.utils.Environment
 import dev.fruxz.ascend.extension.logging.getItsLogger
 import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.JDABuilder
+import net.dv8tion.jda.api.entities.Activity
+import net.fantasyfrontiers.utils.extensions.asScientificNumber
 
 /**
  * The FantasyFrontiers class represents the main entry point of the application.
@@ -19,18 +21,16 @@ import net.dv8tion.jda.api.JDABuilder
 class FantasyFrontiers {
 
     companion object {
-        lateinit var instance: net.fantasyfrontiers.FantasyFrontiers
+        lateinit var instance: FantasyFrontiers
     }
 
     private val jda: JDA
 
     init {
-        net.fantasyfrontiers.FantasyFrontiers.Companion.instance = this
+        instance = this
 
         DatabaseConnection.connect()
-
         TranslationCache.loadAll()
-        CharacterCache.loadStatistics()
 
         jda = JDABuilder.createDefault(Environment.getEnv("BOT_TOKEN"))
             .registerAll()
@@ -38,6 +38,7 @@ class FantasyFrontiers {
             .awaitReady()
             .registerCommands()
 
+        CharacterCache.loadStatistics()
         TravelManager.startThread()
 
         Runtime.getRuntime().addShutdownHook(Thread {
@@ -48,5 +49,9 @@ class FantasyFrontiers {
         }.apply { isDaemon = true })
 
         getItsLogger().info("Bot is ready! ${jda.selfUser.name} - ${jda.selfUser.id} on ${jda.guilds.size} guilds")
+    }
+
+    fun refreshStatus() {
+        jda.presence.activity = Activity.customStatus("🌸 ${CharacterCache.totalCharacters.asScientificNumber()} characters created")
     }
 }

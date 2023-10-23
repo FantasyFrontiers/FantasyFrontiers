@@ -7,6 +7,7 @@ import net.fantasyfrontiers.data.model.town.Towns
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
+import net.fantasyfrontiers.utils.extensions.asScientificNumber
 
 class WorldStatistics : ListenerAdapter() {
 
@@ -20,7 +21,7 @@ class WorldStatistics : ListenerAdapter() {
                 .setTitle("📜 ${TranslationCache.get(languageCode, "modals.worldStats.title")}")
                 .addField(
                     TranslationCache.get(languageCode, "modals.worldStats.fields.guilds").toString(),
-                    "```${guild!!.jda.guildCache.size()}```",
+                    "```${guild!!.jda.guildCache.size().asScientificNumber()}```",
                     true
                 )
                 .addField(
@@ -35,7 +36,7 @@ class WorldStatistics : ListenerAdapter() {
                 )
                 .addField(
                     TranslationCache.get(languageCode, "modals.worldStats.fields.characters.created").toString(),
-                    "```${CharacterCache.totalCharacters}```",
+                    "```${CharacterCache.totalCharacters.asScientificNumber()}```",
                     true
                 )
                 .build()

@@ -4,10 +4,12 @@ import net.fantasyfrontiers.data.db.player.CharacterTable
 import net.fantasyfrontiers.data.db.player.loadCharacter
 import net.fantasyfrontiers.data.model.player.Character
 import dev.fruxz.ascend.extension.logging.getItsLogger
+import net.fantasyfrontiers.FantasyFrontiers
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 import java.util.concurrent.locks.ReadWriteLock
 import java.util.concurrent.locks.ReentrantReadWriteLock
+import kotlin.properties.Delegates
 
 object CharacterCache {
 
@@ -39,7 +41,11 @@ object CharacterCache {
     /**
      * Represents the total number of characters created.
      */
-    var totalCharacters = 0L
+    var totalCharacters: Long by Delegates.observable(0L) { _, _, newValue ->
+        getItsLogger().info("$newValue characters in localStorage.")
+
+        FantasyFrontiers.instance.refreshStatus()
+    }
         private set
 
     fun loadStatistics() = transaction {
