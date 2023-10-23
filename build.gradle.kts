@@ -22,7 +22,7 @@ repositories {
 }
 
 val shadowDependencies = listOf(
-    "net.dv8tion:JDA:5.0.0-beta.15",
+    "net.dv8tion:JDA:5.0.0-beta.16",
 
     // Utilities
     "net.oneandone.reflections8:reflections8:0.11.7",
