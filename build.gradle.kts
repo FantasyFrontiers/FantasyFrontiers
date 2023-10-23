@@ -22,7 +22,7 @@ repositories {
 }
 
 val shadowDependencies = listOf(
-    "net.dv8tion:JDA:5.0.0-beta.15",
+    "net.dv8tion:JDA:5.0.0-beta.16",
 
     // Utilities
     "net.oneandone.reflections8:reflections8:0.11.7",
@@ -43,7 +43,7 @@ val shadowDependencies = listOf(
 
     // Sentry
     "io.sentry:sentry:6.31.0",
-    "io.sentry:sentry-kotlin-extensions:6.31.0",
+    "io.sentry:sentry-kotlin-extensions:6.32.0",
 
     // Logback
     "ch.qos.logback:logback-classic:1.4.11"

@@ -55,7 +55,7 @@ object RegisterManager {
 
         // Registering both ListenerAdapters and EventListeners
         val listenerTime = measureTime {
-            for (clazz in (reflections.getSubTypesOf(ListenerAdapter::class.java) + reflections.getSubTypesOf(EventListener::class.java)).distinct()) {
+            for (clazz in (reflections.getSubTypesOf(ListenerAdapter::class.java)).distinct()) {
                 if (clazz.simpleName == "ListenerAdapter") continue
 
                 val constructor = clazz.getDeclaredConstructor()
