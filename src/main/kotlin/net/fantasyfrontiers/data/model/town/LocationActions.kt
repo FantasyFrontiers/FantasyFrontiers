@@ -14,7 +14,7 @@ import net.fantasyfrontiers.data.model.player.Character
  * @property testEnabled The test to determine if the action is enabled for a character in a specific special location.
  */
 @Serializable
-enum class LocationActions(val emoji: String, val specialLocations: List<SpecialLocation> = emptyList(), val testEnabled: (Character, SpecialLocation) -> Boolean = { _, _ -> false }) {
+enum class LocationActions(val emoji: String, val specialLocations: List<SpecialLocation> = emptyList(), val testEnabled: (Character, SpecialLocation) -> Boolean = { _, _ -> true }) {
 
 
     QUEST_BOARD("📖",

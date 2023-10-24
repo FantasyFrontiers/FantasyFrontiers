@@ -107,6 +107,23 @@ class TownActionListener : ListenerAdapter() {
                 showTownMenu(character, harvestMessage)
                 return@with
             }
+            LocationActions.SELL -> {
+                val items = character.inventory.sellAll()
+
+                val itemDescriptions = items.map { itemStack ->
+                    "**${itemStack.amount}x** ${TranslationCache.get(languageCode, itemStack.item.getTranslatableName())}"
+                }
+
+                val sellMessage = TranslationCache.get(languageCode, "town.menu.sell.all", mapOf(
+                    "amount" to itemDescriptions.joinToString(", ")
+                )).toString()
+
+                CharacterCache.put(character)
+                saveCharacter(character)
+
+                showTownMenu(character, sellMessage)
+                return@with
+            }
             else -> {}
         }
 

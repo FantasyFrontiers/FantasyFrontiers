@@ -82,6 +82,7 @@
     "town.menu.action.SELL": "Sell",
     "town.menu.action.JOIN_GUILD": "Join guild",
     "town.menu.joined.guild": "You joined the %guild%!",
+    "town.menu.sell.all": "Sold all items for %amount%",
     "town.menu.description": "Select an action below to continue.",
     "town.menu.port": "Port",
     "town.menu.plaza": "Marketplace",

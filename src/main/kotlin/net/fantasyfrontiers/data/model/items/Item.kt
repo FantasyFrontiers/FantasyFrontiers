@@ -13,7 +13,7 @@ import net.fantasyfrontiers.data.model.town.Town
  * @property maxItemStack The maximum number of items that can be stacked together.
  */
 @Serializable
-enum class Item(val worth: Double = 0.1, val maxItemStack: Int = 99, private val harvestConditions: HarvestConditions? = null) : TranslatableNameDesc {
+enum class Item(val worth: Double = 0.1, val maxItemStack: Int = 99, private val harvestConditions: HarvestConditions? = null, val isSellable: Boolean = true) : TranslatableNameDesc {
 
     PEBBLE,
 
@@ -37,12 +37,12 @@ enum class Item(val worth: Double = 0.1, val maxItemStack: Int = 99, private val
 
 
     // Money System
-    BRONZE_COIN(1.0, 99),
-    SILVER_COIN(1000.0, 999),
-    GOLD_COIN(1000000.0, 999),
-    PLATINUM_COIN(1000000000.0, Int.MAX_VALUE),
+    BRONZE_COIN(1.0, 99, isSellable = false),
+    SILVER_COIN(1000.0, 999, isSellable = false),
+    GOLD_COIN(1000000.0, 999, isSellable = false),
+    PLATINUM_COIN(1000000000.0, Int.MAX_VALUE, isSellable = false),
 
-    DEBUG_ITEM(0.0, 1)
+    DEBUG_ITEM(0.0, 1, isSellable = false)
     ;
 
 
