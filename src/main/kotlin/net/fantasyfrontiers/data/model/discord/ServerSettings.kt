@@ -1,6 +1,7 @@
 package net.fantasyfrontiers.data.model.discord
 
 import kotlinx.serialization.Serializable
+import net.fantasyfrontiers.data.model.guild.Guilds
 
 /**
  * Represents the settings for a server.
@@ -14,4 +15,11 @@ data class ServerSettings(
     val language: String = "en-US",
     val systemAnnouncement: SystemAnnouncement = SystemAnnouncement(),
     val guildRoles: List<GuildRole> = emptyList()
-)
+) {
+
+
+    fun getGuildRole(guild: Guilds): String? {
+        return guildRoles.find { it.guild == guild }?.roleId
+    }
+
+}

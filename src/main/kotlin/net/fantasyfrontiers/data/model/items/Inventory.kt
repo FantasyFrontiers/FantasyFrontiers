@@ -2,6 +2,7 @@ package net.fantasyfrontiers.data.model.items
 
 import com.google.gson.Gson
 import kotlinx.serialization.Serializable
+import kotlin.math.roundToInt
 
 /**
  * Represents an inventory with a specified capacity to store items.
@@ -164,6 +165,51 @@ class Inventory(val capacity: Int = 36) {
             return capacity - itemStacks.sumOf { it.amount } + existingStack.amount
         }
         return capacity - itemStacks.sumOf { it.amount }
+    }
+
+
+    fun sellAll(): List<ItemStack> {
+        var total = 0L
+        val eligibleItems = itemStacks.filter { it.item.isSellable }
+        eligibleItems.forEach {
+            total += (it.item.worth * it.amount).roundToInt()
+        }
+        itemStacks.removeAll(eligibleItems)
+        modifyCoins(total)
+        return total.toCoins()
+    }
+
+
+    fun modifyCoins(amount: Long) {
+        val coins = Item.entries.filter { !it.isSellable && it.name.contains("_COIN") }.associateWith { it.worth }
+        val coinStacks = itemStacks.filter { coins.containsKey(it.item) }.toMutableList()
+        var coinWorths = coinStacks.sumOf { it.amount * coins[it.item]!! } // Worth in bronze coins
+        coinWorths += amount
+        if (coinWorths < 0) {
+            coinWorths = 0.0
+        }
+        coinStacks.clear()
+        coinStacks.addAll(coinWorths.toCoins())
+        itemStacks.removeAll { coins.containsKey(it.item) }
+        itemStacks.addAll(coinStacks)
+    }
+
+    private fun Long.toCoins(): List<ItemStack> {
+        return this.toDouble().toCoins()
+    }
+
+    private fun Double.toCoins(): List<ItemStack> {
+        val coins = Item.entries.filter { !it.isSellable && it.name.contains("_COIN") }.sortedByDescending { it.worth }.associateWith { it.worth }
+        val coinStacks = mutableListOf<ItemStack>()
+        var remaining = this
+        coins.forEach { (coin, worth) ->
+            val amount = (remaining / worth).toInt()
+            if (amount > 0) {
+                coinStacks.add(ItemStack(coin, amount))
+                remaining -= amount * worth
+            }
+        }
+        return coinStacks
     }
 
     override fun equals(other: Any?): Boolean {

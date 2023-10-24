@@ -1,5 +1,6 @@
 package net.fantasyfrontiers.data.db.player
 
+import net.fantasyfrontiers.data.model.guild.GuildCard
 import net.fantasyfrontiers.data.model.guild.Guilds
 import net.fantasyfrontiers.data.model.player.Skill
 import net.fantasyfrontiers.data.model.player.Skills
@@ -30,10 +31,10 @@ object CharacterGuildsTable: Table("character_guilds") {
  * @param discordClientID The ID of the Discord client.
  * @return A map of guilds and their corresponding experience values. The keys are of type [Guilds], which represents the available guilds in the game, and the values are of type [Long] representing the experience values.
  */
-fun getAllGuilds(discordClientID: String): Map<Guilds, Long> = transaction {
+fun getAllGuilds(discordClientID: String): List<GuildCard> = transaction {
     return@transaction CharacterGuildsTable.select { CharacterGuildsTable.discordClientID eq discordClientID }
-        .associate { row ->
-            row[CharacterGuildsTable.guildName] to row[CharacterGuildsTable.experience]
+        .map { row ->
+            GuildCard(row[CharacterGuildsTable.guildName], row[CharacterGuildsTable.experience])
         }
 }
 
@@ -44,8 +45,8 @@ fun getAllGuilds(discordClientID: String): Map<Guilds, Long> = transaction {
  * @param discordClientID The Discord client ID associated with the guilds.
  * @param guilds A map containing the guild names and their corresponding experience values.
  */
-fun updateAllGuilds(discordClientID: String, guilds: Map<Guilds, Long>) = transaction {
-    CharacterGuildsTable.batchReplace(guilds.entries) { (guild, experience) ->
+fun updateAllGuilds(discordClientID: String, guilds: List<GuildCard>) = transaction {
+    CharacterGuildsTable.batchReplace(guilds) { (guild, experience) ->
         this[CharacterGuildsTable.discordClientID] = discordClientID
         this[CharacterGuildsTable.guildName] = guild
         this[CharacterGuildsTable.experience] = experience
