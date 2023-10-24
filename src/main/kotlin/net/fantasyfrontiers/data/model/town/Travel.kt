@@ -6,6 +6,7 @@ import kotlinx.serialization.Serializable
 import net.dv8tion.jda.api.entities.channel.concrete.ThreadChannel
 import net.fantasyfrontiers.data.cache.CharacterCache
 import net.fantasyfrontiers.data.cache.TranslationCache
+import net.fantasyfrontiers.data.db.player.saveCharacter
 import net.fantasyfrontiers.data.model.items.Item
 import net.fantasyfrontiers.data.model.items.ItemStack
 import kotlin.time.Duration.Companion.seconds
@@ -56,6 +57,7 @@ data class Travel (
 
             threadChannel.sendMessage(foundTranslation).queue()
             CharacterCache.put(character)
+            saveCharacter(character)
         }
     }
 

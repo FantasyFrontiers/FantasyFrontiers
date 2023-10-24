@@ -19,6 +19,8 @@ data class Town(
     val coords: Coords = Coords(),
     val type: String = "Generic",
     val population: Long = 0,
+    val temperature: Int = 15,
+    val humidity: Int = 50,
     val features: Features = Features(),
     val connections: List<Connection> = emptyList(),
 ) {
@@ -31,6 +33,8 @@ data class Town(
     |   coords = $coords,
     |   type = "$type",
     |   population = $population,
+    |   temperature = $temperature,
+    |   humidity = $humidity,
     |   features = $features,
     |   connections = listOf(${connections.joinToString(", ")})
     |)""".trimMargin()

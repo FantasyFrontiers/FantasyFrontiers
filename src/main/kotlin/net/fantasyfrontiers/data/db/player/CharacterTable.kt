@@ -100,7 +100,7 @@ fun loadCharacter(discordClientID: String) = transaction {
                 luck = row[CharacterTable.luck],
             ),
             skills = getAllSkills(discordClientID),
-            guildRanks = getAllGuilds(discordClientID),
+            guildCards = getAllGuilds(discordClientID),
         )
     }.firstOrNull()
 }
@@ -138,6 +138,6 @@ fun saveCharacter(character: Character) = transaction {
     }
     saveInventory(character.discordClientID, character.inventory)
     updateAllSkills(character.discordClientID, character.skills)
-    updateAllGuilds(character.discordClientID, character.guildRanks)
+    updateAllGuilds(character.discordClientID, character.guildCards)
     return@transaction
 }
