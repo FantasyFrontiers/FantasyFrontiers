@@ -39,7 +39,7 @@ val shadowDependencies = listOf(
     "org.jetbrains.exposed:exposed-jdbc:$exposedVersion",
     "org.jetbrains.exposed:exposed-java-time:$exposedVersion",
     "com.mysql:mysql-connector-j:8.1.0",
-    "com.zaxxer:HikariCP:5.0.1",
+    "com.zaxxer:HikariCP:5.1.0",
 
     // Sentry
     "io.sentry:sentry:6.32.0",
