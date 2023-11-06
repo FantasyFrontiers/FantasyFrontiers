@@ -42,7 +42,7 @@ val shadowDependencies = listOf(
     "com.zaxxer:HikariCP:5.1.0",
 
     // Sentry
-    "io.sentry:sentry:6.32.0",
+    "io.sentry:sentry:6.33.0",
     "io.sentry:sentry-kotlin-extensions:6.33.0",
 
     // Logback
