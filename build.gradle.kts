@@ -29,7 +29,7 @@ val shadowDependencies = listOf(
     "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3",
     "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.6",
     "com.google.code.gson:gson:2.10.1",
-    "org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0",
+    "org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2",
     "com.github.TheFruxz:Ascend:2023.3",
     "io.github.cdimascio:dotenv-kotlin:6.4.1",
 
