@@ -6,7 +6,7 @@ import java.net.URL
 plugins {
     kotlin("jvm") version "1.9.10"
     id("com.github.johnrengelman.shadow") version "8.1.1"
-    kotlin("plugin.serialization") version "1.9.10"
+    kotlin("plugin.serialization") version "1.9.22"
     id("org.jetbrains.dokka") version "1.9.10"
     id("org.sonarqube") version "4.4.1.3373"
 }
