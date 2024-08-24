@@ -31,7 +31,7 @@ internal object DatabaseConnection {
         driverClassName =Environment.getEnv("DATABASE_DRIVER")
         username = Environment.getEnv("DATABASE_USER")
         password = Environment.getEnv("DATABASE_PASSWORD")
-        maximumPoolSize = 100
+        maximumPoolSize = 20
     }
     /**
      * Represents a database connection.
